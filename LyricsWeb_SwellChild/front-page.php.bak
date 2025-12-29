@@ -1,0 +1,674 @@
+<?php
+/**
+ * Template Name: Top Page (Custom)
+ */
+get_header(); ?>
+
+<div class="lyrics-home">
+
+    <!-- 1. Main Visual (ファーストビュー) - 固定表示エリア -->
+    <div class="l-mv-wrapper">
+        <section class="l-mv">
+            <!-- 背景グリッド画像エリア（フルワイド） -->
+            <div class="l-mv__grid">
+                <!-- 1段目 -->
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdd403ea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <!-- 2段目 -->
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+
+            <!-- キャッチコピー帯（左下） -->
+            <div class="l-mv__copy-box">
+                <div class="l-mv__copy-top">
+                    <span class="yellow">10万円</span>で実現する<br>
+                    確かな<span class="yellow">Web制作</span>クオリティ
+                </div>
+                <div class="l-mv__copy-sub">
+                    ご納得頂けない場合は全額返金保証
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- コンテンツ全体を包むラッパー -->
+    <div class="l-main-content">
+
+        <!-- 2. ABOUT US (2カラムレイアウト) -->
+        <section class="l-section l-about js-fade">
+            <div class="l-inner l-about__inner">
+                <!-- 左側：テキストエリア -->
+                <div class="l-about__content">
+                    <h2 class="c-secTitle u-text-left">ABOUT US</h2>
+                    <p class="c-lead-sub u-text-left">確かなクオリティで<br>あなたのサービスを支援</p>
+                    <div class="c-lead u-text-left">
+                        <p>Lyrics（リリックス）は、Webサイト制作・LP制作に特化したクリエイティブチームです。</p>
+                        <p>単に綺麗なサイトを作るだけでなく、クライアントのビジネスゴールを達成するための「売れる」「集まる」Webサイトをご提案します。</p>
+                        <p>デザインからコーディング、システム開発まで、Webに関するあらゆる課題をワンストップで解決いたします。</p>
+                    </div>
+                </div>
+                
+                <!-- 右側：画像エリア -->
+                <div class="l-about__visual">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="About Us" class="l-about__img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. REASON (Yellow & Icon) -->
+        <section class="l-section l-reason u-bg-gray js-fade">
+            <div class="l-inner">
+                <!-- タイトルエリア -->
+                <div class="l-reason__header">
+                    <h2 class="c-reason-title">REASON</h2>
+                    <p class="c-reason-sub">Lyricsが選ばれる理由</p>
+                </div>
+                
+                <div class="l-grid3 l-reason__grid">
+                    <!-- Card 1 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 1</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 書類アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">制作実績豊富な<br>プロフェッショナル</h3>
+                        <p class="c-reason-card__text">業界経験の長いディレクターとエンジニアがチームを組み、高品質なWebサイトを構築します。トレンドを押さえたデザインもお任せください。</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 2</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 調整アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">LP制作に<br>圧倒的な強み</h3>
+                        <p class="c-reason-card__text">商品やサービスの魅力を最大限に伝え、コンバージョン（成果）に繋がるランディングページ制作が得意です。構成案からサポート可能です。</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 3</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 歯車アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">コストも<br>明朗かつ経済的</h3>
+                        <p class="c-reason-card__text">作るだけでなく、公開後の更新や修正、サーバー保守なども承ります。Web担当者がいない企業様でも安心してご依頼いただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SOLUTIONS -->
+        <section class="l-section l-solution js-fade">
+            <div class="l-solution__bg"></div>
+            <div class="l-overlay"></div>
+            <div class="l-inner" style="position: relative; z-index: 2;">
+                <h2 class="c-secTitle-jp u-text-white">あなたの悩みを解決します</h2>
+                <div class="p-solutionList">
+                    <div class="p-solutionItem">Webサイトを作りたいが社内に知見がない。</div>
+                    <div class="p-solutionItem">LPを作っても成果が出ず困っている。</div>
+                    <div class="p-solutionItem">限られた予算で最大の効果を出したい。</div>
+                    <div class="p-solutionItem">デザインからシステムまで一貫して任せたい。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CTA 1 -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+            </div>
+        </section>
+
+        <!-- 6. WEB SERVICE -->
+        <section class="l-section l-service js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">WEB SERVICE</h2>
+                <p class="c-secSub">Web制作・システム開発</p>
+                <div class="u-mb-4">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Web制作イメージ" style="width:100%; height: 400px; object-fit: cover; display: block;">
+                </div>
+                <div class="c-price-table">
+                    <div class="c-price-row">
+                        <div class="c-price-name">ライトプラン</div>
+                        <div class="c-price-val">¥300,000〜</div>
+                        <div class="c-price-desc">テンプレートを使用した短納期プラン</div>
+                    </div>
+                    <div class="c-price-row">
+                        <div class="c-price-name">スタンダードプラン</div>
+                        <div class="c-price-val">¥600,000〜</div>
+                        <div class="c-price-desc">オリジナルデザインでの本格的なWeb制作</div>
+                    </div>
+                    <div class="c-price-row">
+                        <div class="c-price-name">EC構築プラン</div>
+                        <div class="c-price-val">¥800,000〜</div>
+                        <div class="c-price-desc">ShopifyやWooCommerceを用いたECサイト構築</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. LP PRODUCTION -->
+        <section class="l-section l-movie u-bg-gray js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">LP PRODUCTION</h2>
+                <p class="c-secSub">ランディングページ制作</p>
+                <div class="u-mb-4">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="LP制作イメージ" style="width:100%; height: 400px; object-fit: cover; display: block;">
+                </div>
+                <div class="c-price-table">
+                    <div class="c-price-row">
+                        <div class="c-price-name">LP ライトプラン</div>
+                        <div class="c-price-val">¥150,000〜</div>
+                        <div class="c-price-desc">原稿支給・テンプレートベースの制作</div>
+                    </div>
+                    <div class="c-price-row">
+                        <div class="c-price-name">LP スタンダード</div>
+                        <div class="c-price-val">¥300,000〜</div>
+                        <div class="c-price-desc">構成案作成からオリジナルデザイン制作</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CTA 2 -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+            </div>
+        </section>
+
+        <!-- 10. ACHIEVEMENT -->
+        <section class="l-section l-achievement js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">ACHIEVEMENT</h2>
+                <p class="c-secSub">これまでの実績</p>
+                <div class="l-grid3 u-text-center">
+                    <div class="c-achieve-item">
+                        <div class="c-achieve-num">150<span class="small">+</span></div>
+                        <div class="c-achieve-label">制作実績数</div>
+                    </div>
+                    <div class="c-achieve-item">
+                        <div class="c-achieve-num">98<span class="small">%</span></div>
+                        <div class="c-achieve-label">顧客満足度</div>
+                    </div>
+                    <div class="c-achieve-item">
+                        <div class="c-achieve-num">10<span class="small">年</span></div>
+                        <div class="c-achieve-label">業界経験</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. FLOW -->
+        <section class="l-section l-flow u-bg-gray js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">FLOW</h2>
+                <p class="c-secSub">納品までの流れ</p>
+                <div class="c-flow-list">
+                    <div class="c-flow-item">
+                        <div class="c-flow-num">01</div>
+                        <div class="c-flow-content">
+                            <h3>ヒアリング・お見積り</h3>
+                            <p>ご要望をお伺いし、最適なプランとお見積りをご提案します。</p>
+                        </div>
+                    </div>
+                    <div class="c-flow-item">
+                        <div class="c-flow-num">02</div>
+                        <div class="c-flow-content">
+                            <h3>構成・デザイン制作</h3>
+                            <p>サイトの設計図を作成し、デザインをご確認いただきます。</p>
+                        </div>
+                    </div>
+                    <div class="c-flow-item">
+                        <div class="c-flow-num">03</div>
+                        <div class="c-flow-content">
+                            <h3>コーディング・実装</h3>
+                            <p>デザインを元にWebサイトとして動くように構築します。</p>
+                        </div>
+                    </div>
+                    <div class="c-flow-item">
+                        <div class="c-flow-num">04</div>
+                        <div class="c-flow-content">
+                            <h3>確認・納品</h3>
+                            <p>テスト環境でご確認いただき、問題なければ公開・納品となります。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. CTA 3 -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+            </div>
+        </section>
+
+        <!-- 13. FAQ -->
+        <section class="l-section l-faq js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">FAQ</h2>
+                <p class="c-secSub">よくあるご質問</p>
+                <dl class="c-faq-list">
+                    <div class="c-faq-item">
+                        <dt>制作期間はどのくらいですか？</dt>
+                        <dd>一般的なコーポレートサイトで1.5ヶ月〜2ヶ月程度、LPで2週間〜1ヶ月程度が目安です。</dd>
+                    </div>
+                    <div class="c-faq-item">
+                        <dt>サーバーやドメインの契約もお願いできますか？</dt>
+                        <dd>はい、可能です。取得から設定までサポートさせていただきます。</dd>
+                    </div>
+                    <div class="c-faq-item">
+                        <dt>スマートフォン対応はしていますか？</dt>
+                        <dd>はい、全てのプランでスマートフォン対応（レスポンシブデザイン）が含まれています。</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 14. CONTACT -->
+        <section id="contact" class="l-section l-contact u-bg-black js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle u-text-white">CONTACT</h2>
+                <p class="u-text-center u-text-white u-mb-4">
+                    制作のご相談、お見積りなど、お気軽にお問い合わせください。
+                </p>
+                <div class="c-contact-form-wrapper">
+                    <p class="u-text-center" style="color:#666;">（ここにContact Form 7のショートコードを配置）</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. COMPANY -->
+        <section class="l-section l-company js-fade">
+            <div class="l-inner">
+                <h2 class="c-secTitle">COMPANY</h2>
+                <table class="c-company-table">
+                    <tr><th>運営会社</th><td>株式会社Lyrics (リリックス)</td></tr>
+                    <tr><th>営業時間</th><td>10:00〜19:00</td></tr>
+                    <tr><th>所在地</th><td>〒100-0000 東京都渋谷区xx-xx-xx</td></tr>
+                </table>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+<!-- スタイル（CSS） -->
+<style>
+/* -------------------------------------------
+   Base & Utilities
+------------------------------------------- */
+.lyrics-home {
+    background: #fff;
+    color: #333;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+/* セクションの背景をフルワイドにするための設定 */
+.l-section { 
+    padding: 120px 0; 
+    width: 100vw; 
+    margin-left: calc(50% - 50vw); /* 背景を画面端まで伸ばす */
+    box-sizing: border-box; 
+}
+
+/* 中身（インナー）をかなり広く取る（お手本サイトのように） */
+.l-inner { 
+    max-width: 1600px; /* 1200px -> 1600px に拡大 */
+    width: 95%;        /* 画面の95%を使う */
+    margin: 0 auto;    /* 左右中央寄せ */
+    padding: 0 20px;   /* 最低限の余白 */
+    box-sizing: border-box;
+}
+
+.u-bg-gray { background-color: #f9f9f9; }
+.u-bg-black { background-color: #222; color: #fff; }
+.u-text-center { text-align: center; }
+.u-text-white { color: #fff !important; }
+.u-mt-4 { margin-top: 40px; }
+.u-mb-4 { margin-bottom: 40px; }
+.d-block { display: block; }
+img { max-width: 100%; height: auto; }
+
+/* アニメーション用クラス */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s, transform 1s;
+}
+.js-fade.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 見出し関連 */
+.c-secTitle {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+.c-secSub {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+}
+.c-secTitle-jp {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* 1. Main Visual (Parallax) */
+.l-mv-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* コンテンツより下 */
+    height: 100vh; /* 画面いっぱいに高さを確保 */
+    width: 100%;
+}
+.l-mv {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 0;
+    height: 100%; /* 親に合わせて高さ確保 */
+}
+/* グリッド画像エリア */
+.l-mv__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 100%; /* 高さ100%に */
+}
+.l-mv__grid-item {
+    width: 100%;
+    height: 100%; /* 高さ100%に */
+    background-size: cover;
+    background-position: center;
+}
+/* キャッチコピー帯（左寄せデザイン） */
+.l-mv__copy-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%; /* 画面半分の幅 */
+    min-width: 600px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 40px 60px;
+    z-index: 10;
+}
+@media (max-width: 768px) {
+    .l-mv__copy-box {
+        position: relative;
+        width: 100%;
+        min-width: auto;
+        padding: 30px 20px;
+    }
+}
+.l-mv__copy-top {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+.l-mv__copy-top .yellow {
+    color: #ffcc00; /* 黄色強調 */
+    font-size: 1.2em;
+}
+.l-mv__copy-sub {
+    font-size: 16px;
+    font-weight: 700;
+    background: #333;
+    display: inline-block;
+    padding: 5px 20px;
+    border-left: 4px solid #ffcc00;
+}
+/* スマホ用フォント調整 */
+@media (max-width: 768px) {
+    .l-mv__copy-top { font-size: 24px; }
+    .l-mv__copy-sub { font-size: 13px; }
+}
+
+/* メインコンテンツ（MVの上に被さってくる部分） */
+.l-main-content {
+    position: relative;
+    z-index: 2; /* MVより上 */
+    background: #fff; /* 背景色必須（透けないように） */
+    margin-top: 0; /* Stickyと合わせるためマージン調整 */
+}
+
+/* 2. ABOUT US (2 Columns) */
+.l-about {
+    background-color: #f9f9f7; /* 薄いベージュっぽい白に変更 */
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.l-about__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+.l-about__content {
+    width: 40%;
+}
+.l-about__visual {
+    width: 55%;
+    position: relative;
+    max-width: none;
+}
+.l-about__img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1); /* 影をリッチに */
+    border-radius: 4px;
+}
+.c-lead-sub {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.c-lead p {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+/* テキスト左寄せ */
+.u-text-left { text-align: left !important; }
+.c-lead.u-text-left p { text-align: left; }
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .l-about__inner { flex-direction: column; gap: 30px; }
+    .l-about__content, .l-about__visual { width: 100%; }
+}
+
+/* 3. REASON (Yellow & Icon) */
+.l-reason__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+}
+.c-reason-title {
+    font-size: 80px; /* 超特大サイズ */
+    color: #ffcc00;  /* 黄色 */
+    font-weight: 900;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+.c-reason-sub {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.l-grid3 { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+.c-card { flex: 1; min-width: 280px; text-align: center; }
+.c-reason-card {
+    background: #fff;
+    border-radius: 20px; /* 角丸 */
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.c-reason-card__head {
+    color: #ffcc00;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.c-reason-card__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    color: #ccc; /* アイコンはグレー */
+}
+.c-reason-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.c-reason-card__text {
+    font-size: 14px;
+    text-align: left;
+    color: #666;
+    line-height: 1.8;
+}
+@media (max-width: 768px) {
+    .l-reason__header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .c-reason-title { font-size: 50px; margin-bottom: 10px; }
+    .c-reason-sub { padding-bottom: 0; }
+}
+
+/* 4. SOLUTION */
+.l-solution { position: relative; color: #fff; }
+.l-solution__bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+.l-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+.p-solutionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.p-solutionItem {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    background: rgba(0,0,0,0.3);
+}
+.p-solutionItem::before {
+    content: "Check";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #000;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* 5,8,12 CTA Button */
+.l-cta { padding: 60px 0; text-align: center; background-color: #f4f4f4; }
+.l-cta__text { font-size: 18px; margin-bottom: 20px; font-weight: 700; }
+.c-btn-main { display: inline-block; background: #000; color: #fff; padding: 15px 60px; font-size: 16px; letter-spacing: 0.1em; transition: opacity 0.3s; }
+.c-btn-main:hover { opacity: 0.8; color: #fff; }
+
+/* 6,7 SERVICE / MOVIE */
+.c-price-table { margin-top: 40px; border-top: 1px solid #eee; }
+.c-price-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+.c-price-name { font-weight: 700; width: 30%; }
+.c-price-val { font-weight: 700; font-size: 18px; width: 20%; }
+.c-price-desc { font-size: 13px; color: #666; width: 50%; }
+@media(max-width: 768px){ .c-price-name, .c-price-val, .c-price-desc { width: 100%; margin-bottom: 5px; } }
+
+/* 10. ACHIEVEMENT */
+.c-achieve-item { flex: 1; }
+.c-achieve-num { font-size: 48px; font-weight: 700; font-family: "Montserrat", sans-serif; }
+.c-achieve-num .small { font-size: 18px; }
+.c-achieve-label { font-size: 14px; color: #888; margin-top: 10px; }
+
+/* 11. FLOW */
+.c-flow-list { max-width: 800px; margin: 0 auto; }
+.c-flow-item { display: flex; margin-bottom: 30px; align-items: flex-start; }
+.c-flow-num { font-size: 30px; font-weight: 700; color: #ddd; margin-right: 20px; line-height: 1; font-family: "Montserrat", sans-serif; min-width: 50px; }
+.c-flow-content h3 { font-size: 18px; margin-bottom: 10px; }
+.c-flow-content p { font-size: 14px; color: #666; }
+
+/* 13. FAQ */
+.c-faq-list { max-width: 800px; margin: 0 auto; border-top: 1px solid #eee; }
+.c-faq-item { padding: 20px 0; border-bottom: 1px solid #eee; }
+.c-faq-item dt { font-weight: 700; margin-bottom: 10px; position: relative; padding-left: 25px; }
+.c-faq-item dt::before { content: "Q."; position: absolute; left: 0; color: #000; }
+.c-faq-item dd { font-size: 14px; color: #666; padding-left: 25px; }
+
+/* 14. CONTACT FORM */
+.c-contact-form-wrapper { background: #fff; padding: 40px; max-width: 600px; margin: 0 auto; }
+/* 15. COMPANY */
+.c-company-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; }
+.c-company-table th, .c-company-table td { border-bottom: 1px solid #eee; padding: 20px; text-align: left; }
+.c-company-table th { width: 30%; font-weight: 700; }
+
+</style>
+
+<!-- スクロールアニメーション用JS -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const targets = document.querySelectorAll('.js-fade');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    targets.forEach(target => {
+        observer.observe(target);
+    });
+});
+</script>
+
+<?php get_footer(); ?>

@@ -1,0 +1,2179 @@
+<?php
+/**
+ * Template Name: Top Page (Custom)
+ */
+get_header(); ?>
+
+<div class="lyrics-home">
+
+    <!-- 1. Main Visual (ファーストビュー) - 固定表示エリア -->
+    <div class="l-mv-wrapper">
+        <section class="l-mv">
+            <!-- 背景グリッド画像エリア（フルワイド） -->
+            <div class="l-mv__grid">
+                <!-- 1段目 -->
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdd403ea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <!-- 2段目 -->
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+
+            <!-- キャッチコピー帯（左下） -->
+            <div class="l-mv__copy-box">
+                <div class="l-mv__copy-top">
+                    <span class="yellow">10万円</span>で実現する<br>
+                    確かな<span class="yellow">WebCMカメラマン</span> クオリティ
+                </div>
+                <div class="l-mv__copy-sub">
+                    ご納得頂けない場合は全額返金保証
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- コンテンツ全体を包むラッパー -->
+    <div class="l-main-content">
+
+        <!-- 2. ABOUT US (2カラムレイアウト) -->
+        <section class="l-section l-about js-fade">
+            <div class="l-inner l-about__inner">
+                <!-- 左側：テキストエリア -->
+                <div class="l-about__content">
+                    <h2 class="c-secTitle u-text-left">ABOUT US</h2>
+                    <p class="c-lead-sub u-text-left">確かなクオリティであなたのサービスを支援</p>
+                    <div class="c-lead u-text-left">
+                        <p>Lyrics（リリックス）は、WebCM制作・映像制作・撮影に特化したクリエイティブチームです。単に映像や写真を撮るだけでなく、クライアントのビジネスゴールを達成するための「伝わる」「動かす」コンテンツをご提案します。企画から撮影、編集、納品まで、映像・写真に関するあらゆる課題をワンストップで解決いたします。</p>
+                    </div>
+                </div>
+                
+                <!-- 右側：画像エリア -->
+                <div class="l-about__visual">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="About Us" class="l-about__img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. REASON (Yellow & Icon) -->
+        <section class="l-section l-reason u-bg-gray js-fade">
+            <div class="l-inner">
+                <!-- タイトルエリア -->
+                <div class="l-reason__header">
+                    <h2 class="c-reason-title">REASON</h2>
+                    <p class="c-reason-sub">Lyricsが選ばれる理由</p>
+                </div>
+                
+                <div class="l-grid3 l-reason__grid">
+                    <!-- Card 1 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 1</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 書類アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">経験豊富な<br>プロフェッショナル</h3>
+                        <p class="c-reason-card__text">業界経験の長いディレクターとカメラマンがチームを組み、高品質なWebCM・映像コンテンツを制作します。撮影から編集まで、クオリティの高い作品をお届けします。</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 2</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 調整アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">WebCM制作・撮影に<br>圧倒的な強み</h3>
+                        <p class="c-reason-card__text">商品やサービスの魅力を最大限に伝えるWebCM・映像制作が得意です。撮影から編集、納品までワンストップでサポートします。構成案からお手伝い可能です。</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="c-card c-reason-card">
+                        <div class="c-reason-card__head">REASON 3</div>
+                        <div class="c-reason-card__icon">
+                            <!-- 歯車アイコン -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                        <h3 class="c-reason-card__title">コストも<br>明朗かつ経済的</h3>
+                        <p class="c-reason-card__text">撮影・編集だけでなく、公開後の修正や追加撮影も承ります。映像制作の担当者がいない企業様でも安心してご依頼いただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SOLUTIONS (Yellow Design) -->
+        <section class="l-section l-solution js-fade">
+            <div class="l-inner">
+                <!-- タイトルをインナー直下に移動（中央寄せしやすくするため） -->
+                <h2 class="c-solution-title">あなたの悩みを解決します</h2>
+                
+                <div class="l-solution__inner">
+                    <!-- 左側：テキストコンテンツ -->
+                    <div class="l-solution__content">
+                        <ul class="p-solutionList">
+                            <li class="p-solutionItem">
+                                <span class="check-icon">✔</span>
+                                WebCM・映像制作について相談できる仲間がいない。
+                            </li>
+                            <li class="p-solutionItem">
+                                <span class="check-icon">✔</span>
+                                撮影・編集を行いたいが自社にスタッフがいない。
+                            </li>
+                            <li class="p-solutionItem">
+                                <span class="check-icon">✔</span>
+                                限られた予算で最大のサポートを受けたい。
+                            </li>
+                            <li class="p-solutionItem">
+                                <span class="check-icon">✔</span>
+                                自社環境が安定せず撮影業務が回っていない。
+                            </li>
+                        </ul>
+                        <p class="l-solution__desc">
+                            制作業務におけるクライアントの課題解決に真剣に向き合い、質の高いサービスを明朗会計でご提案しています。
+                        </p>
+                    </div>
+                    <!-- 右側：イラスト -->
+                    <div class="l-solution__visual">
+                        <!-- 女性が本を読んでいるイラスト -->
+                        <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-21T08_58_30.jpg" alt="Solution Illustration" class="l-solution__img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. CTA 1 -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+            </div>
+        </section>
+
+        <!-- 6. PHOTO (Slider) -->
+        <section class="l-section l-photo js-fade">
+            <div class="l-inner l-photo__inner">
+                <h2 class="c-photo-title">PHOTO</h2>
+                <p class="c-photo-desc">
+                    WebCM制作に必要な商品撮影やモデル撮影、ビジネスシーンの撮影まで幅広くプランニングいたします。経験豊富なカメラマンによる質の高いクリエイティブのご提案が可能です。
+                </p>
+
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="c-photo-card">
+                                <div class="c-photo-card__img">
+                                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Entertainment">
+                                </div>
+                                <div class="c-photo-card__body">
+                                    <h3 class="c-photo-card__title">ENTERTAINMENT</h3>
+                                    <p class="c-photo-card__sub">エンターテイメント</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="c-photo-card">
+                                <div class="c-photo-card__img">
+                                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portrait">
+                                </div>
+                                <div class="c-photo-card__body">
+                                    <h3 class="c-photo-card__title">PORTRAIT</h3>
+                                    <p class="c-photo-card__sub">ポートレート</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="c-photo-card">
+                                <div class="c-photo-card__img">
+                                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fashion">
+                                </div>
+                                <div class="c-photo-card__body">
+                                    <h3 class="c-photo-card__title">FASHION</h3>
+                                    <p class="c-photo-card__sub">ファッション</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="c-photo-card">
+                                <div class="c-photo-card__img">
+                                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camera">
+                                </div>
+                                <div class="c-photo-card__body">
+                                    <h3 class="c-photo-card__title">OTHERS</h3>
+                                    <p class="c-photo-card__sub">その他</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="u-text-center u-mt-4">
+                    <a href="#" class="c-btn-main">一覧をみる</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PHOTO PLAN -->
+        <section class="l-section l-plan js-fade">
+            <div class="l-inner l-plan__inner">
+                <h2 class="c-plan-main-title">PHOTO PLAN</h2>
+                
+                <div class="l-plan__grid">
+                    <!-- Plan 1 -->
+                    <div class="c-plan-item">
+                        <div class="c-plan-item__icon">
+                            <!-- Icon: Clipboard -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                </div>
+                        <h3 class="c-plan-item__title">フォト トライアルプラン</h3>
+                        <div class="c-plan-item__price">¥100,000</div>
+                        <p class="c-plan-item__desc">
+                            WebCM制作に必要な商品撮影やモデル撮影に対応したプランです。経験豊富なカメラマンが撮影からデータ納品まで完結いたします。クオリティにご納得いただけない場合は撮影料の全額返金か、無料での再撮影に対応いたします。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                    <!-- Plan 2 -->
+                    <div class="c-plan-item">
+                        <div class="c-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                    </div>
+                        <h3 class="c-plan-item__title">フォト ベーシックプラン</h3>
+                        <div class="c-plan-item__price">¥180,000</div>
+                        <p class="c-plan-item__desc">
+                            WebCM制作に必要な商品撮影、モデル撮影、ビジネスシーンの撮影に対応したプランです。カメラマンによる質の高い撮影で、WebCMに最適な素材を提供いたします。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                    <!-- Plan 3 -->
+                    <div class="c-plan-item">
+                        <div class="c-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                        </div>
+                        <h3 class="c-plan-item__title">フォト ワンストッププラン</h3>
+                        <div class="c-plan-item__price">¥280,000 〜</div>
+                        <p class="c-plan-item__desc">
+                            WebCM制作に必要な撮影プランニングから、キャスティング、撮影場所の手配、カメラマンによる撮影進行管理、データ納品まで、WebCM制作に必要な全ての業務をお任せいただけます。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                    <!-- Plan 4 -->
+                    <div class="c-plan-item">
+                        <div class="c-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                        </div>
+                        <h3 class="c-plan-item__title">フォト ハイクオリティプラン</h3>
+                        <div class="c-plan-item__price">¥ASK</div>
+                        <p class="c-plan-item__desc">
+                            WebCM制作において、より高いクオリティを必要とする撮影に推奨のプランとなります。トップクラスのカメラマンが撮影を担当し、WebCMに最適な高品質な映像素材を提供いたします。詳しくはお問い合わせください。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. MOVIE (Slider) -->
+        <section class="l-section l-movie js-fade">
+            <div class="l-inner l-movie__inner">
+                <h2 class="c-movie-title">MOVIE</h2>
+                <p class="c-movie-desc">
+                    WebCM制作に必要な映像制作を行います。<br>
+                    経験豊富なカメラマンによる撮影から編集まで、WebCMに最適な高品質な映像コンテンツを提供いたします。<br>
+                    商品紹介動画やブランドイメージ動画など、様々なニーズに対応いたします。
+                </p>
+
+                <!-- Swiper (Auto Scroll) -->
+                <div class="swiper movieSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="c-movie-card">
+                                <div class="c-movie-card__img">
+                                    <div class="play-icon">▶</div>
+                                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie 2">
+                                </div>
+                                <p class="c-movie-card__caption">EMMA CLOTHES short image movie1</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="c-movie-card">
+                                <div class="c-movie-card__img">
+                                    <div class="play-icon">▶</div>
+                                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie 4">
+                                </div>
+                                <p class="c-movie-card__caption">WebCM product video</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <div class="c-movie-card">
+                                <div class="c-movie-card__img">
+                                    <div class="play-icon">▶</div>
+                                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie 5">
+                                </div>
+                                <p class="c-movie-card__caption">Brand image movie</p>
+                            </div>
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="swiper-slide">
+                            <div class="c-movie-card">
+                                <div class="c-movie-card__img">
+                                    <div class="play-icon">▶</div>
+                                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie 6">
+                                </div>
+                                <p class="c-movie-card__caption">Commercial video</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="u-text-center u-mt-4">
+                    <a href="#" class="c-btn-main">一覧をみる</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. MOVIE PLAN -->
+        <section class="l-section l-movie-plan js-fade">
+            <div class="l-inner l-movie-plan__inner">
+                <h2 class="c-movie-plan-title">MOVIE PLAN</h2>
+                
+                <div class="l-movie-plan__grid">
+                    <!-- Plan 1 -->
+                    <div class="c-movie-plan-item">
+                        <div class="c-movie-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                    </div>
+                        <h3 class="c-movie-plan-item__title">フォト＆ムービー セットプラン</h3>
+                        <div class="c-movie-plan-item__price">¥380,000 〜</div>
+                        <p class="c-movie-plan-item__desc">
+                            WebCM制作に必要な撮影プランニングから、キャスティング、撮影場所の手配、カメラマンによる撮影進行管理、編集・納品まで、WebCM制作に必要な全ての業務をお任せいただけます。商品撮影とあわせて、WebCMに活用いただける映像コンテンツも同日に撮影いたします。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                    <!-- Plan 2 -->
+                    <div class="c-movie-plan-item">
+                        <div class="c-movie-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                    </div>
+                        <h3 class="c-movie-plan-item__title">ムービー WEB用途ワンストッププラン</h3>
+                        <div class="c-movie-plan-item__price">¥320,000 〜</div>
+                        <p class="c-movie-plan-item__desc">
+                            WebCM制作に必要な映像制作を行います。商品紹介動画、ブランドイメージ動画、プロモーション動画など様々な用途に応じたWebCM制作が可能です。経験豊富なカメラマンによる撮影から編集・修正、納品まで、一括してお任せいただける基本的なWebCM制作プランです。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                    <!-- Plan 3 -->
+                    <div class="c-movie-plan-item">
+                        <div class="c-movie-plan-item__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/><path d="M9 8h6"/></svg>
+                        </div>
+                        <h3 class="c-movie-plan-item__title">ムービー ハイクオリティプラン</h3>
+                        <div class="c-movie-plan-item__price">¥ASK</div>
+                        <p class="c-movie-plan-item__desc">
+                            WebCM制作において、より高いクオリティを必要とする映像制作に推奨のプランとなります。トップクラスのカメラマンとクリエイターが制作を担当し、WebCMに最適な高品質な映像コンテンツを提供いたします。打ち合わせから納品までクライアントの手を煩わせることなくお任せいただけます。まずはお気軽にご相談ください。
+                        </p>
+                        <a href="#" class="c-plan-btn">詳細をみる</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+                        </div>
+        </section>
+
+        <!-- 12. CREATOR (カメラマン紹介) -->
+        <section class="l-section l-creator js-fade">
+            <div class="l-inner">
+                <h2 class="c-creator-title">CREATOR</h2>
+                <p class="c-creator-desc">WebCM制作に必要な撮影・編集を担当する経験豊富なカメラマンによる質の高いクリエイティブのご提案が可能です。</p>
+                
+                <div class="l-creator__grid">
+                    <!-- Creator 1 -->
+                    <div class="c-creator-card">
+                        <div class="c-creator-card__img">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_12_10.jpg" alt="Creator 1">
+                        </div>
+                        <div class="c-creator-card__body">
+                            <h3 class="c-creator-card__name">山田 太郎</h3>
+                            <p class="c-creator-card__role">カメラマン</p>
+                            <p class="c-creator-card__desc">WebCM制作に必要な商品撮影、モデル撮影を得意としています。10年以上の経験を持つプロフェッショナルなカメラマンです。</p>
+                        </div>
+                    </div>
+                    <!-- Creator 2 -->
+                    <div class="c-creator-card">
+                        <div class="c-creator-card__img">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_12_08.jpg" alt="Creator 2">
+                        </div>
+                        <div class="c-creator-card__body">
+                            <h3 class="c-creator-card__name">佐藤 花子</h3>
+                            <p class="c-creator-card__role">カメラマン</p>
+                            <p class="c-creator-card__desc">WebCM制作に必要なビューティー撮影、商品撮影に定評があります。細部までこだわる丁寧な撮影が特徴のカメラマンです。</p>
+                        </div>
+                    </div>
+                    <!-- Creator 3 -->
+                    <div class="c-creator-card">
+                        <div class="c-creator-card__img">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_15_54.jpg" alt="Creator 3">
+                        </div>
+                        <div class="c-creator-card__body">
+                            <h3 class="c-creator-card__name">鈴木 一郎</h3>
+                            <p class="c-creator-card__role">カメラマン</p>
+                            <p class="c-creator-card__desc">WebCM制作に必要な商品撮影、物撮りを専門としています。WebCMに最適な高品質な映像素材を提供するカメラマンです。</p>
+                        </div>
+                    </div>
+                    <!-- Creator 4 -->
+                    <div class="c-creator-card">
+                        <div class="c-creator-card__img">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_15_50.jpg" alt="Creator 4">
+                        </div>
+                        <div class="c-creator-card__body">
+                            <h3 class="c-creator-card__name">田中 美咲</h3>
+                            <p class="c-creator-card__role">カメラマン</p>
+                            <p class="c-creator-card__desc">WebCM制作に必要なライフスタイル、エンターテイメント撮影を得意としています。自然な表情を引き出すことができ、経験豊富なカメラマンです。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-text-center u-mt-4">
+                    <a href="#" class="c-btn-main">一覧をみる</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. FLOW (Refactored) -->
+        <section class="l-section l-flow js-fade">
+            <div class="l-inner l-flow__inner">
+                <h2 class="c-flow-title">FLOW</h2>
+                <p class="c-flow-desc">Lyricsでは以下のような手順にて、WebCM制作のご相談から納品までを丁寧に責任を持ってサービスを提供させて頂いております。</p>
+                
+                <div class="l-flow-grid">
+                    <!-- Step 1 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">1.</span> ご相談・ご予約
+                    </div>
+                        <p class="c-flow-box__text">WEBもしくはお電話にてお気軽にお問合わせ下さい。WebCM制作の大まかな内容をお聞かせ頂き、お打ち合わせのご予約や仮見積もりを作成いたします。</p>
+                        </div>
+                    <!-- Step 2 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">2.</span> ヒアリング
+                    </div>
+                        <p class="c-flow-box__text">WebCMの用途や映像イメージ、必要カットなど詳細をお伺いします。内容により、モデル、ヘアメイク、撮影場所手配の有無など概要をおまとめいたします。</p>
+                        </div>
+                    <!-- Step 3 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">3.</span> 提案
+                    </div>
+                        <p class="c-flow-box__text">内容により異なりますが、実際のWebCMのクリエイティブイメージや撮影の詳細、お見積もりの確定などを行います。経験豊富なカメラマンによるご満足頂けるクオリティをご提案いたします。</p>
+                        </div>
+                    <!-- Step 4 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">4.</span> 撮影
+                    </div>
+                        <p class="c-flow-box__text">カメラマンによる撮影、スタッフキャスティング、撮影場所手配、備品手配、ケータリング手配、撮影進行など、お客様の手を煩わせることなく全ての業務をお任せ頂けます。</p>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">5.</span> 写真選択
+                        </div>
+                        <p class="c-flow-box__text">撮影後、営業日中1日程度でセレクトデータを提出いたします。映像を選択して頂いた後に編集・色調整を施します。特殊な編集やCGをご希望の場合は予めご相談下さい。</p>
+                    </div>
+                    <!-- Step 6 -->
+                    <div class="c-flow-box">
+                        <div class="c-flow-box__head">
+                            <span class="step-num">6.</span> 納品
+                        </div>
+                        <p class="c-flow-box__text">セレクト後、通常２〜３営業日程度でWebCMの本データ納品いたします。特殊な編集やCGをご希望の場合は別途お時間を頂いております。短納期をご希望の場合は予めご相談下さい。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="l-cta js-fade">
+            <div class="l-inner">
+                <p class="l-cta__text">お気軽にご相談ください</p>
+                <a href="#contact" class="c-btn-main">無料相談</a>
+            </div>
+        </section>
+
+        <!-- 13. FAQ (Accordion) -->
+        <section class="l-section l-faq js-fade">
+            <div class="l-inner">
+                <h2 class="c-faq-title">FAQ</h2>
+                <div class="c-faq-list">
+                    <!-- Item 1 -->
+                    <details class="c-faq-item">
+                        <summary class="c-faq-item__q"><span class="q-mark">Q.</span> 撮影の予約はどうすればいいでしょうか？</summary>
+                        <div class="c-faq-item__a">
+                            <p>お問い合わせフォーム、またはお電話にてご連絡ください。担当者より折り返しご連絡させていただきます。</p>
+                    </div>
+                    </details>
+                    <!-- Item 2 -->
+                    <details class="c-faq-item">
+                        <summary class="c-faq-item__q"><span class="q-mark">Q.</span> 当日でも撮影可能でしょうか？</summary>
+                        <div class="c-faq-item__a">
+                            <p>スケジュールに空きがあれば可能です。まずはお電話にてお問い合わせください。</p>
+                    </div>
+                    </details>
+                    <!-- Item 3 -->
+                    <details class="c-faq-item">
+                        <summary class="c-faq-item__q"><span class="q-mark">Q.</span> 出張撮影は行っていますか？</summary>
+                        <div class="c-faq-item__a">
+                            <p>はい、全国どこでも出張可能です。交通費・宿泊費等の実費は別途ご請求させていただきます。</p>
+                    </div>
+                    </details>
+                    <!-- Item 4 -->
+                    <details class="c-faq-item">
+                        <summary class="c-faq-item__q"><span class="q-mark">Q.</span> 動画撮影もできますか？</summary>
+                        <div class="c-faq-item__a">
+                            <p>はい、可能です。ムービープランもご用意しておりますので、お気軽にご相談ください。</p>
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="u-text-center u-mt-4">
+                    <a href="#" class="c-btn-main">一覧をみる</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. CONTACT FORM (Styled like CF7) -->
+        <section id="contact" class="l-section l-contact js-fade">
+            <div class="l-inner l-contact__inner">
+                <h2 class="c-contact-title">CONTACT</h2>
+                <p class="c-contact-desc">
+                    WebCM制作のご相談、予約、お見積りなど、お気軽にお問い合わせください。<br>
+                    より詳しい内容のお問い合わせは <a href="#" style="text-decoration: underline;">こちらよりお問い合わせ</a>ください。<br>
+                    尚、お電話にて承ることも可能です。<br>
+                    電話：03-5355-9661
+                </p>
+
+                <div class="c-contact-form-wrapper">
+                    <!-- Contact Form 7 Dummy HTML Structure for styling -->
+                    <form action="#" method="post" class="wpcf7-form">
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> ご用件</label>
+                            <select class="c-form-input"><option>ご用件を選択してください</option></select>
+                </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag c-label-tag--any">任意</span> 会社名</label>
+                            <input type="text" class="c-form-input" placeholder="株式会社Lyrics">
+            </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> お名前</label>
+                            <input type="text" class="c-form-input" placeholder="山田太郎">
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> Eメールアドレス</label>
+                            <input type="email" class="c-form-input" placeholder="info@lyrics-web.com">
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> 電話番号</label>
+                            <input type="tel" class="c-form-input" placeholder="090-0000-0000">
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label">【WebCM制作内容】</label>
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> 制作内容</label>
+                            <input type="text" class="c-form-input" placeholder="商品紹介動画、ブランドイメージ動画等">
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">任意</span> 希望撮影点数</label>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <input type="number" class="c-form-input" style="width:100px;"> 点
+                            </div>
+                        </div>
+                        <div class="c-form-row">
+                            <label class="c-form-label"><span class="c-label-tag">必須</span> 撮影・制作内容</label>
+                            <div class="c-radio-group">
+                                <label><input type="radio" name="content"> 未定</label>
+                                <label><input type="radio" name="content"> 映像制作のみ</label>
+                                <label><input type="radio" name="content"> 撮影のみ</label>
+                                <label><input type="radio" name="content"> 撮影＋編集</label>
+                                <label><input type="radio" name="content"> その他</label>
+                            </div>
+                        </div>
+                        
+                        <div class="u-text-center u-mt-4">
+                            <button type="submit" class="c-btn-submit">送信</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. FOOTER (Company Info) -->
+        <footer class="l-footer">
+            <div class="l-inner l-footer__inner">
+                <div class="l-footer__head">
+                    <h2 class="c-footer-logo">Lyrics</h2>
+                </div>
+                <div class="l-footer__body">
+                    <!-- 撮影関連 -->
+                    <div class="l-footer__section">
+                        <h3 class="c-footer-title">撮影関連</h3>
+                        <div class="c-footer-line"></div>
+                        <ul class="c-footer-list">
+                            <li><a href="#">商品撮影</a></li>
+                            <li><a href="#">モデル撮影</a></li>
+                            <li><a href="#">ビジネスシーン撮影</a></li>
+                            <li><a href="#">エンターテイメント撮影</a></li>
+                            <li><a href="#">物撮り</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- サービス関連 -->
+                    <div class="l-footer__section">
+                        <h3 class="c-footer-title">サービス関連</h3>
+                        <div class="c-footer-line"></div>
+                        <ul class="c-footer-list">
+                            <li><a href="#">新着情報</a></li>
+                            <li><a href="#">WebCM制作</a></li>
+                            <li><a href="#">映像制作</a></li>
+                            <li><a href="#">撮影サービス</a></li>
+                            <li><a href="#">料金プラン</a></li>
+                            <li><a href="#">会社概要</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- SNS -->
+                    <div class="l-footer__section">
+                        <h3 class="c-footer-title">SNS</h3>
+                        <div class="c-footer-line"></div>
+                        <ul class="c-footer-list">
+                            <li><a href="#">INSTAGRAM</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 会社概要 -->
+                    <div class="l-footer__section">
+                        <h3 class="c-footer-title">会社概要</h3>
+                        <div class="c-footer-line"></div>
+                        <dl class="c-company-dl">
+                            <div class="c-company-row">
+                                <dt>運営会社</dt>
+                                <dd>株式会社Lyrics</dd>
+                            </div>
+                            <div class="c-company-row">
+                                <dt>電話番号</dt>
+                                <dd>03-5355-9661</dd>
+                            </div>
+                            <div class="c-company-row">
+                                <dt>営業時間</dt>
+                                <dd>10:00〜19:00</dd>
+                            </div>
+                            <div class="c-company-row">
+                                <dt>定休日</dt>
+                                <dd>土、日、祝日、年末年始</dd>
+                            </div>
+                            <div class="c-company-row">
+                                <dt>所在地</dt>
+                                <dd>〒100-0000<br>東京都渋谷区xx-xx-xx</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Sticky Floating Footer -->
+    <div class="l-sticky-footer">
+        <!-- 1. Left (Plan) -->
+        <div class="l-sticky-footer__plan">
+            <div class="sticky-plan-label">TRIAL PLAN</div>
+            <div class="sticky-plan-sub">全額返金保証あり</div>
+            <div class="sticky-plan-price">¥100,000</div>
+        </div>
+        <!-- 2. Center (Phone) -->
+        <div class="l-sticky-footer__phone">
+            <div class="sticky-phone-icon">📞</div>
+            <div class="sticky-phone-text">
+                <div class="sticky-phone-num">03-5355-9661</div>
+                <div class="sticky-phone-time">10:00〜19:00</div>
+            </div>
+        </div>
+        <!-- 3. Right (Contact) -->
+        <a href="#contact" class="l-sticky-footer__contact">
+            <div class="sticky-contact-title">無料相談</div>
+            <div class="sticky-contact-sub">お気軽にお問い合わせください</div>
+            <div class="sticky-contact-arrow">＞</div>
+        </a>
+        <!-- Close Button (Dummy) -->
+        <div class="sticky-close">×</div>
+    </div>
+
+</div>
+
+<!-- スタイル（CSS） -->
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<style>
+/* -------------------------------------------
+   Base & Utilities
+------------------------------------------- */
+.lyrics-home {
+    background: #fff;
+    color: #333;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+/* セクションの背景をフルワイドにするための設定 */
+.l-section { 
+    padding: 120px 0; 
+    width: 100vw; 
+    margin-left: calc(50% - 50vw); /* 背景を画面端まで伸ばす */
+    box-sizing: border-box; 
+}
+
+/* 中身（インナー）をかなり広く取る（お手本サイトのように） */
+.l-inner { 
+    max-width: 1600px; /* 1200px -> 1600px に拡大 */
+    width: 95%;        /* 画面の95%を使う */
+    margin: 0 auto;    /* 左右中央寄せ */
+    padding: 0 20px;   /* 最低限の余白 */
+    box-sizing: border-box;
+}
+
+.u-bg-gray { background-color: #f9f9f9; }
+.u-bg-black { background-color: #222; color: #fff; }
+.u-text-center { text-align: center; }
+.u-text-white { color: #fff !important; }
+.u-mt-4 { margin-top: 40px; }
+.u-mb-4 { margin-bottom: 40px; }
+.d-block { display: block; }
+img { max-width: 100%; height: auto; }
+
+/* アニメーション用クラス */
+.js-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s, transform 1s;
+}
+.js-fade.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 見出し関連 */
+.c-secTitle {
+    font-size: 60px; /* PHOTOや他のセクションと同じサイズ */
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+/* ABOUT USセクションのタイトルは左寄せ、太字に */
+.l-about .c-secTitle,
+.l-about h2,
+.l-about__content h2 {
+    text-align: left;
+    font-weight: 900; /* REASONやPHOTOと同じ太さ */
+    border-left: none !important; /* 左側の白い線を削除 */
+    padding-left: 0 !important; /* 左側のパディングを削除 */
+    margin-left: 0 !important; /* 左側のマージンを削除 */
+    outline: none !important; /* アウトラインも削除 */
+}
+.c-secSub {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+}
+.c-secTitle-jp {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* 1. Main Visual (Parallax) */
+.l-mv-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* コンテンツより下 */
+    height: 100vh; /* 画面いっぱいに高さを確保 */
+    width: 100%;
+}
+.l-mv {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 0;
+    height: 100%; /* 親に合わせて高さ確保 */
+}
+/* グリッド画像エリア */
+.l-mv__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 100%; /* 高さ100%に */
+}
+.l-mv__grid-item {
+    width: 100%;
+    height: 100%; /* 高さ100%に */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* キャッチコピー帯（左寄せデザイン） */
+.l-mv__copy-box {
+    position: absolute;
+        top: 50%; /* 縦中央 */
+    left: 0;
+        transform: translateY(-50%); /* 縦中央補正 */
+    width: 50%; /* 画面半分の幅 */
+    min-width: 600px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 40px 60px;
+    z-index: 10;
+        /* bottom: 0; を削除 */
+}
+@media (max-width: 768px) {
+    .l-mv__copy-box {
+        position: relative;
+        width: 100%;
+        min-width: auto;
+        padding: 30px 20px;
+    }
+}
+.l-mv__copy-top {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+.l-mv__copy-top .yellow {
+    color: #118644; /* 黄色強調 */
+    font-size: 1.2em;
+}
+.l-mv__copy-sub {
+    font-size: 16px;
+    font-weight: 700;
+    background: #333;
+    display: inline-block;
+    padding: 5px 20px;
+    border-left: 4px solid #118644;
+}
+/* スマホ用フォント調整 */
+@media (max-width: 768px) {
+    .l-mv__copy-top { font-size: 24px; }
+    .l-mv__copy-sub { font-size: 13px; }
+}
+
+/* メインコンテンツ（MVの上に被さってくる部分） */
+.l-main-content {
+    position: relative;
+    z-index: 2; /* MVより上 */
+    background: #fff !important; /* 背景色必須（透けないように、確実に適用） */
+    margin-top: 0; /* Stickyと合わせるためマージン調整 */
+    width: 100vw; /* 画面幅いっぱいに */
+    margin-left: calc(50% - 50vw); /* 画面端まで広げる */
+}
+
+/* 2. ABOUT US (2 Columns) */
+.l-about {
+    background-color: #f9f9f7; /* 薄いベージュっぽい白に変更 */
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.l-about__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+.l-about__content {
+    width: 50%; /* 少し大きく */
+    border-left: none !important; /* 左側の白い線を削除 */
+    padding-left: 0 !important; /* 左側のパディングを削除 */
+    margin-left: 0 !important; /* 左側のマージンを削除 */
+}
+.l-about__visual {
+    width: 45%; /* 画像を小さく */
+    position: relative;
+    max-width: none;
+}
+.l-about__img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1); /* 影をリッチに */
+    border-radius: 4px;
+}
+.c-lead-sub {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 30px;
+    border-left: none !important; /* 左側の線を削除 */
+    padding-left: 0 !important; /* 左側のパディングを削除 */
+}
+.l-about .c-lead-sub {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+.c-lead {
+    text-align: left; /* 左寄せ */
+    border-left: none !important; /* 左側の線を削除 */
+    padding-left: 0 !important; /* 左側のパディングを削除 */
+}
+.l-about .c-lead {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+.c-lead p {
+    margin-bottom: 0; /* 一続きに表示 */
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left; /* 左寄せ */
+}
+/* テキスト左寄せ（他のセクションで使用する場合） */
+.u-text-left { text-align: left !important; }
+.c-lead.u-text-left p { text-align: left; }
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .l-about__inner { flex-direction: column; gap: 30px; }
+    .l-about__content, .l-about__visual { width: 100%; }
+}
+
+/* 3. REASON (Yellow & Icon) */
+.l-reason__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+}
+.c-reason-title {
+    font-size: 80px; /* 超特大サイズ */
+    color: #118644;  /* 黄色 */
+    font-weight: 900;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+.c-reason-sub {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.l-grid3 { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+.c-card { flex: 1; min-width: 280px; text-align: center; }
+.c-reason-card {
+    background: #fff;
+    border-radius: 20px; /* 角丸 */
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.c-reason-card__head {
+    color: #118644;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.c-reason-card__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    color: #ccc; /* アイコンはグレー */
+}
+.c-reason-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.c-reason-card__text {
+    font-size: 14px;
+    text-align: left;
+    color: #666;
+    line-height: 1.8;
+}
+@media (max-width: 768px) {
+    .l-reason__header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .c-reason-title { font-size: 50px; margin-bottom: 10px; }
+    .c-reason-sub { padding-bottom: 0; }
+}
+
+/* 4. SOLUTION */
+.l-solution { position: relative; color: #fff; }
+.l-solution__bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+.l-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+.p-solutionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.p-solutionItem {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    background: rgba(0,0,0,0.3);
+}
+
+/* 5,8,12 CTA Button */
+    .l-cta {
+        padding: 80px 0;
+        text-align: center;
+        background-color: #555555; /* グレー背景に戻す */
+        color: #fff; /* テキストは白 */
+        width: 100vw;
+        margin-left: calc(50% - 50vw); /* 画面幅いっぱいに広げる */
+        margin-top: 0; /* FLOWセクションとの間の余白を削除 */
+        box-sizing: border-box;
+    }
+    .l-cta__text {
+        font-size: 18px;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+    .c-btn-main {
+        display: inline-block;
+        background: #118644; /* ボタンは緑 */
+        color: #fff; /* 文字は白 */
+        padding: 18px 80px;
+        font-size: 16px;
+        letter-spacing: 0.1em;
+        transition: opacity 0.3s, background-color 0.3s;
+        border-radius: 50px; /* 丸い形状 */
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .c-btn-main:hover {
+        opacity: 1;
+        background-color: #15a355; /* ホバー時は少し明るく */
+        color: #fff; /* ホバー時も白文字 */
+    }
+
+/* 6,7 SERVICE / MOVIE */
+.c-price-table { margin-top: 40px; border-top: 1px solid #eee; }
+.c-price-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+.c-price-name { font-weight: 700; width: 30%; }
+.c-price-val { font-weight: 700; font-size: 18px; width: 20%; }
+.c-price-desc { font-size: 13px; color: #666; width: 50%; }
+@media(max-width: 768px){ .c-price-name, .c-price-val, .c-price-desc { width: 100%; margin-bottom: 5px; } }
+
+/* 10. ACHIEVEMENT */
+.c-achieve-item { flex: 1; }
+.c-achieve-num { font-size: 48px; font-weight: 700; font-family: "Montserrat", sans-serif; }
+.c-achieve-num .small { font-size: 18px; }
+.c-achieve-label { font-size: 14px; color: #888; margin-top: 10px; }
+
+/* 11. FLOW */
+.c-flow-list { max-width: 800px; margin: 0 auto; }
+.c-flow-item { display: flex; margin-bottom: 30px; align-items: flex-start; }
+.c-flow-num { font-size: 30px; font-weight: 700; color: #ddd; margin-right: 20px; line-height: 1; font-family: "Montserrat", sans-serif; min-width: 50px; }
+.c-flow-content h3 { font-size: 18px; margin-bottom: 10px; }
+.c-flow-content p { font-size: 14px; color: #666; }
+
+    /* 11. FLOW */
+    .l-flow {
+        background: #f9f9f9;
+        padding-top: 100px;
+        padding-bottom: 60px; /* CTAセクションとの間に余白（背景色で続く） */
+    }
+    .c-flow-title {
+        font-size: 80px; /* CREATORやREASONと同じサイズに */
+        font-weight: 900;
+        text-align: center;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+    }
+    .c-flow-desc {
+        text-align: center;
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 60px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .l-flow-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .c-flow-box {
+        /* シンプルなテキストボックス */
+    }
+    .c-flow-box__head {
+        background: #444;
+        color: #fff;
+        padding: 15px 20px;
+        font-weight: 700;
+        font-size: 16px;
+        position: relative;
+        margin-bottom: 15px;
+        /* 矢印形状（clip-pathを使用するか、before/afterで調整） */
+        /* 今回は右側を尖らせる形状にする */
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+        padding-right: 40px; /* 矢印分余白 */
+    }
+    .c-flow-box__head::after {
+        /* CSS三角形ではなくclip-pathで形を作ったのでafterは不要 */
+        display: none;
+    }
+    
+    /* 全ステップで右側に三角を表示 */
+    /* 3つ目と6つ目も他のステップと同じように三角を表示 */
+    .c-flow-box .c-flow-box__head {
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+        padding-right: 40px;
+    }
+    .step-num {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+    .c-flow-box__text {
+        font-size: 13px;
+        line-height: 1.8;
+        color: #666;
+    }
+    @media (max-width: 768px) {
+        .l-flow-grid { grid-template-columns: 1fr; gap: 30px; }
+        /* スマホ時は下向き矢印にするか、矢印なしにするか */
+        .c-flow-box__head::after {
+            display: none; /* スマホでは矢印非表示でシンプルに */
+        }
+    }
+
+/* 12. CREATOR */
+    .l-creator {
+        background: #fff;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .c-creator-title {
+        font-size: 80px; /* REASONやPHOTOと同じサイズに */
+        font-weight: 900;
+        text-align: center;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+    }
+    .c-creator-desc {
+        text-align: center;
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 60px;
+    }
+    .l-creator__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    .c-creator-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .c-creator-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .c-creator-card__img {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+    .c-creator-card__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+    .c-creator-card:hover .c-creator-card__img img {
+        transform: scale(1.1);
+    }
+    .c-creator-card__body {
+        padding: 25px 20px;
+    }
+    .c-creator-card__name {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .c-creator-card__role {
+        font-size: 13px;
+        color: #118644;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .c-creator-card__desc {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.8;
+    }
+    @media (max-width: 1024px) {
+        .l-creator__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .l-creator__grid {
+            grid-template-columns: 1fr;
+        }
+        .c-creator-title {
+            font-size: 32px;
+        }
+    }
+
+/* 13. FAQ */
+    .l-faq {
+        background: #f9f9f9;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .c-faq-title {
+        font-size: 60px;
+        font-weight: 900;
+        text-align: center;
+        color: #118644; /* タイトル黄色 */
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 60px;
+        letter-spacing: 0.05em;
+    }
+    .c-faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .c-faq-item {
+        background: #fff;
+        border-radius: 50px; /* 丸いバー */
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    .c-faq-item[open] {
+        border-radius: 30px; /* 開いた時は少し角丸を緩めるかそのままか */
+    }
+    .c-faq-item__q {
+        padding: 20px 30px;
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none; /* デフォルトの三角を消す */
+        position: relative;
+        font-size: 15px;
+    }
+    .c-faq-item__q::-webkit-details-marker { display: none; }
+    .q-mark {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    .c-faq-item__a {
+        padding: 0 30px 20px 30px;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+    }
+
+/* 14. CONTACT FORM */
+    .l-contact {
+        background: #fff;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .c-contact-title {
+        font-size: 80px; /* CREATORやREASONと同じサイズに */
+        font-weight: 900;
+        text-align: center;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 40px;
+        letter-spacing: 0.05em;
+    }
+    .c-contact-desc {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        line-height: 2;
+        margin-bottom: 60px;
+    }
+    .c-contact-form-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .c-form-row {
+        margin-bottom: 30px;
+    }
+    .c-form-label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #333;
+    }
+    .c-label-tag {
+        display: inline-block;
+        background: #118644;
+        color: #fff;
+        padding: 2px 10px;
+        font-size: 11px;
+        border-radius: 2px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    .c-label-tag--any {
+        background: #333;
+    }
+    .c-form-input {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        background: #f9f9f9;
+        font-size: 14px;
+    }
+    .c-radio-group label {
+        margin-right: 20px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .c-btn-submit {
+        background: #118644;
+        color: #fff;
+        border: none;
+        padding: 15px 80px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    .c-btn-submit:hover { opacity: 0.8; }
+
+    /* 15. FOOTER */
+    .l-footer {
+        background: #444; /* 濃いグレー */
+        color: #fff;
+        padding-top: 80px;
+        padding-bottom: 0; /* コピーライト分 */
+        /* フルワイド化 */
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        box-sizing: border-box;
+    }
+    .l-footer__inner {
+        padding-bottom: 150px; /* 追従ボタン用余白 */
+    }
+    .l-footer__head {
+        margin-bottom: 60px;
+    }
+    .c-footer-logo {
+        font-size: 40px;
+        font-weight: 900;
+        font-family: "Montserrat", sans-serif;
+    }
+    .l-footer__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+        border-top: 2px solid rgba(255,255,255,0.3);
+        padding-top: 60px;
+        margin-top: 40px;
+    }
+    .l-footer__section {
+        flex: 1;
+    }
+    .c-footer-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #ccc;
+    }
+    .c-footer-line {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255,255,255,0.3);
+        margin-bottom: 20px;
+    }
+    .c-footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .c-footer-list li {
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: #eee;
+    }
+    .c-footer-list li a {
+        color: #eee;
+        text-decoration: none;
+    }
+    .c-footer-list li a:hover { text-decoration: underline; }
+    
+    .c-company-dl {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .c-company-row {
+        display: flex;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding: 15px 0;
+    }
+    .c-company-row dt {
+        width: 30%;
+        font-size: 13px;
+        color: #ccc;
+    }
+    .c-company-row dd {
+        width: 70%;
+        font-size: 13px;
+    }
+    @media (max-width: 768px) {
+        .l-footer__body { 
+            flex-direction: column; 
+            gap: 40px;
+        }
+        .l-footer__section {
+            width: 100%;
+        }
+    }
+    /* 3. REASON (Yellow & Icon) */
+    .l-reason {
+        position: relative;
+        z-index: 2; /* 黄色いセクションより上に表示 */
+    }
+    .l-reason__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 60px;
+        padding-bottom: 20px;
+    }
+    /* ... (中略) ... */
+
+    /* 4. SOLUTION (Yellow Design) */
+    .l-solution {
+        background-color: #f9f9f7; /* REASONと同じグレー背景 */
+        color: #333;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        padding: 160px 0 80px;
+        margin-top: 0; /* 重なりを解消 */
+        margin-bottom: 100px;
+        /* .l-sectionのwidth: 100vwとmargin-left: calc(50% - 50vw)を継承 */
+    }
+    /* 緑の背景だけを右側に配置 */
+    .l-solution::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 60px; /* 左側から少し離す */
+        background-color: #118644; /* 緑色 */
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.2) 10px,
+            rgba(255, 255, 255, 0.2) 20px
+        );
+        z-index: 0; /* コンテンツの後ろに */
+        border-top-right-radius: 120px; /* 右上を丸くする */
+        border-top-left-radius: 120px;  /* 左側も丸くする */
+        border-bottom-left-radius: 120px; /* 左下も丸くする */
+    }
+    /* コンテンツを前面に */
+    .l-solution .l-inner {
+        position: relative;
+        z-index: 1;
+    }
+    /* インナーをFlexに */
+    .l-solution__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+    }
+    .l-solution__content { 
+        width: 55%; 
+        color: #fff; /* 白文字 */
+    }
+    .l-solution__visual { 
+        width: 35%; /* 画像を小さく（40%→35%） */
+        text-align: center; 
+    }
+    .c-solution-title {
+        color: #fff; /* タイトルも白文字 */
+    }
+    .l-solution__desc {
+        color: #fff; /* 説明文も白文字 */
+    }
+    .l-solution__img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px; /* 画像自体も少し角丸にする */
+    }
+
+    .c-solution-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center; /* 中央寄せ */
+        width: 100%;       /* 幅いっぱいに広げて確実に中央にする */
+        display: block;    /* ブロック要素として扱う */
+    }
+
+    .p-solutionList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .p-solutionItem {
+        background: #fff; /* 白背景 */
+        border-radius: 50px; /* 丸みを帯びたデザイン */
+        padding: 20px 30px;
+        font-weight: 700;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        color: #333; /* 黒文字 */
+    }
+    .check-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: #118644;
+        color: #fff;
+        border-radius: 50%;
+        margin-right: 15px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    .l-solution__desc {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+        .l-solution {
+            margin-top: -50px;
+            padding-top: 100px;
+            border-top-right-radius: 60px;
+        }
+        .l-solution__inner { flex-direction: column-reverse; }
+        .l-solution__content, .l-solution__visual { width: 100%; }
+        .c-solution-title { font-size: 24px; }
+    }
+
+    /* Sticky Footer */
+    .l-sticky-footer {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 1000px;
+        background: #fff; /* ベースは白 */
+        border-radius: 10px; /* 全体の角丸 */
+        display: flex;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        z-index: 1000;
+        overflow: hidden; /* 角丸のため */
+        border: 1px solid #eee;
+    }
+    .l-sticky-footer__plan {
+        flex: 1;
+        background: #118644; /* 緑色背景 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        color: #fff; /* 文字を白に変更 */
+        border-right: 1px solid rgba(255,255,255,0.2);
+        position: relative;
+    }
+    /* 左上の小さなタグっぽく見せる装飾などは省略 */
+    .sticky-plan-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 2px; }
+    .sticky-plan-sub { font-size: 10px; font-weight: 700; margin-bottom: 2px; }
+    .sticky-plan-price { font-size: 24px; font-weight: 900; font-family: "Montserrat", sans-serif; line-height: 1; }
+
+    .l-sticky-footer__phone {
+        flex: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        padding: 10px;
+        color: #333;
+        border-right: 1px solid #eee;
+    }
+    .sticky-phone-icon {
+        font-size: 24px;
+        margin-right: 10px;
+        color: #118644;
+    }
+    .sticky-phone-text { text-align: left; }
+    .sticky-phone-num { font-size: 20px; font-weight: 700; font-family: "Montserrat", sans-serif; line-height: 1.2; color: #118644; }
+    .sticky-phone-time { font-size: 11px; color: #888; letter-spacing: 0.05em; }
+
+    .l-sticky-footer__contact {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        padding: 15px;
+        color: #333;
+        text-decoration: none;
+        position: relative;
+        transition: background 0.3s;
+    }
+    .l-sticky-footer__contact:hover { background: #f9f9f9; }
+    .sticky-contact-title { font-size: 16px; font-weight: 700; color: #118644; margin-bottom: 4px; }
+    .sticky-contact-sub { font-size: 11px; color: #888; }
+    .sticky-contact-arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg); /* 下向きを右向きに、または記号で調整 */
+        font-weight: 700;
+        color: #ccc;
+        display: none; /* シンプルにするため一旦非表示 */
+    }
+
+    .sticky-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 18px;
+        color: #ccc;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+        .l-sticky-footer {
+            flex-direction: column;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            transform: none;
+            border-radius: 10px 10px 0 0;
+        }
+        .l-sticky-footer__plan { flex-direction: row; justify-content: space-between; padding: 10px 20px; align-items: baseline; }
+        .sticky-plan-price { font-size: 20px; }
+        .l-sticky-footer__phone { display: none; /* スマホでは電話エリアを隠すなど調整 */ }
+        .l-sticky-footer__contact { padding: 15px; border-top: 1px solid #eee; }
+    }
+
+    /* 8. MOVIE */
+    .l-movie {
+        background: #fff; /* 背景白 */
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .c-movie-title {
+        font-size: 80px; /* PHOTOやREASONと同じサイズに */
+        font-weight: 900;
+        text-align: center;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+    }
+    .c-movie-desc {
+        text-align: center;
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 60px;
+    }
+    /* Movie Slider (Swiper) */
+    .c-movie-card {
+        text-align: left;
+    }
+    .c-movie-card__img {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .c-movie-card__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+    .c-movie-card__img:hover img {
+        transform: scale(1.05);
+    }
+    /* Play Icon Overlay */
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        font-size: 14px;
+        padding-left: 2px; /* 三角形の位置調整 */
+        color: #333;
+    }
+    .c-movie-card__caption {
+        font-size: 13px;
+        color: #666;
+        margin-top: 10px;
+        line-height: 1.4;
+    }
+    /* Movie Swiper Navigation */
+    .movieSwiper .swiper-button-next,
+    .movieSwiper .swiper-button-prev {
+        color: #333;
+        background: rgba(255, 255, 255, 0.9);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .movieSwiper .swiper-button-next:after,
+    .movieSwiper .swiper-button-prev:after {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    /* 9. MOVIE PLAN */
+    .l-movie-plan {
+        background-color: #fff; /* 白背景を全面に */
+        color: #fff;
+        position: relative;
+        padding-top: 100px;
+        padding-bottom: 120px; /* 余白を追加 */
+        overflow: hidden;
+        margin-bottom: 80px; /* CTAとの間に余白を追加 */
+        /* .l-sectionのwidth: 100vwとmargin-left: calc(50% - 50vw)を継承 */
+    }
+    /* グレーの背景だけを右側に配置 */
+    .l-movie-plan::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 60px; /* 左側から少し離す（SOLUTIONと同じ） */
+        background-color: #555; /* ベースの濃いグレー */
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.03) 10px, /* 白の透過線（薄く） */
+            rgba(255, 255, 255, 0.03) 20px
+        );
+        z-index: 0; /* コンテンツの後ろに */
+        border-top-left-radius: 120px; /* 左上を丸くする */
+        border-bottom-left-radius: 120px; /* 左下を丸くする */
+        border-top-right-radius: 120px; /* 右上も丸くする */
+    }
+    /* コンテンツを前面に */
+    .l-movie-plan .l-inner {
+        position: relative;
+        z-index: 1;
+    }
+    .c-movie-plan-title {
+        font-size: 50px;
+        font-weight: 900;
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 60px;
+        text-align: right; /* 右寄せ */
+        padding-right: 20px;
+    }
+    .l-movie-plan__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3カラム */
+        gap: 40px;
+    }
+    .c-movie-plan-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .c-movie-plan-item__icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        color: #ccc;
+    }
+    .c-movie-plan-item__title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .c-movie-plan-item__price {
+        font-size: 20px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: #fff;
+    }
+    .c-movie-plan-item__desc {
+        font-size: 13px;
+        line-height: 1.8;
+        color: #ddd;
+        text-align: left;
+        margin-bottom: 30px;
+        flex-grow: 1;
+    }
+    @media (max-width: 1024px) {
+        .l-movie-plan__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+        .l-movie-plan__grid { grid-template-columns: 1fr; }
+        .c-movie-plan-title { font-size: 32px; text-align: center; padding-right: 0; }
+    }
+
+    /* 6. PHOTO Slider */
+    .l-photo {
+        background: #fff;
+        padding-top: 100px; /* 調整 */
+        padding-bottom: 100px;
+    }
+    .c-photo-title {
+        font-size: 80px; /* REASONと同じサイズに */
+        font-weight: 900;
+        text-align: center;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+        letter-spacing: 0.05em;
+    }
+    .c-photo-desc {
+        text-align: center;
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 60px;
+    }
+    .swiper {
+        width: 100%;
+        padding-bottom: 50px; /* ページネーション用などの余白 */
+        position: relative;
+    }
+    .swiper-slide {
+        /* カードの幅調整 */
+        width: 300px;
+    }
+    /* 矢印ナビゲーション */
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #333;
+        background: rgba(255, 255, 255, 0.9);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .c-photo-card {
+        text-align: center;
+    }
+    .c-photo-card__img img {
+        width: 100%;
+        height: 200px; /* 高さを揃える */
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .c-photo-card__img img:hover {
+        transform: scale(1.02);
+    }
+    .c-photo-card__body {
+        margin-top: 20px;
+    }
+    .c-photo-card__title {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+        font-family: "Montserrat", sans-serif;
+    }
+    .c-photo-card__sub {
+        font-size: 12px;
+        color: #888;
+    }
+
+    /* 7. PHOTO PLAN */
+    .l-plan {
+        background-color: #fff; /* 白背景を全面に */
+        position: relative;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        overflow: hidden;
+    }
+    /* 薄いグレーの背景だけを左側に配置（右側にスペースを作る） */
+    .l-plan::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 60px; /* 右側にスペースを空ける */
+        bottom: 0;
+        background-color: #f9f9f9; /* 指定の薄いグレー */
+        z-index: 0; /* コンテンツの後ろに */
+        border-top-right-radius: 120px; /* 右上を丸くする */
+        border-bottom-right-radius: 120px; /* 右下を丸くする */
+        border-top-left-radius: 120px; /* 左上も丸くする */
+    }
+    /* コンテンツを前面に */
+    .l-plan .l-inner {
+        position: relative;
+        z-index: 1;
+    }
+    .l-plan__inner {
+        /* 白いコンテナ（背景・枠線・影）を削除 */
+        background: transparent;
+        border-radius: 0;
+        padding: 0 20px; /* 左右の余白のみ確保 */
+        box-shadow: none;
+    }
+    .c-plan-main-title {
+        font-size: 50px;
+        font-weight: 900;
+        color: #555;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 60px;
+        text-align: left; /* 左寄せ */
+        padding-left: 20px;
+    }
+    
+    .l-plan__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+    .c-plan-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .c-plan-item__icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        color: #ccc; /* アイコン色 */
+    }
+    .c-plan-item__title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: #333;
+    }
+    .c-plan-item__price {
+        font-size: 20px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: #333;
+    }
+    .c-plan-item__desc {
+        font-size: 13px;
+        line-height: 1.8;
+        color: #666;
+        text-align: left; /* 左寄せ文章 */
+        margin-bottom: 30px;
+        flex-grow: 1; /* ボタン位置を揃えるため */
+    }
+    .c-plan-btn {
+        display: inline-block;
+        background: #118644;
+        color: #fff; /* 白文字 */
+        font-size: 13px;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: opacity 0.3s;
+    }
+    .c-plan-btn:hover { 
+        opacity: 0.8; 
+        color: #fff; /* ホバー時も白文字 */
+    }
+
+    @media (max-width: 1024px) {
+        .l-plan__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+        .l-plan__inner { padding: 40px 20px; }
+        .c-plan-main-title { font-size: 32px; text-align: center; padding-left: 0; }
+        .l-plan__grid { grid-template-columns: 1fr; gap: 60px; }
+    }
+</style>
+
+<!-- スクロールアニメーション用JS -->
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll Animation
+    const targets = document.querySelectorAll('.js-fade');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    targets.forEach(target => {
+        observer.observe(target);
+    });
+
+    // Swiper Init (Photo)
+    const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        centeredSlides: true,
+        loop: true, /* ループを有効にして矢印で動かせるように */
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2.5,
+                spaceBetween: 30,
+                centeredSlides: true,
+            },
+            1024: {
+                slidesPerView: 3.5,
+                spaceBetween: 40,
+                centeredSlides: false,
+            },
+        },
+    });
+
+    // Swiper Init (Movie - Auto Scroll + Navigation)
+    const movieSwiper = new Swiper(".movieSwiper", {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 3000,             /* 3秒待機 */
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+        },
+        speed: 800,              /* 切り替え速度 */
+        navigation: {
+            nextEl: ".movieSwiper .swiper-button-next",
+            prevEl: ".movieSwiper .swiper-button-prev",
+        },
+        breakpoints: {
+            640: { 
+                slidesPerView: 2.5, 
+                spaceBetween: 30,
+                centeredSlides: true,
+            },
+            1024: { 
+                slidesPerView: 3.5, 
+                spaceBetween: 40,
+                centeredSlides: false,
+            },
+        },
+    });
+    
+    // 自動再生を確実に開始
+    if (movieSwiper && movieSwiper.autoplay) {
+        movieSwiper.autoplay.start();
+    }
+});
+</script>
+
+<?php get_footer(); ?>

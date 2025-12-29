@@ -1,0 +1,40 @@
+/* 2. ABOUT US (2 Columns) */
+.l-about__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+.l-about__content {
+    width: 45%;
+}
+.l-about__visual {
+    width: 50%;
+    position: relative;
+}
+.l-about__video {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 少し影をつけてリッチに */
+}
+
+/* テキスト左寄せ用クラス */
+.u-text-left {
+    text-align: left !important;
+}
+.c-lead.u-text-left p {
+    text-align: left;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .l-about__inner {
+        flex-direction: column; /* 縦並び */
+        gap: 30px;
+    }
+    .l-about__content, .l-about__visual {
+        width: 100%;
+    }
+}
+
+
