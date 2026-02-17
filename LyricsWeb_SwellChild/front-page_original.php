@@ -136,7 +136,7 @@ get_header(); ?>
                     <!-- 右側：イラスト -->
                     <div class="l-solution__visual">
                         <!-- 女性が本を読んでいるイラスト -->
-                        <img src="images/download-2025-12-21T08_58_30.jpg" alt="Solution Illustration" class="l-solution__img">
+                        <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-21T08_58_30.jpg" alt="Solution Illustration" class="l-solution__img">
                     </div>
                 </div>
             </div>
@@ -410,7 +410,7 @@ get_header(); ?>
                     <!-- Creator 1 -->
                     <div class="c-creator-card">
                         <div class="c-creator-card__img">
-                            <img src="images/download-2025-12-28T23_15_54.jpg" alt="Creator 1">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_12_10.jpg" alt="Creator 1">
                         </div>
                         <div class="c-creator-card__body">
                             <h3 class="c-creator-card__name">山田 太郎</h3>
@@ -421,7 +421,7 @@ get_header(); ?>
                     <!-- Creator 2 -->
                     <div class="c-creator-card">
                         <div class="c-creator-card__img">
-                            <img src="images/download-2025-12-28T23_12_08.jpg" alt="Creator 2">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_12_08.jpg" alt="Creator 2">
                         </div>
                         <div class="c-creator-card__body">
                             <h3 class="c-creator-card__name">佐藤 花子</h3>
@@ -432,7 +432,7 @@ get_header(); ?>
                     <!-- Creator 3 -->
                     <div class="c-creator-card">
                         <div class="c-creator-card__img">
-                            <img src="images/download-2025-12-28T23_12_10.jpg" alt="Creator 3">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_15_54.jpg" alt="Creator 3">
                         </div>
                         <div class="c-creator-card__body">
                             <h3 class="c-creator-card__name">鈴木 一郎</h3>
@@ -443,7 +443,7 @@ get_header(); ?>
                     <!-- Creator 4 -->
                     <div class="c-creator-card">
                         <div class="c-creator-card__img">
-                            <img src="images/download-2025-12-28T23_15_50.jpg" alt="Creator 4">
+                            <img src="http://lyrics-web.local/wp-content/uploads/2025/12/download-2025-12-28T23_15_50.jpg" alt="Creator 4">
                         </div>
                         <div class="c-creator-card__body">
                             <h3 class="c-creator-card__name">田中 美咲</h3>
@@ -739,7 +739,7 @@ get_header(); ?>
 ------------------------------------------- */
 .lyrics-home {
     background: #fff;
-    color: #111;
+    color: #333;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     letter-spacing: 0.05em;
     line-height: 1.8;
@@ -761,8 +761,8 @@ get_header(); ?>
     box-sizing: border-box;
 }
 
-.u-bg-gray { background-color: #f7f6f4; }
-.u-bg-black { background-color: #111; color: #fff; }
+.u-bg-gray { background-color: #f9f9f9; }
+.u-bg-black { background-color: #222; color: #fff; }
 .u-text-center { text-align: center; }
 .u-text-white { color: #fff !important; }
 .u-mt-4 { margin-top: 40px; }
@@ -875,16 +875,16 @@ img { max-width: 100%; height: auto; }
     margin-bottom: 10px;
 }
 .l-mv__copy-top .yellow {
-    color: #c8a86e; /* 黄色強調 */
+    color: #118644; /* 黄色強調 */
     font-size: 1.2em;
 }
 .l-mv__copy-sub {
     font-size: 16px;
     font-weight: 700;
-    background: #1a1a1a;
+    background: #333;
     display: inline-block;
     padding: 5px 20px;
-    border-left: 4px solid #c8a86e;
+    border-left: 4px solid #118644;
 }
 /* スマホ用フォント調整 */
 @media (max-width: 768px) {
@@ -904,7 +904,7 @@ img { max-width: 100%; height: auto; }
 
 /* 2. ABOUT US (2 Columns) */
 .l-about {
-    background-color: #f7f6f4; /* 薄いベージュっぽい白に変更 */
+    background-color: #f9f9f7; /* 薄いベージュっぽい白に変更 */
     padding-top: 120px;
     padding-bottom: 120px;
 }
@@ -976,7 +976,7 @@ img { max-width: 100%; height: auto; }
 }
 .c-reason-title {
     font-size: 80px; /* 超特大サイズ */
-    color: #c8a86e;  /* 黄色 */
+    color: #118644;  /* 黄色 */
     font-weight: 900;
     line-height: 1;
     font-family: "Montserrat", sans-serif;
@@ -998,7 +998,7 @@ img { max-width: 100%; height: auto; }
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .c-reason-card__head {
-    color: #c8a86e;
+    color: #118644;
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 20px;
@@ -1068,7 +1068,7 @@ img { max-width: 100%; height: auto; }
     .l-cta {
         padding: 80px 0;
         text-align: center;
-        background-color: #1a1a1a; /* 黒背景 */
+        background-color: #555555; /* グレー背景に戻す */
         color: #fff; /* テキストは白 */
         width: 100vw;
         margin-left: calc(50% - 50vw); /* 画面幅いっぱいに広げる */
@@ -1082,7 +1082,7 @@ img { max-width: 100%; height: auto; }
     }
     .c-btn-main {
         display: inline-block;
-        background: #c8a86e; /* ボタンは緑 */
+        background: #118644; /* ボタンは緑 */
         color: #fff; /* 文字は白 */
         padding: 18px 80px;
         font-size: 16px;
@@ -1094,7 +1094,7 @@ img { max-width: 100%; height: auto; }
     }
     .c-btn-main:hover {
         opacity: 1;
-        background-color: #dcc9a0; /* ホバー時は少し明るく */
+        background-color: #15a355; /* ホバー時は少し明るく */
         color: #fff; /* ホバー時も白文字 */
     }
 
@@ -1121,7 +1121,7 @@ img { max-width: 100%; height: auto; }
 
     /* 11. FLOW */
     .l-flow {
-        background: #f7f6f4;
+        background: #f9f9f9;
         padding-top: 100px;
         padding-bottom: 60px; /* CTAセクションとの間に余白（背景色で続く） */
     }
@@ -1129,7 +1129,7 @@ img { max-width: 100%; height: auto; }
         font-size: 80px; /* CREATORやREASONと同じサイズに */
         font-weight: 900;
         text-align: center;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 20px;
         letter-spacing: 0.05em;
@@ -1155,7 +1155,7 @@ img { max-width: 100%; height: auto; }
         /* シンプルなテキストボックス */
     }
     .c-flow-box__head {
-        background: #1a1a1a;
+        background: #444;
         color: #fff;
         padding: 15px 20px;
         font-weight: 700;
@@ -1206,7 +1206,7 @@ img { max-width: 100%; height: auto; }
         font-size: 80px; /* REASONやPHOTOと同じサイズに */
         font-weight: 900;
         text-align: center;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 20px;
         letter-spacing: 0.05em;
@@ -1256,11 +1256,11 @@ img { max-width: 100%; height: auto; }
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 5px;
-        color: #111;
+        color: #333;
     }
     .c-creator-card__role {
         font-size: 13px;
-        color: #c8a86e;
+        color: #118644;
         font-weight: 700;
         margin-bottom: 15px;
     }
@@ -1285,7 +1285,7 @@ img { max-width: 100%; height: auto; }
 
 /* 13. FAQ */
     .l-faq {
-        background: #f7f6f4;
+        background: #f9f9f9;
         padding-top: 100px;
         padding-bottom: 100px;
     }
@@ -1293,7 +1293,7 @@ img { max-width: 100%; height: auto; }
         font-size: 60px;
         font-weight: 900;
         text-align: center;
-        color: #c8a86e; /* タイトル黄色 */
+        color: #118644; /* タイトル黄色 */
         font-family: "Montserrat", sans-serif;
         margin-bottom: 60px;
         letter-spacing: 0.05em;
@@ -1343,7 +1343,7 @@ img { max-width: 100%; height: auto; }
         font-size: 80px; /* CREATORやREASONと同じサイズに */
         font-weight: 900;
         text-align: center;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 40px;
         letter-spacing: 0.05em;
@@ -1367,11 +1367,11 @@ img { max-width: 100%; height: auto; }
         font-weight: 700;
         margin-bottom: 10px;
         font-size: 14px;
-        color: #111;
+        color: #333;
     }
     .c-label-tag {
         display: inline-block;
-        background: #c8a86e;
+        background: #118644;
         color: #fff;
         padding: 2px 10px;
         font-size: 11px;
@@ -1380,14 +1380,14 @@ img { max-width: 100%; height: auto; }
         vertical-align: middle;
     }
     .c-label-tag--any {
-        background: #1a1a1a;
+        background: #333;
     }
     .c-form-input {
         width: 100%;
         padding: 15px;
         border: 1px solid #eee;
         border-radius: 4px;
-        background: #f7f6f4;
+        background: #f9f9f9;
         font-size: 14px;
     }
     .c-radio-group label {
@@ -1396,7 +1396,7 @@ img { max-width: 100%; height: auto; }
         cursor: pointer;
     }
     .c-btn-submit {
-        background: #c8a86e;
+        background: #118644;
         color: #fff;
         border: none;
         padding: 15px 80px;
@@ -1410,7 +1410,7 @@ img { max-width: 100%; height: auto; }
 
     /* 15. FOOTER */
     .l-footer {
-        background: #1a1a1a; /* 黒 */
+        background: #444; /* 濃いグレー */
         color: #fff;
         padding-top: 80px;
         padding-bottom: 0; /* コピーライト分 */
@@ -1513,8 +1513,8 @@ img { max-width: 100%; height: auto; }
 
     /* 4. SOLUTION (Yellow Design) */
     .l-solution {
-        background-color: #f7f6f4; /* REASONと同じグレー背景 */
-        color: #111;
+        background-color: #f9f9f7; /* REASONと同じグレー背景 */
+        color: #333;
         position: relative;
         z-index: 1;
         overflow: hidden;
@@ -1531,7 +1531,7 @@ img { max-width: 100%; height: auto; }
         right: 0;
         bottom: 0;
         left: 60px; /* 左側から少し離す */
-        background-color: #c8a86e; /* 緑色 */
+        background-color: #118644; /* 緑色 */
         background-image: repeating-linear-gradient(
             -45deg,
             transparent,
@@ -1603,7 +1603,7 @@ img { max-width: 100%; height: auto; }
         display: flex;
         align-items: center;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        color: #111; /* 黒文字 */
+        color: #333; /* 黒文字 */
     }
     .check-icon {
         display: inline-flex;
@@ -1611,7 +1611,7 @@ img { max-width: 100%; height: auto; }
         justify-content: center;
         width: 24px;
         height: 24px;
-        background: #c8a86e;
+        background: #118644;
         color: #fff;
         border-radius: 50%;
         margin-right: 15px;
@@ -1652,7 +1652,7 @@ img { max-width: 100%; height: auto; }
     }
     .l-sticky-footer__plan {
         flex: 1;
-        background: #c8a86e; /* 緑色背景 */
+        background: #118644; /* 緑色背景 */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1674,16 +1674,16 @@ img { max-width: 100%; height: auto; }
         justify-content: center;
         background: #fff;
         padding: 10px;
-        color: #111;
+        color: #333;
         border-right: 1px solid #eee;
     }
     .sticky-phone-icon {
         font-size: 24px;
         margin-right: 10px;
-        color: #c8a86e;
+        color: #118644;
     }
     .sticky-phone-text { text-align: left; }
-    .sticky-phone-num { font-size: 20px; font-weight: 700; font-family: "Montserrat", sans-serif; line-height: 1.2; color: #c8a86e; }
+    .sticky-phone-num { font-size: 20px; font-weight: 700; font-family: "Montserrat", sans-serif; line-height: 1.2; color: #118644; }
     .sticky-phone-time { font-size: 11px; color: #888; letter-spacing: 0.05em; }
 
     .l-sticky-footer__contact {
@@ -1694,13 +1694,13 @@ img { max-width: 100%; height: auto; }
         align-items: center;
         background: #fff;
         padding: 15px;
-        color: #111;
+        color: #333;
         text-decoration: none;
         position: relative;
         transition: background 0.3s;
     }
-    .l-sticky-footer__contact:hover { background: #f7f6f4; }
-    .sticky-contact-title { font-size: 16px; font-weight: 700; color: #c8a86e; margin-bottom: 4px; }
+    .l-sticky-footer__contact:hover { background: #f9f9f9; }
+    .sticky-contact-title { font-size: 16px; font-weight: 700; color: #118644; margin-bottom: 4px; }
     .sticky-contact-sub { font-size: 11px; color: #888; }
     .sticky-contact-arrow {
         position: absolute;
@@ -1747,7 +1747,7 @@ img { max-width: 100%; height: auto; }
         font-size: 80px; /* PHOTOやREASONと同じサイズに */
         font-weight: 900;
         text-align: center;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 20px;
         letter-spacing: 0.05em;
@@ -1796,7 +1796,7 @@ img { max-width: 100%; height: auto; }
         box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         font-size: 14px;
         padding-left: 2px; /* 三角形の位置調整 */
-        color: #111;
+        color: #333;
     }
     .c-movie-card__caption {
         font-size: 13px;
@@ -1807,7 +1807,7 @@ img { max-width: 100%; height: auto; }
     /* Movie Swiper Navigation */
     .movieSwiper .swiper-button-next,
     .movieSwiper .swiper-button-prev {
-        color: #111;
+        color: #333;
         background: rgba(255, 255, 255, 0.9);
         width: 40px;
         height: 40px;
@@ -1839,7 +1839,7 @@ img { max-width: 100%; height: auto; }
         right: 0;
         bottom: 0;
         left: 60px; /* 左側から少し離す（SOLUTIONと同じ） */
-        background-color: #1a1a1a; /* 黒 */
+        background-color: #555; /* ベースの濃いグレー */
         background-image: repeating-linear-gradient(
             -45deg,
             transparent,
@@ -1922,7 +1922,7 @@ img { max-width: 100%; height: auto; }
         font-size: 80px; /* REASONと同じサイズに */
         font-weight: 900;
         text-align: center;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 20px;
         letter-spacing: 0.05em;
@@ -1946,7 +1946,7 @@ img { max-width: 100%; height: auto; }
     /* 矢印ナビゲーション */
     .swiper-button-next,
     .swiper-button-prev {
-        color: #111;
+        color: #333;
         background: rgba(255, 255, 255, 0.9);
         width: 40px;
         height: 40px;
@@ -2003,7 +2003,7 @@ img { max-width: 100%; height: auto; }
         left: 0;
         right: 60px; /* 右側にスペースを空ける */
         bottom: 0;
-        background-color: #f7f6f4; /* 指定の薄いグレー */
+        background-color: #f9f9f9; /* 指定の薄いグレー */
         z-index: 0; /* コンテンツの後ろに */
         border-top-right-radius: 120px; /* 右上を丸くする */
         border-bottom-right-radius: 120px; /* 右下を丸くする */
@@ -2024,7 +2024,7 @@ img { max-width: 100%; height: auto; }
     .c-plan-main-title {
         font-size: 50px;
         font-weight: 900;
-        color: #111;
+        color: #555;
         font-family: "Montserrat", sans-serif;
         margin-bottom: 60px;
         text-align: left; /* 左寄せ */
@@ -2053,14 +2053,14 @@ img { max-width: 100%; height: auto; }
         font-weight: 700;
         margin-bottom: 10px;
         line-height: 1.5;
-        color: #111;
+        color: #333;
     }
     .c-plan-item__price {
         font-size: 20px;
         font-weight: 900;
         margin-bottom: 20px;
         font-family: "Montserrat", sans-serif;
-        color: #111;
+        color: #333;
     }
     .c-plan-item__desc {
         font-size: 13px;
@@ -2072,7 +2072,7 @@ img { max-width: 100%; height: auto; }
     }
     .c-plan-btn {
         display: inline-block;
-        background: #c8a86e;
+        background: #118644;
         color: #fff; /* 白文字 */
         font-size: 13px;
         font-weight: 700;
