@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyrics - 映像制作・Web制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & BASE
+============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.lyrics-home {
+    background: #fff;
+    color: #111;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+.l-inner { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 20px; }
+.l-section { padding: 100px 0; }
+.u-text-center { text-align: center; }
+.js-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.js-fade.is-active { opacity: 1; transform: translateY(0); }
+
+/* Shared heading */
+.c-sec-header { margin-bottom: 50px; }
+.c-sec-header__row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; }
+.c-sec-en { font-size: 72px; font-weight: 900; line-height: 1; font-family: "Montserrat", sans-serif; color: #c8a86e; }
+.c-sec-jp { font-size: 16px; font-weight: 700; padding-bottom: 8px; }
+.c-sec-desc { font-size: 14px; color: #666; line-height: 1.8; max-width: 700px; }
+@media (max-width: 768px) {
+    .c-sec-en { font-size: 38px; }
+    .c-sec-header__row { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* ============================================
+   HEADER (Doppo: logo left, nav center-right, actions far right)
+============================================ */
+.l-header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    z-index: 100; background: rgba(255,255,255,0.97);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.l-header__inner {
+    max-width: 100%; margin: 0 auto;
+    display: flex; align-items: center; height: 80px; padding: 0 0 0 30px;
+}
+.l-header__logo { margin-right: auto; }
+.l-header__logo a {
+    font-family: "Montserrat", sans-serif; font-size: 26px; font-weight: 900; color: #111;
+}
+.l-header__nav { display: flex; align-items: center; }
+.l-header__menu { display: flex; gap: 24px; padding-right: 20px; }
+.l-header__menu li a {
+    font-size: 13px; font-weight: 700; color: #333;
+    position: relative; padding-bottom: 4px; transition: color 0.3s;
+}
+.l-header__menu li a:hover { color: #c8a86e; }
+.l-header__menu li a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: #c8a86e; transition: width 0.3s;
+}
+.l-header__menu li a:hover::after { width: 100%; }
+.l-header__actions { display: flex; align-items: stretch; height: 80px; }
+.l-header__phone {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 22px; color: #111; font-size: 11px; font-weight: 700;
+    border-left: 1px solid #eee; transition: background 0.3s;
+}
+.l-header__phone:hover { background: #f7f6f4; }
+.l-header__phone svg { margin-bottom: 3px; }
+.l-header__contact-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 24px; background: #c8a86e; color: #fff;
+    font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center;
+    transition: opacity 0.3s; white-space: nowrap;
+}
+.l-header__contact-btn:hover { opacity: 0.9; }
+.l-header__contact-btn svg { margin-bottom: 3px; stroke: #fff; }
+.l-header__hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 28px; height: 22px; position: relative; z-index: 110; margin-right: 20px;
+}
+.l-header__hamburger span {
+    display: block; width: 100%; height: 2px; background: #111;
+    position: absolute; left: 0; transition: all 0.3s;
+}
+.l-header__hamburger span:nth-child(1) { top: 0; }
+.l-header__hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.l-header__hamburger span:nth-child(3) { bottom: 0; }
+.l-header__hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.l-header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+.l-header__hamburger.is-active span:nth-child(3) { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+@media (max-width: 1024px) {
+    .l-header__nav, .l-header__actions { display: none; }
+    .l-header__hamburger { display: block; margin-left: auto; }
+    .l-header__nav.is-open {
+        display: flex; position: fixed; top: 0; left: 0;
+        width: 100%; height: 100vh; background: rgba(255,255,255,0.98);
+        z-index: 105; justify-content: center; align-items: center;
+    }
+    .l-header__nav.is-open .l-header__menu { flex-direction: column; align-items: center; gap: 26px; }
+    .l-header__nav.is-open .l-header__menu li a { font-size: 17px; }
+}
+
+/* ============================================
+   FIRST VIEW (sticky parallax)
+============================================ */
+.l-mv-wrapper {
+    position: sticky; top: 0; z-index: 1;
+    width: 100%; height: 100vh; min-height: 600px; overflow: hidden;
+}
+.l-mv { position: relative; width: 100%; height: 100%; }
+/* Content overlays the hero on scroll */
+.l-main-content { position: relative; z-index: 2; background: #fff; }
+.l-mv__grid { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; height: 100%; }
+.l-mv__grid-item { width: 100%; height: 100%; background-size: cover; background-position: center; }
+.l-mv__overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+    z-index: 5;
+}
+.l-mv__copy-area { position: absolute; bottom: 12%; left: 6%; z-index: 10; color: #fff; max-width: 620px; }
+.l-mv__heading { font-size: 48px; font-weight: 900; line-height: 1.3; margin-bottom: 26px; }
+.l-mv__heading .gold { color: #c8a86e; }
+.l-mv__desc p { font-size: 15px; font-weight: 600; line-height: 2; margin: 0; }
+.l-mv__desc { margin-bottom: 36px; }
+.l-mv__cta-btn {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: #fff; color: #111; padding: 20px 40px;
+    font-size: 16px; font-weight: 700; border-radius: 4px;
+    transition: background 0.3s;
+}
+.l-mv__cta-btn:hover { background: #f5f5f5; }
+.l-mv__cta-btn-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #111; transition: transform 0.3s;
+}
+.l-mv__cta-btn:hover .l-mv__cta-btn-arrow { transform: translateX(4px); }
+@media (max-width: 768px) {
+    .l-mv__grid { grid-template-columns: repeat(2, 1fr); }
+    .l-mv__copy-area { bottom: 8%; left: 5%; right: 5%; max-width: none; }
+    .l-mv__heading { font-size: 28px; margin-bottom: 16px; }
+    .l-mv__desc p { font-size: 13px; }
+    .l-mv__cta-btn { padding: 16px 32px; font-size: 15px; }
+}
+
+/* ============================================
+   SERVICE (Doppo: 2-col image overlay cards)
+============================================ */
+.l-service { background: #fff; }
+.l-service__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.c-svc-card {
+    position: relative; border-radius: 14px; overflow: hidden;
+    aspect-ratio: 16/10; display: block;
+}
+.c-svc-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.c-svc-card:hover img { transform: scale(1.06); }
+.c-svc-card__ov {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05) 100%);
+    z-index: 1;
+}
+.c-svc-card__body { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 30px; z-index: 2; color: #fff; }
+.c-svc-card__num { font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; color: #c8a86e; margin-bottom: 6px; letter-spacing: 0.12em; }
+.c-svc-card__title { font-size: 20px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+.c-svc-card__text { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+.c-svc-card__arrow {
+    position: absolute; bottom: 28px; right: 28px;
+    width: 38px; height: 38px; background: #c8a86e;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; z-index: 2; transition: transform 0.3s;
+}
+.c-svc-card:hover .c-svc-card__arrow { transform: translateX(3px); }
+@media (max-width: 768px) {
+    .l-service__grid { grid-template-columns: 1fr; }
+    .c-svc-card__title { font-size: 17px; }
+}
+
+/* ============================================
+   WORKS
+============================================ */
+.l-works { background: #f7f6f4; }
+.l-works__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 40px; }
+.c-works-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.c-works-card:hover { transform: translateY(-4px); }
+.c-works-card__img { width: 100%; height: 190px; overflow: hidden; }
+.c-works-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.c-works-card:hover .c-works-card__img img { transform: scale(1.05); }
+.c-works-card__body { padding: 16px 18px; }
+.c-works-card__title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.c-works-card__text { font-size: 12px; color: #888; }
+.c-btn-outline { display: inline-block; border: 2px solid #111; color: #111; padding: 14px 50px; font-size: 14px; font-weight: 700; transition: background 0.3s, color 0.3s; border-radius: 50px; }
+.c-btn-outline:hover { background: #111; color: #fff; }
+@media (max-width: 1024px) { .l-works__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .l-works__grid { grid-template-columns: 1fr; } }
+
+/* ============================================
+   BRANDING (dark rounded block like MOVIE PLAN)
+============================================ */
+.l-branding-wrap {
+    padding: 0 30px 0 0;
+}
+.l-branding {
+    background: #1a1a1a;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,0.025) 10px, rgba(255,255,255,0.025) 20px);
+    color: #fff;
+    border-radius: 0 100px 100px 0;
+    padding: 80px 60px 80px 5%;
+    position: relative;
+    overflow: hidden;
+}
+.l-branding .c-sec-jp { color: #fff; }
+.l-branding .c-sec-desc { color: #aaa; }
+.l-branding__content { display: flex; gap: 50px; align-items: flex-start; }
+.l-branding__video {
+    flex: 1.3; position: relative; border-radius: 10px;
+    overflow: hidden; background: #222; aspect-ratio: 16/9;
+}
+.l-branding__video img { width: 100%; height: 100%; object-fit: cover; }
+.play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 20px; color: #111; padding-left: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s;
+}
+.play-btn:hover { transform: translate(-50%, -50%) scale(1.1); }
+.l-branding__text { flex: 0.7; }
+.l-branding__text h3 { font-size: 20px; font-weight: 700; margin-bottom: 18px; line-height: 1.5; }
+.l-branding__text p { font-size: 14px; line-height: 2; color: #bbb; margin-bottom: 28px; }
+.c-btn-gold { display: inline-block; background: #c8a86e; color: #fff; padding: 12px 36px; font-size: 14px; font-weight: 700; border-radius: 50px; transition: opacity 0.3s; }
+.c-btn-gold:hover { opacity: 0.85; }
+@media (max-width: 768px) {
+    .l-branding-wrap { padding: 0 15px; }
+    .l-branding { border-radius: 20px; padding: 50px 24px; }
+    .l-branding__content { flex-direction: column; gap: 28px; }
+}
+
+/* ============================================
+   REASON (bg photo + overlay cards)
+============================================ */
+.l-reason-wrap {
+    position: relative; padding: 100px 0; overflow: hidden;
+}
+.l-reason-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; background-position: center;
+}
+.l-reason-bg::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65);
+}
+.l-reason-wrap .l-inner { position: relative; z-index: 2; }
+.l-reason-wrap .c-sec-en { color: #c8a86e; }
+.l-reason-wrap .c-sec-jp { color: #fff; }
+.l-reason__grid { display: flex; gap: 22px; }
+.c-reason-card {
+    flex: 1; background: rgba(255,255,255,0.95); border-radius: 14px;
+    padding: 36px 26px; text-align: center;
+    backdrop-filter: blur(6px);
+}
+.c-reason-card__num { font-family: "Montserrat", sans-serif; font-size: 15px; font-weight: 700; color: #c8a86e; margin-bottom: 14px; letter-spacing: 0.08em; }
+.c-reason-card__icon { width: 48px; height: 48px; margin: 0 auto 14px; color: #bbb; }
+.c-reason-card__title { font-size: 17px; font-weight: 700; margin-bottom: 14px; line-height: 1.5; color: #111; }
+.c-reason-card__text { font-size: 13px; color: #555; text-align: left; line-height: 1.8; }
+@media (max-width: 768px) { .l-reason__grid { flex-direction: column; } }
+
+/* ============================================
+   FLOW (Doppo: left image, right text, vertical)
+============================================ */
+.l-flow { background: #fff; }
+.l-flow__desc { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 50px; max-width: 700px; }
+.l-flow__list { display: flex; flex-direction: column; gap: 40px; }
+.c-flow-row {
+    display: flex; gap: 36px; align-items: stretch;
+}
+.c-flow-row__img {
+    width: 320px; flex-shrink: 0; border-radius: 12px; overflow: hidden;
+    position: relative;
+}
+.c-flow-row__img img { width: 100%; height: 100%; object-fit: cover; min-height: 200px; }
+.c-flow-row__num {
+    position: absolute; top: 14px; left: 14px;
+    font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 900;
+    color: #fff; background: #c8a86e; padding: 4px 14px; border-radius: 4px;
+    letter-spacing: 0.06em;
+}
+.c-flow-row__body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.c-flow-row__title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.c-flow-row__text { font-size: 14px; color: #666; line-height: 1.9; }
+@media (max-width: 768px) {
+    .c-flow-row { flex-direction: column; gap: 16px; }
+    .c-flow-row__img { width: 100%; }
+}
+
+/* ============================================
+   MEMBER / MESSAGE (rounded beige block like PHOTO PLAN)
+============================================ */
+.l-member-wrap { padding: 0 0 0 30px; }
+.l-member {
+    background: #f7f6f4;
+    border-radius: 100px 0 0 100px;
+    padding: 80px 5% 80px 60px;
+    position: relative; overflow: hidden;
+}
+.l-message__inner { display: flex; align-items: flex-start; gap: 45px; max-width: 900px; }
+.l-message__img { width: 35%; flex-shrink: 0; }
+.l-message__img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.l-message__content { width: 65%; }
+.l-message__name { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+.l-message__role { font-size: 13px; color: #c8a86e; font-weight: 700; margin-left: 12px; }
+.l-message__text { font-size: 14px; line-height: 2; color: #555; }
+@media (max-width: 768px) {
+    .l-member-wrap { padding: 0 15px; }
+    .l-member { border-radius: 20px; padding: 50px 24px; }
+    .l-message__inner { flex-direction: column; gap: 24px; }
+    .l-message__img, .l-message__content { width: 100%; }
+}
+
+/* ============================================
+   FAQ
+============================================ */
+.l-faq { background: #fff; }
+.c-faq-list { max-width: 800px; margin: 0 auto; }
+.c-faq-item { background: #f7f6f4; border-radius: 50px; margin-bottom: 14px; overflow: hidden; }
+.c-faq-item[open] { border-radius: 20px; }
+.c-faq-item__q { padding: 18px 30px; font-weight: 700; cursor: pointer; list-style: none; font-size: 15px; }
+.c-faq-item__q::-webkit-details-marker { display: none; }
+.q-mark { font-family: "Montserrat", sans-serif; font-weight: 900; margin-right: 10px; font-size: 17px; color: #c8a86e; }
+.c-faq-item__a { padding: 0 30px 20px; font-size: 14px; color: #666; line-height: 1.8; }
+
+/* ============================================
+   CTA (Doppo: phone left + form right)
+============================================ */
+.l-cta { background: #1a1a1a; padding: 70px 0; }
+.l-cta__lead { text-align: center; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 36px; }
+.l-cta__actions { display: flex; justify-content: center; gap: 20px; max-width: 700px; margin: 0 auto; }
+.l-cta__phone-box {
+    flex: 1; background: #fff; padding: 32px 28px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-radius: 10px;
+}
+.l-cta__phone-icon { margin-bottom: 8px; }
+.l-cta__phone-num { font-family: "Montserrat", sans-serif; font-size: 28px; font-weight: 900; color: #c8a86e; margin-bottom: 6px; line-height: 1.2; }
+.l-cta__phone-time { font-size: 12px; color: #999; }
+.l-cta__form-box {
+    flex: 1; background: #c8a86e; padding: 32px 28px; text-align: center;
+    color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 0.3s; border-radius: 10px;
+}
+.l-cta__form-box:hover { opacity: 0.92; }
+.l-cta__form-icon { margin-bottom: 8px; }
+.l-cta__form-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.l-cta__form-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) {
+    .l-cta__actions { flex-direction: column; gap: 16px; }
+    .l-cta__phone-num { font-size: 22px; }
+}
+
+/* ============================================
+   ACCESS
+============================================ */
+.l-access { background: #f7f6f4; }
+.l-access__content { display: flex; gap: 40px; align-items: flex-start; }
+.l-access__map { flex: 1.2; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.l-access__map iframe { width: 100%; height: 340px; border: 0; }
+.l-access__info { flex: 0.8; }
+.l-access__info-table { width: 100%; border-collapse: collapse; }
+.l-access__info-table tr { border-bottom: 1px solid #ddd; }
+.l-access__info-table th { font-size: 13px; font-weight: 700; padding: 13px 0; width: 30%; text-align: left; vertical-align: top; }
+.l-access__info-table td { font-size: 13px; color: #555; padding: 13px 0; }
+@media (max-width: 768px) { .l-access__content { flex-direction: column; gap: 28px; } }
+
+/* ============================================
+   FOOTER
+============================================ */
+.l-footer { background: #1a1a1a; color: #fff; padding: 60px 0 0; }
+.l-footer__head { margin-bottom: 36px; }
+.c-footer-logo { font-size: 30px; font-weight: 900; font-family: "Montserrat", sans-serif; }
+.l-footer__body { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+.l-footer__section { flex: 1; }
+.c-footer-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #ccc; }
+.c-footer-list li { margin-bottom: 7px; font-size: 12px; }
+.c-footer-list li a { color: #aaa; transition: color 0.3s; }
+.c-footer-list li a:hover { color: #c8a86e; }
+.c-company-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 0; }
+.c-company-row dt { width: 35%; font-size: 11px; color: #999; }
+.c-company-row dd { width: 65%; font-size: 11px; color: #ddd; }
+.l-footer__copy { text-align: center; font-size: 11px; color: #555; padding: 24px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+@media (max-width: 768px) { .l-footer__body { flex-direction: column; gap: 28px; } }
+
+/* ============================================
+   STICKY FOOTER
+============================================ */
+.l-sticky-footer {
+    position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+    width: 92%; max-width: 660px; background: #fff; border-radius: 10px;
+    display: flex; box-shadow: 0 3px 18px rgba(0,0,0,0.14);
+    z-index: 1000; overflow: hidden; border: 1px solid #eee;
+}
+.l-sticky-footer__phone {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 14px 14px; color: #111; border-right: 1px solid #eee; transition: background 0.3s;
+}
+.l-sticky-footer__phone:hover { background: #f7f6f4; }
+.sticky-phone-icon { margin-right: 10px; display: flex; align-items: center; }
+.sticky-phone-num { font-size: 17px; font-weight: 700; font-family: "Montserrat", sans-serif; color: #c8a86e; line-height: 1.2; }
+.sticky-phone-time { font-size: 10px; color: #999; }
+.l-sticky-footer__contact {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    background: #c8a86e; padding: 14px 14px; color: #fff; transition: opacity 0.3s;
+}
+.l-sticky-footer__contact:hover { opacity: 0.9; }
+.sticky-contact-icon { margin-right: 10px; display: flex; align-items: center; }
+.sticky-contact-icon svg { stroke: #fff; }
+.sticky-contact-title { font-size: 13px; font-weight: 700; }
+.sticky-contact-sub { font-size: 10px; color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) {
+    .l-sticky-footer { width: 100%; bottom: 0; left: 0; transform: none; border-radius: 10px 10px 0 0; }
+    .sticky-phone-num { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="lyrics-home">
+
+    <!-- ========== HEADER ========== -->
+    <header class="l-header">
+        <div class="l-header__inner">
+            <div class="l-header__logo"><a href="#">Lyrics</a></div>
+            <nav class="l-header__nav" id="js-nav">
+                <ul class="l-header__menu">
+                    <li><a href="#service">サービス</a></li>
+                    <li><a href="#works">制作実績</a></li>
+                    <li><a href="#reason">選ばれる理由</a></li>
+                    <li><a href="#flow">ご利用の流れ</a></li>
+                    <li><a href="#faq">よくあるご質問</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                </ul>
+            </nav>
+            <div class="l-header__actions">
+                <a href="tel:03-5355-9661" class="l-header__phone">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>電話する</span>
+                </a>
+                <a href="#cta" class="l-header__contact-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>御見積依頼<br>お問い合わせ</span>
+                </a>
+            </div>
+            <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== FIRST VIEW ========== -->
+    <div class="l-mv-wrapper">
+        <section class="l-mv">
+            <div class="l-mv__grid">
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdd403ea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1618331835717-801e976710b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="l-mv__grid-item" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+            <div class="l-mv__overlay"></div>
+            <div class="l-mv__copy-area">
+                <h1 class="l-mv__heading">想いを、<span class="gold">カタチ</span>に。</h1>
+                <div class="l-mv__desc">
+                    <p>映像制作・Web制作会社Lyricsは、ただつくるだけではありません。</p>
+                    <p>守口を拠点に、大阪全域の映像制作・Web制作を</p>
+                    <p>企画から撮影・編集・納品までワンストップで請け負います。</p>
+                    <p>Lyricsが作り出す「表現」の先には、</p>
+                    <p>いつも理想の「結果」が待っています。</p>
+                </div>
+                <a href="#cta" class="l-mv__cta-btn">
+                    <span>映像制作のご相談はこちら</span>
+                    <span class="l-mv__cta-btn-arrow">&#10095;</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- コンテンツ部分（FVの上に被さる） -->
+    <div class="l-main-content">
+
+    <!-- ========== SERVICE ========== -->
+    <section id="service" class="l-section l-service js-fade">
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">SERVICE</h2>
+                    <p class="c-sec-jp">サービス</p>
+                </div>
+                <p class="c-sec-desc">Lyricsは映像・Web制作を中心に、お客様のビジネスゴール達成に向けた幅広いクリエイティブサービスを提供しています。</p>
+            </div>
+            <div class="l-service__grid">
+                <a href="#" class="c-svc-card">
+                    <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="動画制作">
+                    <div class="c-svc-card__ov"></div>
+                    <div class="c-svc-card__body">
+                        <div class="c-svc-card__num">SERVICE 01</div>
+                        <h3 class="c-svc-card__title">動画制作・映像制作サービス</h3>
+                        <p class="c-svc-card__text">WebCM・企業紹介・商品PR・採用動画・イベント映像など、企画から納品までワンストップ対応</p>
+                    </div>
+                    <div class="c-svc-card__arrow">&#10095;</div>
+                </a>
+                <a href="#" class="c-svc-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="広告運用">
+                    <div class="c-svc-card__ov"></div>
+                    <div class="c-svc-card__body">
+                        <div class="c-svc-card__num">SERVICE 02</div>
+                        <h3 class="c-svc-card__title">広告運用サービス</h3>
+                        <p class="c-svc-card__text">Google・SNS・YouTube広告の戦略立案から運用代行まで、データ分析に基づくROI最大化</p>
+                    </div>
+                    <div class="c-svc-card__arrow">&#10095;</div>
+                </a>
+                <a href="#" class="c-svc-card">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="YouTube">
+                    <div class="c-svc-card__ov"></div>
+                    <div class="c-svc-card__body">
+                        <div class="c-svc-card__num">SERVICE 03</div>
+                        <h3 class="c-svc-card__title">YouTubeコンサル・運用代行サービス</h3>
+                        <p class="c-svc-card__text">チャンネル開設から企画・撮影・編集・分析まで、YouTube運用をトータルサポート</p>
+                    </div>
+                    <div class="c-svc-card__arrow">&#10095;</div>
+                </a>
+                <a href="#" class="c-svc-card">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web制作">
+                    <div class="c-svc-card__ov"></div>
+                    <div class="c-svc-card__body">
+                        <div class="c-svc-card__num">SERVICE 04</div>
+                        <h3 class="c-svc-card__title">ウェブサイト制作サービス</h3>
+                        <p class="c-svc-card__text">コーポレートサイト・LP・ECサイト等、SEO対応含めビジネスに最適なWeb制作</p>
+                    </div>
+                    <div class="c-svc-card__arrow">&#10095;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WORKS ========== -->
+    <section id="works" class="l-section l-works js-fade">
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">WORKS</h2>
+                    <p class="c-sec-jp">制作実績</p>
+                </div>
+            </div>
+            <div class="l-works__grid">
+                <div class="c-works-card"><div class="c-works-card__img"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="実績1"></div><div class="c-works-card__body"><h3 class="c-works-card__title">企業プロモーション映像</h3><p class="c-works-card__text">映像制作</p></div></div>
+                <div class="c-works-card"><div class="c-works-card__img"><img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="実績2"></div><div class="c-works-card__body"><h3 class="c-works-card__title">商品プロモーション動画</h3><p class="c-works-card__text">WebCM制作</p></div></div>
+                <div class="c-works-card"><div class="c-works-card__img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="実績3"></div><div class="c-works-card__body"><h3 class="c-works-card__title">コーポレートサイト制作</h3><p class="c-works-card__text">ウェブ制作</p></div></div>
+            </div>
+            <div class="u-text-center"><a href="#" class="c-btn-outline">一覧を見る</a></div>
+        </div>
+    </section>
+
+    <!-- ========== BRANDING (dark rounded block) ========== -->
+    <div class="l-branding-wrap js-fade" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="l-branding">
+            <div class="l-inner">
+                <div class="c-sec-header">
+                    <div class="c-sec-header__row">
+                        <h2 class="c-sec-en">BRANDING</h2>
+                        <p class="c-sec-jp">ブランディング映像・動画</p>
+                    </div>
+                    <p class="c-sec-desc">企業やブランドが持つ価値観やメッセージを、視覚的かつ感情的に描くブランディング映像を制作します。</p>
+                </div>
+                <div class="l-branding__content">
+                    <div class="l-branding__video">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Branding Video">
+                        <div class="play-btn">&#9654;</div>
+                    </div>
+                    <div class="l-branding__text">
+                        <h3>商品やサービスの魅力を<br>映像で最大限に伝える</h3>
+                        <p>商品紹介動画・ブランドイメージ動画・企業VP等、視聴者の心に深く残るクオリティの高い映像コンテンツをお届けします。活用シーンに合わせた最適な映像をご提案いたします。</p>
+                        <a href="#" class="c-btn-gold">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== REASON (bg photo + cards) ========== -->
+    <div id="reason" class="l-reason-wrap js-fade">
+        <div class="l-reason-bg"></div>
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">REASON</h2>
+                    <p class="c-sec-jp">お客様から選ばれる理由</p>
+                </div>
+            </div>
+            <div class="l-reason__grid">
+                <div class="c-reason-card">
+                    <div class="c-reason-card__num">REASON 01</div>
+                    <div class="c-reason-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h3 class="c-reason-card__title">経験豊富な<br>プロフェッショナル</h3>
+                    <p class="c-reason-card__text">業界経験の長いディレクターとカメラマンがチームを組み、高品質な映像コンテンツを制作。撮影から編集まで、クオリティの高い作品をお届けします。</p>
+                </div>
+                <div class="c-reason-card">
+                    <div class="c-reason-card__num">REASON 02</div>
+                    <div class="c-reason-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg></div>
+                    <h3 class="c-reason-card__title">企画〜納品まで<br>ワンストップ対応</h3>
+                    <p class="c-reason-card__text">企画・構成案の作成から撮影、編集、納品まで一貫して対応。複数の会社に依頼する手間がなく、スピーディーかつコストを抑えた制作が可能です。</p>
+                </div>
+                <div class="c-reason-card">
+                    <div class="c-reason-card__num">REASON 03</div>
+                    <div class="c-reason-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+                    <h3 class="c-reason-card__title">コストも<br>明朗かつ経済的</h3>
+                    <p class="c-reason-card__text">事前にお見積もりを明確にご提示。追加料金なしの安心プラン設計で、中小企業様でも気軽にご依頼いただける価格帯でサービスを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOW (left img, right text) ========== -->
+    <section id="flow" class="l-section l-flow js-fade">
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">FLOW</h2>
+                    <p class="c-sec-jp">ご利用の流れ</p>
+                </div>
+            </div>
+            <p class="l-flow__desc">Lyricsでは以下の手順にて、ご相談から納品まで丁寧に責任を持ってサービスを提供いたします。</p>
+            <div class="l-flow__list">
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ご相談">
+                        <div class="c-flow-row__num">FLOW.01</div>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">ご相談・ヒアリング</h3>
+                        <p class="c-flow-row__text">WEBまたはお電話にてお気軽にご連絡ください。映像の用途やイメージ、ご予算などの詳細をお伺いし、最適なプランをご提案するための情報を整理いたします。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ご提案">
+                        <div class="c-flow-row__num">FLOW.02</div>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">ご提案・お見積もり</h3>
+                        <p class="c-flow-row__text">クリエイティブイメージや撮影の詳細、お見積もりをご提示いたします。ご納得いただけるクオリティとコストのバランスをご提案します。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="撮影">
+                        <div class="c-flow-row__num">FLOW.03</div>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">撮影・制作</h3>
+                        <p class="c-flow-row__text">キャスティング・ロケ手配・撮影進行まで全てお任せいただけます。お客様の手を煩わせることなく、プロフェッショナルなチームが制作を進めます。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="編集・納品">
+                        <div class="c-flow-row__num">FLOW.04</div>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">編集・納品</h3>
+                        <p class="c-flow-row__text">撮影データの編集・色調整を行い、お客様に確認いただきます。修正を重ねた後、通常2〜3営業日で本データを納品。公開後のサポートも承ります。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MEMBER (rounded beige block) ========== -->
+    <div class="l-member-wrap js-fade" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="l-member">
+            <div class="l-inner">
+                <div class="c-sec-header">
+                    <div class="c-sec-header__row">
+                        <h2 class="c-sec-en">MESSAGE</h2>
+                        <p class="c-sec-jp">代表挨拶</p>
+                    </div>
+                </div>
+                <div class="l-message__inner">
+                    <div class="l-message__img">
+                        <img src="images/download-2025-12-28T23_15_54.jpg" alt="代表">
+                    </div>
+                    <div class="l-message__content">
+                        <h3 class="l-message__name">山田 太郎<span class="l-message__role">代表</span></h3>
+                        <p class="l-message__text">
+                            Lyrics（リリックス）のホームページをご覧いただき、ありがとうございます。<br><br>
+                            私たちは守口を拠点に、大阪全域のお客様に映像制作・Web制作サービスを提供しております。「お客様の想いをカタチにする」をモットーに、一つひとつのプロジェクトに丁寧に向き合い、クオリティの高いクリエイティブをお届けしてまいりました。<br><br>
+                            映像やWebサイトは、ビジネスの成長に欠かせないツールです。お客様のビジネスゴールを達成するために、最適なご提案をさせていただきます。まずはお気軽にご相談ください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" class="l-section l-faq js-fade">
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">FAQ</h2>
+                    <p class="c-sec-jp">よくあるご質問</p>
+                </div>
+            </div>
+            <div class="c-faq-list">
+                <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 撮影の予約はどうすればいいでしょうか？</summary><div class="c-faq-item__a"><p>お問い合わせフォーム、またはお電話にてご連絡ください。担当者より折り返しご連絡させていただきます。</p></div></details>
+                <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 当日でも撮影可能でしょうか？</summary><div class="c-faq-item__a"><p>スケジュールに空きがあれば可能です。まずはお電話にてお問い合わせください。</p></div></details>
+                <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 大阪以外でも対応していますか？</summary><div class="c-faq-item__a"><p>はい、全国どこでも出張可能です。交通費・宿泊費等の実費は別途ご請求させていただきます。</p></div></details>
+                <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 見積もりだけでも依頼できますか？</summary><div class="c-faq-item__a"><p>もちろん可能です。お見積もりは無料で承っておりますので、お気軽にお問い合わせください。</p></div></details>
+                <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 動画の修正は何回まで対応していますか？</summary><div class="c-faq-item__a"><p>プランによって異なりますが、基本的に2〜3回の修正を含んでおります。詳しくはお見積もり時にご説明いたします。</p></div></details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA (phone + form Doppo-style) ========== -->
+    <section id="cta" class="l-cta js-fade">
+        <div class="l-inner">
+            <p class="l-cta__lead">映像制作・Web制作のことなら、お気軽にご相談ください</p>
+            <div class="l-cta__actions">
+                <a href="tel:03-5355-9661" class="l-cta__phone-box">
+                    <div class="l-cta__phone-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#c8a86e" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="l-cta__phone-num">03-5355-9661</div>
+                    <div class="l-cta__phone-time">9:30〜18:30（土日祝除く）</div>
+                </a>
+                <a href="#contact-form" class="l-cta__form-box">
+                    <div class="l-cta__form-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="l-cta__form-title">お問い合わせフォーム</div>
+                    <div class="l-cta__form-sub">24時間受付</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ACCESS ========== -->
+    <section id="access" class="l-section l-access js-fade">
+        <div class="l-inner">
+            <div class="c-sec-header">
+                <div class="c-sec-header__row">
+                    <h2 class="c-sec-en">ACCESS</h2>
+                    <p class="c-sec-jp">アクセス</p>
+                </div>
+            </div>
+            <div class="l-access__content">
+                <div class="l-access__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13117.47!2d135.5625!3d34.7375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e4b5a99bffff%3A0x1234567890abcdef!2z5a6I5Y-j5biC!5e0!3m2!1sja!2sjp!4v1" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="l-access__info">
+                    <table class="l-access__info-table">
+                        <tr><th>会社名</th><td>株式会社Lyrics</td></tr>
+                        <tr><th>所在地</th><td>〒570-0000<br>大阪府守口市xx-xx-xx</td></tr>
+                        <tr><th>電話番号</th><td>03-5355-9661</td></tr>
+                        <tr><th>営業時間</th><td>10:00〜19:00</td></tr>
+                        <tr><th>定休日</th><td>土・日・祝日・年末年始</td></tr>
+                        <tr><th>アクセス</th><td>京阪本線 守口市駅より徒歩5分</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="l-footer">
+        <div class="l-inner">
+            <div class="l-footer__head"><h2 class="c-footer-logo">Lyrics</h2></div>
+            <div class="l-footer__body">
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">サービス</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="#">動画制作・映像制作</a></li>
+                        <li><a href="#">広告運用</a></li>
+                        <li><a href="#">YouTubeコンサル</a></li>
+                        <li><a href="#">ウェブサイト制作</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">コンテンツ</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="#">制作実績</a></li>
+                        <li><a href="#">選ばれる理由</a></li>
+                        <li><a href="#">ご利用の流れ</a></li>
+                        <li><a href="#">よくあるご質問</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">SNS</h3>
+                    <ul class="c-footer-list"><li><a href="#">Instagram</a></li></ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社概要</h3>
+                    <dl class="c-company-dl">
+                        <div class="c-company-row"><dt>運営会社</dt><dd>株式会社Lyrics</dd></div>
+                        <div class="c-company-row"><dt>電話番号</dt><dd>03-5355-9661</dd></div>
+                        <div class="c-company-row"><dt>営業時間</dt><dd>10:00〜19:00</dd></div>
+                        <div class="c-company-row"><dt>所在地</dt><dd>大阪府守口市xx-xx-xx</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="l-footer__copy">&copy; 2025 Lyrics Inc. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    </div><!-- /.l-main-content -->
+
+    <!-- Sticky Footer -->
+    <div class="l-sticky-footer">
+        <a href="tel:03-5355-9661" class="l-sticky-footer__phone">
+            <div class="sticky-phone-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#c8a86e" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="sticky-phone-num">03-5355-9661</div><div class="sticky-phone-time">10:00〜19:00</div></div>
+        </a>
+        <a href="#cta" class="l-sticky-footer__contact">
+            <div class="sticky-contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="sticky-contact-title">御見積依頼・お問い合わせ</div><div class="sticky-contact-sub">お気軽にご相談ください</div></div>
+        </a>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('is-active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(function(el) { observer.observe(el); });
+
+    var hamburger = document.getElementById('js-hamburger');
+    var nav = document.getElementById('js-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() { hamburger.classList.toggle('is-active'); nav.classList.toggle('is-open'); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { hamburger.classList.remove('is-active'); nav.classList.remove('is-open'); }); });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            var t = document.querySelector(this.getAttribute('href'));
+            if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+        });
+    });
+});
+</script>
+</body>
+</html>
