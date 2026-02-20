@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくあるご質問 | Lyrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & BASE
+============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.lyrics-sub {
+    background: #fff;
+    color: #111;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+.l-inner { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 20px; }
+.l-section { padding: 80px 0; }
+.js-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.js-fade.is-active { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   HEADER
+============================================ */
+.l-header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    z-index: 100; background: rgba(255,255,255,0.97);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.l-header__inner {
+    max-width: 100%; margin: 0 auto;
+    display: flex; align-items: center; height: 80px; padding: 0 0 0 30px;
+}
+.l-header__logo { margin-right: auto; }
+.l-header__logo a { font-family: "Montserrat", sans-serif; font-size: 26px; font-weight: 900; color: #111; }
+.l-header__nav { display: flex; align-items: center; }
+.l-header__menu { display: flex; gap: 24px; padding-right: 20px; }
+.l-header__menu li a {
+    font-size: 13px; font-weight: 700; color: #333;
+    position: relative; padding-bottom: 4px; transition: color 0.3s;
+}
+.l-header__menu li a:hover { color: #c8a86e; }
+.l-header__menu li a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: #c8a86e; transition: width 0.3s;
+}
+.l-header__menu li a:hover::after { width: 100%; }
+.l-header__menu li { position: relative; }
+.l-header__dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-radius: 10px;
+    padding: 20px; white-space: nowrap; z-index: 200; min-width: 520px;
+}
+.l-header__dropdown::before {
+    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff;
+}
+.l-header__menu li:hover .l-header__dropdown { display: flex; gap: 0; }
+.l-header__dropdown-item {
+    flex: 1; display: flex; flex-direction: column; align-items: center; padding: 12px 16px;
+    border-radius: 8px; transition: background 0.3s; text-align: center;
+}
+.l-header__dropdown-item:hover { background: #f7f6f4; }
+.l-header__dropdown-item::after { display: none !important; }
+.l-header__dropdown-num {
+    font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 700;
+    color: #c8a86e; letter-spacing: 0.08em; margin-bottom: 4px;
+}
+.l-header__dropdown-title { font-size: 12px; font-weight: 700; color: #333; line-height: 1.4; }
+.l-header__actions { display: flex; align-items: stretch; height: 80px; }
+.l-header__phone {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 22px; color: #111; font-size: 11px; font-weight: 700;
+    border-left: 1px solid #eee; transition: background 0.3s;
+}
+.l-header__phone:hover { background: #f7f6f4; }
+.l-header__phone svg { margin-bottom: 3px; }
+.l-header__contact-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 24px; background: #c8a86e; color: #fff;
+    font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center;
+    transition: opacity 0.3s; white-space: nowrap;
+}
+.l-header__contact-btn:hover { opacity: 0.9; }
+.l-header__contact-btn svg { margin-bottom: 3px; stroke: #fff; }
+.l-header__hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 28px; height: 22px; position: relative; z-index: 110; margin-right: 20px;
+}
+.l-header__hamburger span {
+    display: block; width: 100%; height: 2px; background: #111;
+    position: absolute; left: 0; transition: all 0.3s;
+}
+.l-header__hamburger span:nth-child(1) { top: 0; }
+.l-header__hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.l-header__hamburger span:nth-child(3) { bottom: 0; }
+.l-header__hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.l-header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+.l-header__hamburger.is-active span:nth-child(3) { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+@media (max-width: 1024px) {
+    .l-header__nav, .l-header__actions { display: none; }
+    .l-header__hamburger { display: block; margin-left: auto; }
+    .l-header__nav.is-open {
+        display: flex; position: fixed; top: 0; left: 0;
+        width: 100%; height: 100vh; background: rgba(255,255,255,0.98);
+        z-index: 105; justify-content: center; align-items: center;
+    }
+    .l-header__nav.is-open .l-header__menu { flex-direction: column; align-items: center; gap: 26px; }
+    .l-header__nav.is-open .l-header__menu li a { font-size: 17px; }
+}
+
+/* ============================================
+   PAGE HERO
+============================================ */
+.l-page-hero {
+    padding-top: 80px;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+.l-page-hero__bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    opacity: 0.3;
+}
+.l-page-hero__inner {
+    position: relative; z-index: 2;
+    padding: 60px 0 50px;
+    max-width: 1200px; width: 90%; margin: 0 auto; padding-left: 20px; padding-right: 20px;
+}
+.l-breadcrumb { display: flex; gap: 8px; font-size: 12px; color: #999; margin-bottom: 20px; }
+.l-breadcrumb a { color: #999; transition: color 0.3s; }
+.l-breadcrumb a:hover { color: #c8a86e; }
+.l-breadcrumb span { color: #666; }
+.l-page-hero__en {
+    font-family: "Montserrat", sans-serif; font-size: 56px; font-weight: 900;
+    color: #c8a86e; line-height: 1; margin-bottom: 10px;
+}
+.l-page-hero__jp { font-size: 18px; font-weight: 700; color: #fff; }
+@media (max-width: 768px) {
+    .l-page-hero__en { font-size: 34px; }
+    .l-page-hero__jp { font-size: 15px; }
+}
+
+/* ============================================
+   FAQ CATEGORY NAV
+============================================ */
+.l-faq-nav {
+    background: #f7f6f4;
+    padding: 40px 0;
+}
+.l-faq-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+.l-faq-nav__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.l-faq-nav__item:hover {
+    border-color: #c8a86e;
+    color: #c8a86e;
+}
+.l-faq-nav__item span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #c8a86e;
+    letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+    .l-faq-nav__list { gap: 10px; }
+    .l-faq-nav__item { padding: 10px 18px; font-size: 13px; }
+}
+
+/* ============================================
+   FAQ SECTIONS
+============================================ */
+.l-faq-section {
+    padding: 70px 0;
+    border-bottom: 1px solid #eee;
+}
+.l-faq-section:last-of-type {
+    border-bottom: none;
+}
+.l-faq-section__header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #c8a86e;
+}
+.l-faq-section__en {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #c8a86e;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+}
+.l-faq-section__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+}
+@media (max-width: 768px) {
+    .l-faq-section__title { font-size: 20px; }
+}
+
+/* ============================================
+   FAQ ITEMS (Q&A open format)
+============================================ */
+.c-faq-qa {
+    margin-bottom: 36px;
+}
+.c-faq-qa:last-child {
+    margin-bottom: 0;
+}
+.c-faq-qa__q {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+.c-faq-qa__q-mark {
+    flex-shrink: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #c8a86e;
+    line-height: 1.4;
+}
+.c-faq-qa__q-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.6;
+    padding-top: 2px;
+}
+.c-faq-qa__a {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding-left: 0;
+}
+.c-faq-qa__a-mark {
+    flex-shrink: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #999;
+    line-height: 1.4;
+}
+.c-faq-qa__a-text {
+    font-size: 15px;
+    color: #555;
+    line-height: 2;
+    padding-top: 2px;
+}
+@media (max-width: 768px) {
+    .c-faq-qa__q-text { font-size: 15px; }
+    .c-faq-qa__a-text { font-size: 14px; }
+    .c-faq-qa__q-mark, .c-faq-qa__a-mark { font-size: 18px; }
+}
+
+/* ============================================
+   CTA
+============================================ */
+.l-cta { background: #1a1a1a; padding: 70px 0; }
+.l-cta__lead { text-align: center; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 36px; }
+.l-cta__actions { display: flex; justify-content: center; gap: 20px; max-width: 700px; margin: 0 auto; }
+.l-cta__phone-box {
+    flex: 1; background: #fff; padding: 32px 28px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 10px;
+}
+.l-cta__phone-num { font-family: "Montserrat", sans-serif; font-size: 28px; font-weight: 900; color: #c8a86e; margin-bottom: 6px; }
+.l-cta__phone-time { font-size: 12px; color: #999; }
+.l-cta__form-box {
+    flex: 1; background: #c8a86e; padding: 32px 28px; text-align: center;
+    color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 0.3s; border-radius: 10px;
+}
+.l-cta__form-box:hover { opacity: 0.92; }
+.l-cta__form-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.l-cta__form-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) {
+    .l-cta__actions { flex-direction: column; gap: 16px; }
+    .l-cta__phone-num { font-size: 22px; }
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.l-footer { background: #1a1a1a; color: #fff; padding: 60px 0 0; }
+.l-footer__head { margin-bottom: 36px; }
+.c-footer-logo { font-size: 30px; font-weight: 900; font-family: "Montserrat", sans-serif; }
+.l-footer__body { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+.l-footer__section { flex: 1; }
+.c-footer-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #ccc; }
+.c-footer-list li { margin-bottom: 7px; font-size: 12px; }
+.c-footer-list li a { color: #aaa; transition: color 0.3s; }
+.c-footer-list li a:hover { color: #c8a86e; }
+.c-company-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 0; }
+.c-company-row dt { width: 35%; font-size: 11px; color: #999; }
+.c-company-row dd { width: 65%; font-size: 11px; color: #ddd; }
+.l-footer__copy { text-align: center; font-size: 11px; color: #555; padding: 24px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+@media (max-width: 768px) { .l-footer__body { flex-direction: column; gap: 28px; } }
+</style>
+</head>
+<body>
+<div class="lyrics-sub">
+
+    <!-- ========== HEADER ========== -->
+    <header class="l-header">
+        <div class="l-header__inner">
+            <div class="l-header__logo"><a href="preview_v2.html">Lyrics</a></div>
+            <nav class="l-header__nav" id="js-nav">
+                <ul class="l-header__menu">
+                    <li>
+                        <a href="preview_v2.html#service">サービス</a>
+                        <div class="l-header__dropdown">
+                            <a href="service_video.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 01</span>
+                                <span class="l-header__dropdown-title">動画制作・<br>映像制作</span>
+                            </a>
+                            <a href="service_ads.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 02</span>
+                                <span class="l-header__dropdown-title">広告運用</span>
+                            </a>
+                            <a href="service_youtube.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 03</span>
+                                <span class="l-header__dropdown-title">YouTube<br>コンサル</span>
+                            </a>
+                            <a href="service_web.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 04</span>
+                                <span class="l-header__dropdown-title">ウェブサイト<br>制作</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="works.html">制作実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="faq.html">よくあるご質問</a></li>
+                    <li><a href="news.html">ニュース</a></li>
+                </ul>
+            </nav>
+            <div class="l-header__actions">
+                <a href="tel:03-5355-9661" class="l-header__phone">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>電話する</span>
+                </a>
+                <a href="contact.html" class="l-header__contact-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>御見積依頼<br>お問い合わせ</span>
+                </a>
+            </div>
+            <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HERO ========== -->
+    <div class="l-page-hero">
+        <div class="l-page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="l-page-hero__inner">
+            <div class="l-breadcrumb">
+                <a href="preview_v2.html">HOME</a><span>></span>
+                <span style="color:#fff;">よくあるご質問</span>
+            </div>
+            <h1 class="l-page-hero__en">FAQ</h1>
+            <p class="l-page-hero__jp">よくあるご質問</p>
+        </div>
+    </div>
+
+    <!-- ========== CATEGORY NAV ========== -->
+    <div class="l-faq-nav">
+        <div class="l-inner">
+            <div class="l-faq-nav__list">
+                <a href="#general" class="l-faq-nav__item"><span>01</span> 全般について</a>
+                <a href="#video" class="l-faq-nav__item"><span>02</span> 動画制作・映像制作</a>
+                <a href="#ads" class="l-faq-nav__item"><span>03</span> 広告運用</a>
+                <a href="#youtube" class="l-faq-nav__item"><span>04</span> YouTubeコンサル</a>
+                <a href="#web" class="l-faq-nav__item"><span>05</span> ウェブサイト制作</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FAQ: 全般 ========== -->
+    <div class="l-inner">
+        <section id="general" class="l-faq-section js-fade">
+            <div class="l-faq-section__header">
+                <p class="l-faq-section__en">GENERAL</p>
+                <h2 class="l-faq-section__title">全般について</h2>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">見積もりだけでも依頼できますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">もちろん可能です。お見積もりは無料で承っておりますので、お気軽にお問い合わせください。ご要望をヒアリングの上、最適なプランとお見積もりをご提案いたします。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">大阪以外でも対応していますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、全国どこでも対応可能です。オンラインでのお打ち合わせも積極的に行っております。出張が必要な場合は、交通費・宿泊費等の実費を別途ご請求させていただきます。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">契約期間の縛りはありますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">サービスによって異なります。動画制作やウェブサイト制作は案件ごとのご契約となります。広告運用やYouTubeコンサルは最低3ヶ月からのご契約をお願いしておりますが、詳細はお打ち合わせ時にご相談ください。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">支払い方法を教えてください。</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">銀行振込でのお支払いとなります。着手時に50%、納品後に残り50%をお支払いいただく形が基本です。月額サービスの場合は毎月末締め翌月末払いとなります。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">複数のサービスをまとめてお願いすることは可能ですか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、可能です。動画制作とWebサイト制作、広告運用とYouTubeコンサルなど、複数サービスを組み合わせてご依頼いただくことで、一貫したブランディングが可能になります。セット割引もございますので、お気軽にご相談ください。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ: 動画制作 ========== -->
+        <section id="video" class="l-faq-section js-fade">
+            <div class="l-faq-section__header">
+                <p class="l-faq-section__en">VIDEO PRODUCTION</p>
+                <h2 class="l-faq-section__title">動画制作・映像制作について</h2>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">動画制作の費用はどのくらいかかりますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">動画の種類・尺・撮影規模によって異なりますが、ライトプランは15万円〜、スタンダードプランは35万円〜、プレミアムプランは60万円〜となっております。詳しくはサービスページをご覧いただくか、お問い合わせください。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">納期はどのくらいですか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">標準的な制作期間は、企画から納品まで約3〜4週間です。お急ぎの場合は最短2週間での納品も可能です。スケジュールについてはお気軽にご相談ください。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">修正は何回まで対応していますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">プランによって異なりますが、ライトプランで2回、スタンダードプランで3回、プレミアムプランでは無制限で修正対応いたします。修正回数を超える場合は別途お見積もりとなります。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">撮影場所の手配もお願いできますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、ロケ地の選定・ロケハン・撮影許可の取得まで対応いたします。スタジオ撮影が必要な場合は、撮影内容に最適なスタジオのご提案も可能です。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">ナレーションやBGMも手配してもらえますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、ナレーター・声優の手配、BGM・効果音の選定・制作まで対応しております。著作権フリーの素材から、オリジナル楽曲の制作まで幅広くご対応可能です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ: 広告運用 ========== -->
+        <section id="ads" class="l-faq-section js-fade">
+            <div class="l-faq-section__header">
+                <p class="l-faq-section__en">AD MANAGEMENT</p>
+                <h2 class="l-faq-section__title">広告運用について</h2>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">広告運用の最低予算はいくらからですか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">月額広告費5万円からスタート可能です。運用手数料は広告費の20%が目安となります。まずは少額から始めて効果を検証し、成果が見えてきたら予算を拡大する形をお勧めしています。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">どの広告媒体に対応していますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">Google検索広告、Googleディスプレイ広告、YouTube広告、Instagram広告、Facebook広告、LINE広告に対応しております。お客様のビジネスに最適な媒体をご提案いたします。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">レポートはどのような内容ですか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">毎月の運用レポートでは、インプレッション数・クリック数・クリック率・コンバージョン数・ROAS等の主要KPIをグラフ付きでご報告。改善施策と翌月の戦略方針も合わせてご提案いたします。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">広告クリエイティブの制作もお願いできますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、バナー画像・動画広告・テキスト広告文の制作もセットで対応しております。A/Bテストを実施しながら、パフォーマンスの高いクリエイティブに最適化していきます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ: YouTubeコンサル ========== -->
+        <section id="youtube" class="l-faq-section js-fade">
+            <div class="l-faq-section__header">
+                <p class="l-faq-section__en">YOUTUBE CONSULTING</p>
+                <h2 class="l-faq-section__title">YouTubeコンサルについて</h2>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">チャンネルをまだ持っていないのですが、開設からお願いできますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、チャンネルの開設から対応いたします。チャンネルアート・ロゴの制作、概要欄の設計、ターゲット設定・コンセプト策定まで、成長の土台づくりからサポートします。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">どのくらいの期間で効果が出ますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">チャンネルの状態や投稿頻度にもよりますが、一般的に3〜6ヶ月で目に見える成果が現れ始めます。継続的な投稿と改善の積み重ねが重要です。短期間での急成長よりも、持続的な成長戦略をご提案しています。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">コンサルだけ（撮影・編集なし）でもお願いできますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、コンサルティングのみのプランもご用意しております。企画アドバイス・SEO最適化・データ分析・改善提案を中心にサポートし、撮影・編集はお客様側で行っていただく形も可能です。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">投稿頻度はどのくらいが理想ですか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">週1〜2本の投稿が理想的です。ただし、投稿頻度よりもコンテンツの質が重要です。お客様のリソースに合わせて、無理のない投稿スケジュールをご提案いたします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ: ウェブサイト制作 ========== -->
+        <section id="web" class="l-faq-section js-fade">
+            <div class="l-faq-section__header">
+                <p class="l-faq-section__en">WEB DESIGN</p>
+                <h2 class="l-faq-section__title">ウェブサイト制作について</h2>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">制作期間はどのくらいかかりますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">サイトの規模によって異なりますが、ランディングページで約2〜3週間、コーポレートサイト（5〜10ページ）で約1〜2ヶ月、大規模サイトで2〜3ヶ月が目安です。お急ぎの場合はご相談ください。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">WordPressでの制作は対応していますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、WordPress対応しております。オリジナルテーマの制作から、既存テーマのカスタマイズまで幅広く対応。公開後のお客様自身での更新がしやすい設計を心がけています。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">スマートフォン対応はしていますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、全プランでレスポンシブデザインを標準搭載しています。PC・タブレット・スマートフォン、すべてのデバイスで最適に表示されるサイトを制作いたします。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">公開後の保守・運用も対応していますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、月額の保守プランをご用意しております。セキュリティアップデート・バックアップ・軽微な修正・コンテンツ更新代行・アクセス解析レポートなどを含む運用サポートを提供しています。</p>
+                </div>
+            </div>
+
+            <div class="c-faq-qa">
+                <div class="c-faq-qa__q">
+                    <span class="c-faq-qa__q-mark">Q.</span>
+                    <p class="c-faq-qa__q-text">既存サイトのリニューアルもお願いできますか？</p>
+                </div>
+                <div class="c-faq-qa__a">
+                    <span class="c-faq-qa__a-mark">A.</span>
+                    <p class="c-faq-qa__a-text">はい、リニューアルも対応しております。既存サイトの課題をアクセスデータや構造から分析し、デザイン・SEO・ユーザビリティを総合的に改善。成果の出るサイトへ生まれ変わらせます。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ========== CTA ========== -->
+    <section class="l-cta js-fade">
+        <div class="l-inner">
+            <p class="l-cta__lead">その他ご不明点がございましたら、お気軽にお問い合わせください</p>
+            <div class="l-cta__actions">
+                <a href="tel:03-5355-9661" class="l-cta__phone-box">
+                    <div class="l-cta__phone-num">03-5355-9661</div>
+                    <div class="l-cta__phone-time">9:30〜18:30（土日祝除く）</div>
+                </a>
+                <a href="contact.html" class="l-cta__form-box">
+                    <div class="l-cta__form-title">お問い合わせフォーム</div>
+                    <div class="l-cta__form-sub">24時間受付</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="l-footer">
+        <div class="l-inner">
+            <div class="l-footer__head"><h2 class="c-footer-logo">Lyrics</h2></div>
+            <div class="l-footer__body">
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">サービス</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="service_video.html">動画制作・映像制作</a></li>
+                        <li><a href="service_ads.html">広告運用</a></li>
+                        <li><a href="service_youtube.html">YouTubeコンサル</a></li>
+                        <li><a href="service_web.html">ウェブサイト制作</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">コンテンツ</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="works.html">制作実績</a></li>
+                        <li><a href="preview_v2.html#reason">選ばれる理由</a></li>
+                        <li><a href="preview_v2.html#flow">ご利用の流れ</a></li>
+                        <li><a href="faq.html">よくあるご質問</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社情報</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社概要</h3>
+                    <dl>
+                        <div class="c-company-row"><dt>運営会社</dt><dd>株式会社Lyrics</dd></div>
+                        <div class="c-company-row"><dt>電話番号</dt><dd>03-5355-9661</dd></div>
+                        <div class="c-company-row"><dt>所在地</dt><dd>大阪府守口市xx-xx-xx</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="l-footer__copy">&copy; 2025 Lyrics Inc. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('is-active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(function(el) { observer.observe(el); });
+
+    var hamburger = document.getElementById('js-hamburger');
+    var nav = document.getElementById('js-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() { hamburger.classList.toggle('is-active'); nav.classList.toggle('is-open'); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { hamburger.classList.remove('is-active'); nav.classList.remove('is-open'); }); });
+    }
+
+    // Smooth scroll for category nav
+    document.querySelectorAll('.l-faq-nav__item').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                var offset = 100;
+                var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

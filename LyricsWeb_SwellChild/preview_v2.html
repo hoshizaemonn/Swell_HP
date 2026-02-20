@@ -67,6 +67,29 @@ ul { list-style: none; }
     width: 0; height: 2px; background: #c8a86e; transition: width 0.3s;
 }
 .l-header__menu li a:hover::after { width: 100%; }
+/* Dropdown */
+.l-header__menu li { position: relative; }
+.l-header__dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-radius: 10px;
+    padding: 20px; white-space: nowrap; z-index: 200; min-width: 520px;
+}
+.l-header__dropdown::before {
+    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff;
+}
+.l-header__menu li:hover .l-header__dropdown { display: flex; gap: 0; }
+.l-header__dropdown-item {
+    flex: 1; display: flex; flex-direction: column; align-items: center; padding: 12px 16px;
+    border-radius: 8px; transition: background 0.3s; text-align: center;
+}
+.l-header__dropdown-item:hover { background: #f7f6f4; }
+.l-header__dropdown-item::after { display: none !important; }
+.l-header__dropdown-num {
+    font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 700;
+    color: #c8a86e; letter-spacing: 0.08em; margin-bottom: 4px;
+}
+.l-header__dropdown-title { font-size: 12px; font-weight: 700; color: #333; line-height: 1.4; }
 .l-header__actions { display: flex; align-items: stretch; height: 80px; }
 .l-header__phone {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -435,15 +458,34 @@ ul { list-style: none; }
     <!-- ========== HEADER ========== -->
     <header class="l-header">
         <div class="l-header__inner">
-            <div class="l-header__logo"><a href="#">Lyrics</a></div>
+            <div class="l-header__logo"><a href="preview_v2.html">Lyrics</a></div>
             <nav class="l-header__nav" id="js-nav">
                 <ul class="l-header__menu">
-                    <li><a href="#service">サービス</a></li>
-                    <li><a href="#works">制作実績</a></li>
-                    <li><a href="#reason">選ばれる理由</a></li>
-                    <li><a href="#flow">ご利用の流れ</a></li>
-                    <li><a href="#faq">よくあるご質問</a></li>
-                    <li><a href="#access">アクセス</a></li>
+                    <li>
+                        <a href="#service">サービス</a>
+                        <div class="l-header__dropdown">
+                            <a href="service_video.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 01</span>
+                                <span class="l-header__dropdown-title">動画制作・<br>映像制作</span>
+                            </a>
+                            <a href="service_ads.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 02</span>
+                                <span class="l-header__dropdown-title">広告運用</span>
+                            </a>
+                            <a href="service_youtube.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 03</span>
+                                <span class="l-header__dropdown-title">YouTube<br>コンサル</span>
+                            </a>
+                            <a href="service_web.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 04</span>
+                                <span class="l-header__dropdown-title">ウェブサイト<br>制作</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="works.html">制作実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="faq.html">よくあるご質問</a></li>
+                    <li><a href="news.html">ニュース</a></li>
                 </ul>
             </nav>
             <div class="l-header__actions">
@@ -451,7 +493,7 @@ ul { list-style: none; }
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>電話する</span>
                 </a>
-                <a href="#cta" class="l-header__contact-btn">
+                <a href="contact.html" class="l-header__contact-btn">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     <span>御見積依頼<br>お問い合わせ</span>
                 </a>
@@ -485,7 +527,7 @@ ul { list-style: none; }
                     <p>Lyricsが作り出す「表現」の先には、</p>
                     <p>いつも理想の「結果」が待っています。</p>
                 </div>
-                <a href="#cta" class="l-mv__cta-btn">
+                <a href="contact.html" class="l-mv__cta-btn">
                     <span>映像制作のご相談はこちら</span>
                     <span class="l-mv__cta-btn-arrow">&#10095;</span>
                 </a>
@@ -507,7 +549,7 @@ ul { list-style: none; }
                 <p class="c-sec-desc">Lyricsは映像・Web制作を中心に、お客様のビジネスゴール達成に向けた幅広いクリエイティブサービスを提供しています。</p>
             </div>
             <div class="l-service__grid">
-                <a href="#" class="c-svc-card">
+                <a href="service_video.html" class="c-svc-card">
                     <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="動画制作">
                     <div class="c-svc-card__ov"></div>
                     <div class="c-svc-card__body">
@@ -517,7 +559,7 @@ ul { list-style: none; }
                     </div>
                     <div class="c-svc-card__arrow">&#10095;</div>
                 </a>
-                <a href="#" class="c-svc-card">
+                <a href="service_ads.html" class="c-svc-card">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="広告運用">
                     <div class="c-svc-card__ov"></div>
                     <div class="c-svc-card__body">
@@ -527,7 +569,7 @@ ul { list-style: none; }
                     </div>
                     <div class="c-svc-card__arrow">&#10095;</div>
                 </a>
-                <a href="#" class="c-svc-card">
+                <a href="service_youtube.html" class="c-svc-card">
                     <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="YouTube">
                     <div class="c-svc-card__ov"></div>
                     <div class="c-svc-card__body">
@@ -537,7 +579,7 @@ ul { list-style: none; }
                     </div>
                     <div class="c-svc-card__arrow">&#10095;</div>
                 </a>
-                <a href="#" class="c-svc-card">
+                <a href="service_web.html" class="c-svc-card">
                     <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web制作">
                     <div class="c-svc-card__ov"></div>
                     <div class="c-svc-card__body">
@@ -565,7 +607,7 @@ ul { list-style: none; }
                 <div class="c-works-card"><div class="c-works-card__img"><img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="実績2"></div><div class="c-works-card__body"><h3 class="c-works-card__title">商品プロモーション動画</h3><p class="c-works-card__text">WebCM制作</p></div></div>
                 <div class="c-works-card"><div class="c-works-card__img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="実績3"></div><div class="c-works-card__body"><h3 class="c-works-card__title">コーポレートサイト制作</h3><p class="c-works-card__text">ウェブ制作</p></div></div>
             </div>
-            <div class="u-text-center"><a href="#" class="c-btn-outline">一覧を見る</a></div>
+            <div class="u-text-center"><a href="works.html" class="c-btn-outline">一覧を見る</a></div>
         </div>
     </section>
 
@@ -588,7 +630,7 @@ ul { list-style: none; }
                     <div class="l-branding__text">
                         <h3>商品やサービスの魅力を<br>映像で最大限に伝える</h3>
                         <p>商品紹介動画・ブランドイメージ動画・企業VP等、視聴者の心に深く残るクオリティの高い映像コンテンツをお届けします。活用シーンに合わせた最適な映像をご提案いたします。</p>
-                        <a href="#" class="c-btn-gold">詳細を見る</a>
+                        <a href="service_video.html" class="c-btn-gold">詳細を見る</a>
                     </div>
                 </div>
             </div>
@@ -726,6 +768,7 @@ ul { list-style: none; }
                 <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 見積もりだけでも依頼できますか？</summary><div class="c-faq-item__a"><p>もちろん可能です。お見積もりは無料で承っておりますので、お気軽にお問い合わせください。</p></div></details>
                 <details class="c-faq-item"><summary class="c-faq-item__q"><span class="q-mark">Q.</span> 動画の修正は何回まで対応していますか？</summary><div class="c-faq-item__a"><p>プランによって異なりますが、基本的に2〜3回の修正を含んでおります。詳しくはお見積もり時にご説明いたします。</p></div></details>
             </div>
+            <div class="u-text-center" style="margin-top: 36px;"><a href="faq.html" class="c-btn-outline">その他質問一覧はこちら</a></div>
         </div>
     </section>
 
@@ -741,7 +784,7 @@ ul { list-style: none; }
                     <div class="l-cta__phone-num">03-5355-9661</div>
                     <div class="l-cta__phone-time">9:30〜18:30（土日祝除く）</div>
                 </a>
-                <a href="#contact-form" class="l-cta__form-box">
+                <a href="contact.html" class="l-cta__form-box">
                     <div class="l-cta__form-icon">
                         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
@@ -787,19 +830,19 @@ ul { list-style: none; }
                 <div class="l-footer__section">
                     <h3 class="c-footer-title">サービス</h3>
                     <ul class="c-footer-list">
-                        <li><a href="#">動画制作・映像制作</a></li>
-                        <li><a href="#">広告運用</a></li>
-                        <li><a href="#">YouTubeコンサル</a></li>
-                        <li><a href="#">ウェブサイト制作</a></li>
+                        <li><a href="service_video.html">動画制作・映像制作</a></li>
+                        <li><a href="service_ads.html">広告運用</a></li>
+                        <li><a href="service_youtube.html">YouTubeコンサル</a></li>
+                        <li><a href="service_web.html">ウェブサイト制作</a></li>
                     </ul>
                 </div>
                 <div class="l-footer__section">
                     <h3 class="c-footer-title">コンテンツ</h3>
                     <ul class="c-footer-list">
-                        <li><a href="#">制作実績</a></li>
-                        <li><a href="#">選ばれる理由</a></li>
-                        <li><a href="#">ご利用の流れ</a></li>
-                        <li><a href="#">よくあるご質問</a></li>
+                        <li><a href="works.html">制作実績</a></li>
+                        <li><a href="#reason">選ばれる理由</a></li>
+                        <li><a href="#flow">ご利用の流れ</a></li>
+                        <li><a href="faq.html">よくあるご質問</a></li>
                     </ul>
                 </div>
                 <div class="l-footer__section">
@@ -828,7 +871,7 @@ ul { list-style: none; }
             <div class="sticky-phone-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#c8a86e" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div><div class="sticky-phone-num">03-5355-9661</div><div class="sticky-phone-time">10:00〜19:00</div></div>
         </a>
-        <a href="#cta" class="l-sticky-footer__contact">
+        <a href="contact.html" class="l-sticky-footer__contact">
             <div class="sticky-contact-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div><div class="sticky-contact-title">御見積依頼・お問い合わせ</div><div class="sticky-contact-sub">お気軽にご相談ください</div></div>
         </a>

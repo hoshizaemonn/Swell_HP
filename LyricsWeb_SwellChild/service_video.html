@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動画制作・映像制作サービス | Lyrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & BASE
+============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.lyrics-sub {
+    background: #fff;
+    color: #111;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+.l-inner { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 20px; }
+.l-section { padding: 80px 0; }
+.js-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.js-fade.is-active { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   HEADER
+============================================ */
+.l-header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    z-index: 100; background: rgba(255,255,255,0.97);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.l-header__inner {
+    max-width: 100%; margin: 0 auto;
+    display: flex; align-items: center; height: 80px; padding: 0 0 0 30px;
+}
+.l-header__logo { margin-right: auto; }
+.l-header__logo a { font-family: "Montserrat", sans-serif; font-size: 26px; font-weight: 900; color: #111; }
+.l-header__nav { display: flex; align-items: center; }
+.l-header__menu { display: flex; gap: 24px; padding-right: 20px; }
+.l-header__menu li a {
+    font-size: 13px; font-weight: 700; color: #333;
+    position: relative; padding-bottom: 4px; transition: color 0.3s;
+}
+.l-header__menu li a:hover { color: #c8a86e; }
+.l-header__menu li a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: #c8a86e; transition: width 0.3s;
+}
+.l-header__menu li a:hover::after { width: 100%; }
+.l-header__menu li { position: relative; }
+.l-header__dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-radius: 10px;
+    padding: 20px; white-space: nowrap; z-index: 200; min-width: 520px;
+}
+.l-header__dropdown::before {
+    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff;
+}
+.l-header__menu li:hover .l-header__dropdown { display: flex; gap: 0; }
+.l-header__dropdown-item {
+    flex: 1; display: flex; flex-direction: column; align-items: center; padding: 12px 16px;
+    border-radius: 8px; transition: background 0.3s; text-align: center;
+}
+.l-header__dropdown-item:hover { background: #f7f6f4; }
+.l-header__dropdown-item::after { display: none !important; }
+.l-header__dropdown-num {
+    font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 700;
+    color: #c8a86e; letter-spacing: 0.08em; margin-bottom: 4px;
+}
+.l-header__dropdown-title { font-size: 12px; font-weight: 700; color: #333; line-height: 1.4; }
+.l-header__actions { display: flex; align-items: stretch; height: 80px; }
+.l-header__phone {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 22px; color: #111; font-size: 11px; font-weight: 700;
+    border-left: 1px solid #eee; transition: background 0.3s;
+}
+.l-header__phone:hover { background: #f7f6f4; }
+.l-header__phone svg { margin-bottom: 3px; }
+.l-header__contact-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 0 24px; background: #c8a86e; color: #fff;
+    font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center;
+    transition: opacity 0.3s; white-space: nowrap;
+}
+.l-header__contact-btn:hover { opacity: 0.9; }
+.l-header__contact-btn svg { margin-bottom: 3px; stroke: #fff; }
+.l-header__hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 28px; height: 22px; position: relative; z-index: 110; margin-right: 20px;
+}
+.l-header__hamburger span {
+    display: block; width: 100%; height: 2px; background: #111;
+    position: absolute; left: 0; transition: all 0.3s;
+}
+.l-header__hamburger span:nth-child(1) { top: 0; }
+.l-header__hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.l-header__hamburger span:nth-child(3) { bottom: 0; }
+.l-header__hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.l-header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+.l-header__hamburger.is-active span:nth-child(3) { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+@media (max-width: 1024px) {
+    .l-header__nav, .l-header__actions { display: none; }
+    .l-header__hamburger { display: block; margin-left: auto; }
+    .l-header__nav.is-open {
+        display: flex; position: fixed; top: 0; left: 0;
+        width: 100%; height: 100vh; background: rgba(255,255,255,0.98);
+        z-index: 105; justify-content: center; align-items: center;
+    }
+    .l-header__nav.is-open .l-header__menu { flex-direction: column; align-items: center; gap: 26px; }
+    .l-header__nav.is-open .l-header__menu li a { font-size: 17px; }
+}
+
+/* ============================================
+   PAGE HERO
+============================================ */
+.l-page-hero {
+    padding-top: 80px;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+.l-page-hero__bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    opacity: 0.3;
+}
+.l-page-hero__inner {
+    position: relative; z-index: 2;
+    padding: 60px 0 50px;
+    max-width: 1200px; width: 90%; margin: 0 auto; padding-left: 20px; padding-right: 20px;
+}
+.l-breadcrumb { display: flex; gap: 8px; font-size: 12px; color: #999; margin-bottom: 20px; }
+.l-breadcrumb a { color: #999; transition: color 0.3s; }
+.l-breadcrumb a:hover { color: #c8a86e; }
+.l-breadcrumb span { color: #666; }
+.l-page-hero__en {
+    font-family: "Montserrat", sans-serif; font-size: 56px; font-weight: 900;
+    color: #c8a86e; line-height: 1; margin-bottom: 10px;
+}
+.l-page-hero__jp { font-size: 18px; font-weight: 700; color: #fff; }
+@media (max-width: 768px) {
+    .l-page-hero__en { font-size: 34px; }
+    .l-page-hero__jp { font-size: 15px; }
+}
+
+/* ============================================
+   DARK BANNER (Doppo-style catch copy)
+============================================ */
+.l-dark-banner {
+    background: #1a1a1a; padding: 50px 0; text-align: center;
+}
+.l-dark-banner__catch {
+    font-size: 28px; font-weight: 700; color: #fff; line-height: 1.6; margin-bottom: 12px;
+}
+.l-dark-banner__catch .gold { color: #c8a86e; }
+.l-dark-banner__sub { font-size: 14px; color: #999; }
+@media (max-width: 768px) {
+    .l-dark-banner__catch { font-size: 20px; }
+}
+
+/* ============================================
+   SERVICE INTRO
+============================================ */
+.l-svc-intro { background: #fff; }
+.l-svc-intro__flex { display: flex; gap: 50px; align-items: center; }
+.l-svc-intro__img { flex: 1; border-radius: 12px; overflow: hidden; }
+.l-svc-intro__img img { width: 100%; height: 100%; object-fit: cover; min-height: 300px; }
+.l-svc-intro__body { flex: 1; }
+.l-svc-intro__body h2 { font-size: 26px; font-weight: 700; margin-bottom: 20px; line-height: 1.5; }
+.l-svc-intro__body h2 .gold { color: #c8a86e; }
+.l-svc-intro__body p { font-size: 15px; color: #555; line-height: 2; margin-bottom: 16px; }
+@media (max-width: 768px) {
+    .l-svc-intro__flex { flex-direction: column; gap: 30px; }
+}
+
+/* ============================================
+   FEATURE CARDS (photo background + white cards)
+============================================ */
+.l-features-wrap {
+    position: relative; padding: 80px 0; overflow: hidden;
+}
+.l-features-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; background-position: center;
+}
+.l-features-bg::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65);
+}
+.l-features-wrap .l-inner { position: relative; z-index: 2; }
+.l-features__header { text-align: center; margin-bottom: 50px; }
+.l-features__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-features__header p { font-size: 16px; font-weight: 700; color: #fff; }
+.l-features__grid { display: flex; gap: 22px; }
+.c-feat-card {
+    flex: 1; background: rgba(255,255,255,0.95); border-radius: 14px;
+    padding: 36px 26px; text-align: center; backdrop-filter: blur(6px);
+}
+.c-feat-card__num {
+    font-family: "Montserrat", sans-serif; font-size: 13px; font-weight: 700;
+    color: #c8a86e; margin-bottom: 16px; letter-spacing: 0.1em;
+}
+.c-feat-card__icon { width: 56px; height: 56px; margin: 0 auto 16px; color: #c8a86e; }
+.c-feat-card__title { font-size: 17px; font-weight: 700; margin-bottom: 14px; line-height: 1.5; color: #111; }
+.c-feat-card__text { font-size: 13px; color: #555; line-height: 1.8; text-align: left; }
+@media (max-width: 768px) {
+    .l-features__grid { flex-direction: column; }
+    .l-features__header h2 { font-size: 30px; }
+}
+
+/* ============================================
+   FLOW (image left, text right)
+============================================ */
+.l-flow { background: #fff; padding: 80px 0; }
+.l-flow__header { text-align: center; margin-bottom: 50px; }
+.l-flow__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-flow__header p { font-size: 16px; font-weight: 700; }
+.l-flow__list { display: flex; flex-direction: column; gap: 40px; }
+.c-flow-row { display: flex; gap: 36px; align-items: stretch; }
+.c-flow-row__img {
+    width: 320px; flex-shrink: 0; border-radius: 12px; overflow: hidden; position: relative;
+}
+.c-flow-row__img img { width: 100%; height: 100%; object-fit: cover; min-height: 200px; }
+.c-flow-row__num {
+    position: absolute; top: 14px; left: 14px;
+    font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 900;
+    color: #fff; background: #c8a86e; padding: 4px 14px; border-radius: 4px;
+}
+.c-flow-row__body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.c-flow-row__title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.c-flow-row__text { font-size: 14px; color: #666; line-height: 1.9; }
+@media (max-width: 768px) {
+    .c-flow-row { flex-direction: column; gap: 16px; }
+    .c-flow-row__img { width: 100%; }
+}
+
+/* ============================================
+   PLAN TABLE
+============================================ */
+.l-plan { background: #fff; }
+.l-plan__header { text-align: center; margin-bottom: 50px; }
+.l-plan__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-plan__header p { font-size: 16px; font-weight: 700; }
+.l-plan__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.c-plan-card {
+    border: 2px solid #eee; border-radius: 14px; overflow: hidden;
+    text-align: center; transition: border-color 0.3s;
+}
+.c-plan-card:hover { border-color: #c8a86e; }
+.c-plan-card--popular { border-color: #c8a86e; }
+.c-plan-card__badge {
+    background: #c8a86e; color: #fff; font-size: 12px; font-weight: 700;
+    padding: 6px 0; display: none;
+}
+.c-plan-card--popular .c-plan-card__badge { display: block; }
+.c-plan-card__header { padding: 28px 20px 20px; }
+.c-plan-card__name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.c-plan-card__price { font-family: "Montserrat", sans-serif; font-size: 32px; font-weight: 900; color: #c8a86e; }
+.c-plan-card__price span { font-size: 14px; font-weight: 700; color: #999; }
+.c-plan-card__body { padding: 0 24px 28px; }
+.c-plan-card__list { text-align: left; }
+.c-plan-card__list li {
+    font-size: 13px; color: #555; padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    padding-left: 20px; position: relative;
+}
+.c-plan-card__list li::before {
+    content: '✓'; position: absolute; left: 0; color: #c8a86e; font-weight: 700;
+}
+.c-plan-card__btn {
+    display: inline-block; border: 2px solid #c8a86e; color: #c8a86e;
+    padding: 10px 32px; font-size: 13px; font-weight: 700; border-radius: 50px;
+    margin-top: 20px; transition: all 0.3s;
+}
+.c-plan-card__btn:hover { background: #c8a86e; color: #fff; }
+.c-plan-card--popular .c-plan-card__btn { background: #c8a86e; color: #fff; }
+.c-plan-card--popular .c-plan-card__btn:hover { opacity: 0.85; }
+@media (max-width: 768px) {
+    .l-plan__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}
+
+/* ============================================
+   CTA
+============================================ */
+.l-cta { background: #1a1a1a; padding: 70px 0; }
+.l-cta__lead { text-align: center; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 36px; }
+.l-cta__actions { display: flex; justify-content: center; gap: 20px; max-width: 700px; margin: 0 auto; }
+.l-cta__phone-box {
+    flex: 1; background: #fff; padding: 32px 28px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 10px;
+}
+.l-cta__phone-num { font-family: "Montserrat", sans-serif; font-size: 28px; font-weight: 900; color: #c8a86e; margin-bottom: 6px; }
+.l-cta__phone-time { font-size: 12px; color: #999; }
+.l-cta__form-box {
+    flex: 1; background: #c8a86e; padding: 32px 28px; text-align: center;
+    color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 0.3s; border-radius: 10px;
+}
+.l-cta__form-box:hover { opacity: 0.92; }
+.l-cta__form-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.l-cta__form-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) {
+    .l-cta__actions { flex-direction: column; gap: 16px; }
+    .l-cta__phone-num { font-size: 22px; }
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.l-footer { background: #1a1a1a; color: #fff; padding: 60px 0 0; }
+.l-footer__head { margin-bottom: 36px; }
+.c-footer-logo { font-size: 30px; font-weight: 900; font-family: "Montserrat", sans-serif; }
+.l-footer__body { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+.l-footer__section { flex: 1; }
+.c-footer-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #ccc; }
+.c-footer-list li { margin-bottom: 7px; font-size: 12px; }
+.c-footer-list li a { color: #aaa; transition: color 0.3s; }
+.c-footer-list li a:hover { color: #c8a86e; }
+.c-company-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 0; }
+.c-company-row dt { width: 35%; font-size: 11px; color: #999; }
+.c-company-row dd { width: 65%; font-size: 11px; color: #ddd; }
+.l-footer__copy { text-align: center; font-size: 11px; color: #555; padding: 24px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+@media (max-width: 768px) { .l-footer__body { flex-direction: column; gap: 28px; } }
+</style>
+</head>
+<body>
+<div class="lyrics-sub">
+
+    <!-- ========== HEADER ========== -->
+    <header class="l-header">
+        <div class="l-header__inner">
+            <div class="l-header__logo"><a href="preview_v2.html">Lyrics</a></div>
+            <nav class="l-header__nav" id="js-nav">
+                <ul class="l-header__menu">
+                    <li>
+                        <a href="preview_v2.html#service">サービス</a>
+                        <div class="l-header__dropdown">
+                            <a href="service_video.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 01</span>
+                                <span class="l-header__dropdown-title">動画制作・<br>映像制作</span>
+                            </a>
+                            <a href="service_ads.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 02</span>
+                                <span class="l-header__dropdown-title">広告運用</span>
+                            </a>
+                            <a href="service_youtube.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 03</span>
+                                <span class="l-header__dropdown-title">YouTube<br>コンサル</span>
+                            </a>
+                            <a href="service_web.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 04</span>
+                                <span class="l-header__dropdown-title">ウェブサイト<br>制作</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="works.html">制作実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="faq.html">よくあるご質問</a></li>
+                    <li><a href="news.html">ニュース</a></li>
+                </ul>
+            </nav>
+            <div class="l-header__actions">
+                <a href="tel:03-5355-9661" class="l-header__phone">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>電話する</span>
+                </a>
+                <a href="contact.html" class="l-header__contact-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>御見積依頼<br>お問い合わせ</span>
+                </a>
+            </div>
+            <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== PAGE HERO ========== -->
+    <div class="l-page-hero">
+        <div class="l-page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1579165466741-7f35e4755660?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="l-page-hero__inner">
+            <div class="l-breadcrumb">
+                <a href="preview_v2.html">HOME</a><span>›</span>
+                <a href="preview_v2.html#service">サービス</a><span>›</span>
+                <span style="color:#fff;">動画制作・映像制作</span>
+            </div>
+            <h1 class="l-page-hero__en">VIDEO</h1>
+            <p class="l-page-hero__jp">動画制作・映像制作サービス</p>
+        </div>
+    </div>
+
+    <!-- ========== DARK BANNER ========== -->
+    <div class="l-dark-banner">
+        <div class="l-inner">
+            <p class="l-dark-banner__catch">映像の力で<span class="gold">「伝わる」</span>を実現する</p>
+            <p class="l-dark-banner__sub">WebCM・企業紹介・商品PR・採用動画 ― 企画から納品までワンストップ対応</p>
+        </div>
+    </div>
+
+    <!-- ========== INTRO ========== -->
+    <section class="l-section l-svc-intro js-fade">
+        <div class="l-inner">
+            <div class="l-svc-intro__flex">
+                <div class="l-svc-intro__img">
+                    <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="動画制作">
+                </div>
+                <div class="l-svc-intro__body">
+                    <h2>あなたのビジネスを<br><span class="gold">映像の力</span>で加速させる</h2>
+                    <p>WebCM・企業紹介・商品PR・採用動画・イベント映像など、あらゆるジャンルの動画制作に対応。企画から撮影・編集・納品までワンストップで対応いたします。</p>
+                    <p>映像のプロフェッショナルが、お客様のビジネス課題を深く理解し、ターゲットに確実に届く映像コンテンツを制作します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES (photo bg) ========== -->
+    <div class="l-features-wrap js-fade">
+        <div class="l-features-bg"></div>
+        <div class="l-inner">
+            <div class="l-features__header">
+                <h2>FEATURES</h2>
+                <p>サービスの特徴</p>
+            </div>
+            <div class="l-features__grid">
+                <div class="c-feat-card">
+                    <div class="c-feat-card__num">FEATURE 01</div>
+                    <div class="c-feat-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3 class="c-feat-card__title">企画力で差をつける</h3>
+                    <p class="c-feat-card__text">ただ撮影するだけではなく、ターゲット分析・コンセプト設計から入り、成果につながる映像をご提案。戦略に基づいた企画力が強みです。</p>
+                </div>
+                <div class="c-feat-card">
+                    <div class="c-feat-card__num">FEATURE 02</div>
+                    <div class="c-feat-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <h3 class="c-feat-card__title">高品質な映像クオリティ</h3>
+                    <p class="c-feat-card__text">4K対応のプロフェッショナル機材と経験豊富なカメラマンによる撮影。カラーグレーディング・サウンドデザインまでこだわった仕上がり。</p>
+                </div>
+                <div class="c-feat-card">
+                    <div class="c-feat-card__num">FEATURE 03</div>
+                    <div class="c-feat-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 class="c-feat-card__title">スピーディーな納品</h3>
+                    <p class="c-feat-card__text">最短2週間での納品が可能。急ぎの案件にも柔軟に対応し、スケジュールに合わせた最適な制作フローをご提案いたします。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FLOW (image left, text right) ========== -->
+    <section class="l-flow js-fade">
+        <div class="l-inner">
+            <div class="l-flow__header">
+                <h2>FLOW</h2>
+                <p>制作の流れ</p>
+            </div>
+            <div class="l-flow__list">
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ヒアリング">
+                        <span class="c-flow-row__num">STEP 01</span>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">ヒアリング・お打ち合わせ</h3>
+                        <p class="c-flow-row__text">まずはお客様のビジネス課題や映像の目的、ターゲット、活用シーンなどを丁寧にヒアリング。ゴールを明確にした上で、最適な映像の方向性をご提案します。オンライン・対面どちらでも対応可能です。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="企画・構成">
+                        <span class="c-flow-row__num">STEP 02</span>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">企画・構成</h3>
+                        <p class="c-flow-row__text">ヒアリング内容をもとに、コンセプト・ストーリー構成・台本を作成。必要に応じて絵コンテやロケハンも実施し、撮影に向けた準備を万全に整えます。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="撮影">
+                        <span class="c-flow-row__num">STEP 03</span>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">撮影</h3>
+                        <p class="c-flow-row__text">プロフェッショナルな機材と経験豊富なスタッフが撮影を担当。4K対応カメラやドローン、照明機材を駆使し、高品質な映像素材を収録します。</p>
+                    </div>
+                </div>
+                <div class="c-flow-row">
+                    <div class="c-flow-row__img">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="編集・納品">
+                        <span class="c-flow-row__num">STEP 04</span>
+                    </div>
+                    <div class="c-flow-row__body">
+                        <h3 class="c-flow-row__title">編集・納品</h3>
+                        <p class="c-flow-row__text">カット編集・カラーグレーディング・BGM・テロップ・モーショングラフィックスなどを駆使して映像を仕上げます。試写確認・修正を経て、ご希望のフォーマットで納品いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PLAN ========== -->
+    <section class="l-section l-plan js-fade">
+        <div class="l-inner">
+            <div class="l-plan__header">
+                <h2>PLAN</h2>
+                <p>料金プラン</p>
+            </div>
+            <div class="l-plan__grid">
+                <div class="c-plan-card">
+                    <div class="c-plan-card__badge">　</div>
+                    <div class="c-plan-card__header">
+                        <h3 class="c-plan-card__name">ライトプラン</h3>
+                        <div class="c-plan-card__price">¥150,000〜<span> /本</span></div>
+                    </div>
+                    <div class="c-plan-card__body">
+                        <ul class="c-plan-card__list">
+                            <li>撮影時間：半日</li>
+                            <li>完成尺：30秒〜1分</li>
+                            <li>企画・構成案作成</li>
+                            <li>撮影1カメラ</li>
+                            <li>基本編集・テロップ</li>
+                            <li>修正2回まで</li>
+                        </ul>
+                        <a href="contact.html" class="c-plan-card__btn">お問い合わせ</a>
+                    </div>
+                </div>
+                <div class="c-plan-card c-plan-card--popular">
+                    <div class="c-plan-card__badge">POPULAR</div>
+                    <div class="c-plan-card__header">
+                        <h3 class="c-plan-card__name">スタンダードプラン</h3>
+                        <div class="c-plan-card__price">¥350,000〜<span> /本</span></div>
+                    </div>
+                    <div class="c-plan-card__body">
+                        <ul class="c-plan-card__list">
+                            <li>撮影時間：1日</li>
+                            <li>完成尺：1〜3分</li>
+                            <li>企画・構成案・台本作成</li>
+                            <li>撮影2カメラ</li>
+                            <li>本格編集・BGM・SE</li>
+                            <li>ナレーション収録</li>
+                            <li>修正3回まで</li>
+                        </ul>
+                        <a href="contact.html" class="c-plan-card__btn">お問い合わせ</a>
+                    </div>
+                </div>
+                <div class="c-plan-card">
+                    <div class="c-plan-card__badge">　</div>
+                    <div class="c-plan-card__header">
+                        <h3 class="c-plan-card__name">プレミアムプラン</h3>
+                        <div class="c-plan-card__price">¥600,000〜<span> /本</span></div>
+                    </div>
+                    <div class="c-plan-card__body">
+                        <ul class="c-plan-card__list">
+                            <li>撮影時間：2日</li>
+                            <li>完成尺：3〜5分</li>
+                            <li>企画・構成・台本・絵コンテ</li>
+                            <li>マルチカメラ撮影</li>
+                            <li>モーショングラフィックス</li>
+                            <li>ドローン撮影対応</li>
+                            <li>修正無制限</li>
+                        </ul>
+                        <a href="contact.html" class="c-plan-card__btn">お問い合わせ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="l-cta js-fade">
+        <div class="l-inner">
+            <p class="l-cta__lead">映像制作のことなら、お気軽にご相談ください</p>
+            <div class="l-cta__actions">
+                <a href="tel:03-5355-9661" class="l-cta__phone-box">
+                    <div class="l-cta__phone-num">03-5355-9661</div>
+                    <div class="l-cta__phone-time">9:30〜18:30（土日祝除く）</div>
+                </a>
+                <a href="contact.html" class="l-cta__form-box">
+                    <div class="l-cta__form-title">お問い合わせフォーム</div>
+                    <div class="l-cta__form-sub">24時間受付</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="l-footer">
+        <div class="l-inner">
+            <div class="l-footer__head"><h2 class="c-footer-logo">Lyrics</h2></div>
+            <div class="l-footer__body">
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">サービス</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="service_video.html">動画制作・映像制作</a></li>
+                        <li><a href="service_ads.html">広告運用</a></li>
+                        <li><a href="service_youtube.html">YouTubeコンサル</a></li>
+                        <li><a href="service_web.html">ウェブサイト制作</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">コンテンツ</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="works.html">制作実績</a></li>
+                        <li><a href="preview_v2.html#reason">選ばれる理由</a></li>
+                        <li><a href="preview_v2.html#flow">ご利用の流れ</a></li>
+                        <li><a href="faq.html">よくあるご質問</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社情報</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社概要</h3>
+                    <dl>
+                        <div class="c-company-row"><dt>運営会社</dt><dd>株式会社Lyrics</dd></div>
+                        <div class="c-company-row"><dt>電話番号</dt><dd>03-5355-9661</dd></div>
+                        <div class="c-company-row"><dt>所在地</dt><dd>大阪府守口市xx-xx-xx</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="l-footer__copy">&copy; 2025 Lyrics Inc. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('is-active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(function(el) { observer.observe(el); });
+
+    var hamburger = document.getElementById('js-hamburger');
+    var nav = document.getElementById('js-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() { hamburger.classList.toggle('is-active'); nav.classList.toggle('is-open'); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { hamburger.classList.remove('is-active'); nav.classList.remove('is-open'); }); });
+    }
+});
+</script>
+</body>
+</html>

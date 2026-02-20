@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要 | Lyrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.lyrics-sub {
+    background: #fff; color: #111;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em; line-height: 1.8;
+}
+.l-inner { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 20px; }
+.l-section { padding: 80px 0; }
+.js-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.js-fade.is-active { opacity: 1; transform: translateY(0); }
+
+/* HEADER */
+.l-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.97); box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.l-header__inner { max-width: 100%; margin: 0 auto; display: flex; align-items: center; height: 80px; padding: 0 0 0 30px; }
+.l-header__logo { margin-right: auto; }
+.l-header__logo a { font-family: "Montserrat", sans-serif; font-size: 26px; font-weight: 900; color: #111; }
+.l-header__nav { display: flex; align-items: center; }
+.l-header__menu { display: flex; gap: 24px; padding-right: 20px; }
+.l-header__menu li a { font-size: 13px; font-weight: 700; color: #333; position: relative; padding-bottom: 4px; transition: color 0.3s; }
+.l-header__menu li a:hover { color: #c8a86e; }
+.l-header__menu li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #c8a86e; transition: width 0.3s; }
+.l-header__menu li a:hover::after { width: 100%; }
+.l-header__menu li { position: relative; }
+.l-header__dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-radius: 10px; padding: 20px; white-space: nowrap; z-index: 200; min-width: 520px; }
+.l-header__dropdown::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff; }
+.l-header__menu li:hover .l-header__dropdown { display: flex; gap: 0; }
+.l-header__dropdown-item { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 12px 16px; border-radius: 8px; transition: background 0.3s; text-align: center; }
+.l-header__dropdown-item:hover { background: #f7f6f4; }
+.l-header__dropdown-item::after { display: none !important; }
+.l-header__dropdown-num { font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 700; color: #c8a86e; letter-spacing: 0.08em; margin-bottom: 4px; }
+.l-header__dropdown-title { font-size: 12px; font-weight: 700; color: #333; line-height: 1.4; }
+.l-header__actions { display: flex; align-items: stretch; height: 80px; }
+.l-header__phone { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 22px; color: #111; font-size: 11px; font-weight: 700; border-left: 1px solid #eee; transition: background 0.3s; }
+.l-header__phone:hover { background: #f7f6f4; }
+.l-header__phone svg { margin-bottom: 3px; }
+.l-header__contact-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; background: #c8a86e; color: #fff; font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center; transition: opacity 0.3s; white-space: nowrap; }
+.l-header__contact-btn:hover { opacity: 0.9; }
+.l-header__contact-btn svg { margin-bottom: 3px; stroke: #fff; }
+.l-header__hamburger { display: none; background: none; border: none; cursor: pointer; width: 28px; height: 22px; position: relative; z-index: 110; margin-right: 20px; }
+.l-header__hamburger span { display: block; width: 100%; height: 2px; background: #111; position: absolute; left: 0; transition: all 0.3s; }
+.l-header__hamburger span:nth-child(1) { top: 0; }
+.l-header__hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.l-header__hamburger span:nth-child(3) { bottom: 0; }
+.l-header__hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.l-header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+.l-header__hamburger.is-active span:nth-child(3) { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+@media (max-width: 1024px) {
+    .l-header__nav, .l-header__actions { display: none; }
+    .l-header__hamburger { display: block; margin-left: auto; }
+    .l-header__nav.is-open { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); z-index: 105; justify-content: center; align-items: center; }
+    .l-header__nav.is-open .l-header__menu { flex-direction: column; align-items: center; gap: 26px; }
+    .l-header__nav.is-open .l-header__menu li a { font-size: 17px; }
+}
+
+/* PAGE HERO */
+.l-page-hero { padding-top: 80px; background: #1a1a1a; position: relative; overflow: hidden; }
+.l-page-hero__bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.3; }
+.l-page-hero__inner { position: relative; z-index: 2; padding: 60px 20px 50px; max-width: 1200px; width: 90%; margin: 0 auto; }
+.l-breadcrumb { display: flex; gap: 8px; font-size: 12px; color: #999; margin-bottom: 20px; }
+.l-breadcrumb a { color: #999; transition: color 0.3s; }
+.l-breadcrumb a:hover { color: #c8a86e; }
+.l-page-hero__en { font-family: "Montserrat", sans-serif; font-size: 56px; font-weight: 900; color: #c8a86e; line-height: 1; margin-bottom: 10px; }
+.l-page-hero__jp { font-size: 18px; font-weight: 700; color: #fff; }
+@media (max-width: 768px) { .l-page-hero__en { font-size: 34px; } .l-page-hero__jp { font-size: 15px; } }
+
+/* PHILOSOPHY */
+.l-philosophy { background: #fff; }
+.l-philosophy__header { text-align: center; margin-bottom: 50px; }
+.l-philosophy__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-philosophy__header p { font-size: 16px; font-weight: 700; }
+.l-philosophy__content { max-width: 800px; margin: 0 auto; text-align: center; }
+.l-philosophy__catch {
+    font-size: 28px; font-weight: 700; line-height: 1.6; margin-bottom: 30px;
+    position: relative; padding-bottom: 30px;
+}
+.l-philosophy__catch::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 3px; background: #c8a86e;
+}
+.l-philosophy__catch .gold { color: #c8a86e; }
+.l-philosophy__text { font-size: 15px; color: #555; line-height: 2; text-align: left; }
+@media (max-width: 768px) { .l-philosophy__catch { font-size: 22px; } }
+
+/* COMPANY TABLE */
+.l-company { background: #f7f6f4; }
+.l-company__header { text-align: center; margin-bottom: 50px; }
+.l-company__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-company__header p { font-size: 16px; font-weight: 700; }
+.l-company__table { max-width: 800px; margin: 0 auto; width: 100%; border-collapse: collapse; }
+.l-company__table tr { border-bottom: 1px solid #ddd; }
+.l-company__table th {
+    font-size: 14px; font-weight: 700; padding: 18px 20px; width: 25%;
+    text-align: left; vertical-align: top; background: rgba(200,168,110,0.08);
+}
+.l-company__table td { font-size: 14px; color: #555; padding: 18px 20px; }
+@media (max-width: 768px) {
+    .l-company__table th, .l-company__table td { display: block; width: 100%; padding: 12px 16px; }
+    .l-company__table th { padding-bottom: 4px; }
+    .l-company__table td { padding-top: 4px; }
+}
+
+/* MESSAGE */
+.l-message-wrap { padding: 0 0 0 30px; }
+.l-message-block {
+    background: #1a1a1a; color: #fff;
+    border-radius: 100px 0 0 100px;
+    padding: 80px 5% 80px 60px;
+    position: relative; overflow: hidden;
+}
+.l-message-block__header { margin-bottom: 40px; }
+.l-message-block__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-message-block__header p { font-size: 16px; font-weight: 700; }
+.l-message__inner { display: flex; align-items: flex-start; gap: 45px; max-width: 900px; }
+.l-message__img { width: 35%; flex-shrink: 0; }
+.l-message__img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.l-message__content { width: 65%; }
+.l-message__name { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+.l-message__role { font-size: 13px; color: #c8a86e; font-weight: 700; margin-left: 12px; }
+.l-message__text { font-size: 14px; line-height: 2; color: #bbb; }
+@media (max-width: 768px) {
+    .l-message-wrap { padding: 0 15px; }
+    .l-message-block { border-radius: 20px; padding: 50px 24px; }
+    .l-message__inner { flex-direction: column; gap: 24px; }
+    .l-message__img, .l-message__content { width: 100%; }
+    .l-message-block__header h2 { font-size: 30px; }
+}
+
+/* MAP */
+.l-map { background: #fff; }
+.l-map__header { text-align: center; margin-bottom: 50px; }
+.l-map__header h2 { font-family: "Montserrat", sans-serif; font-size: 42px; font-weight: 900; color: #c8a86e; margin-bottom: 8px; }
+.l-map__header p { font-size: 16px; font-weight: 700; }
+.l-map__content { display: flex; gap: 40px; align-items: flex-start; }
+.l-map__embed { flex: 1.2; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.l-map__embed iframe { width: 100%; height: 360px; border: 0; }
+.l-map__info { flex: 0.8; }
+.l-map__info-table { width: 100%; border-collapse: collapse; }
+.l-map__info-table tr { border-bottom: 1px solid #ddd; }
+.l-map__info-table th { font-size: 13px; font-weight: 700; padding: 13px 0; width: 30%; text-align: left; vertical-align: top; }
+.l-map__info-table td { font-size: 13px; color: #555; padding: 13px 0; }
+@media (max-width: 768px) { .l-map__content { flex-direction: column; gap: 28px; } }
+
+/* CTA */
+.l-cta { background: #1a1a1a; padding: 70px 0; }
+.l-cta__lead { text-align: center; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 36px; }
+.l-cta__actions { display: flex; justify-content: center; gap: 20px; max-width: 700px; margin: 0 auto; }
+.l-cta__phone-box { flex: 1; background: #fff; padding: 32px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 10px; }
+.l-cta__phone-num { font-family: "Montserrat", sans-serif; font-size: 28px; font-weight: 900; color: #c8a86e; margin-bottom: 6px; }
+.l-cta__phone-time { font-size: 12px; color: #999; }
+.l-cta__form-box { flex: 1; background: #c8a86e; padding: 32px 28px; text-align: center; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.3s; border-radius: 10px; }
+.l-cta__form-box:hover { opacity: 0.92; }
+.l-cta__form-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.l-cta__form-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
+@media (max-width: 768px) { .l-cta__actions { flex-direction: column; gap: 16px; } .l-cta__phone-num { font-size: 22px; } }
+
+/* FOOTER */
+.l-footer { background: #1a1a1a; color: #fff; padding: 60px 0 0; }
+.l-footer__head { margin-bottom: 36px; }
+.c-footer-logo { font-size: 30px; font-weight: 900; font-family: "Montserrat", sans-serif; }
+.l-footer__body { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+.l-footer__section { flex: 1; }
+.c-footer-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #ccc; }
+.c-footer-list li { margin-bottom: 7px; font-size: 12px; }
+.c-footer-list li a { color: #aaa; transition: color 0.3s; }
+.c-footer-list li a:hover { color: #c8a86e; }
+.c-company-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 0; }
+.c-company-row dt { width: 35%; font-size: 11px; color: #999; }
+.c-company-row dd { width: 65%; font-size: 11px; color: #ddd; }
+.l-footer__copy { text-align: center; font-size: 11px; color: #555; padding: 24px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+@media (max-width: 768px) { .l-footer__body { flex-direction: column; gap: 28px; } }
+</style>
+</head>
+<body>
+<div class="lyrics-sub">
+
+    <!-- HEADER -->
+    <header class="l-header">
+        <div class="l-header__inner">
+            <div class="l-header__logo"><a href="preview_v2.html">Lyrics</a></div>
+            <nav class="l-header__nav" id="js-nav">
+                <ul class="l-header__menu">
+                    <li>
+                        <a href="preview_v2.html#service">サービス</a>
+                        <div class="l-header__dropdown">
+                            <a href="service_video.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 01</span>
+                                <span class="l-header__dropdown-title">動画制作・<br>映像制作</span>
+                            </a>
+                            <a href="service_ads.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 02</span>
+                                <span class="l-header__dropdown-title">広告運用</span>
+                            </a>
+                            <a href="service_youtube.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 03</span>
+                                <span class="l-header__dropdown-title">YouTube<br>コンサル</span>
+                            </a>
+                            <a href="service_web.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 04</span>
+                                <span class="l-header__dropdown-title">ウェブサイト<br>制作</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="works.html">制作実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="faq.html">よくあるご質問</a></li>
+                    <li><a href="news.html">ニュース</a></li>
+                </ul>
+            </nav>
+            <div class="l-header__actions">
+                <a href="tel:03-5355-9661" class="l-header__phone">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>電話する</span>
+                </a>
+                <a href="contact.html" class="l-header__contact-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>御見積依頼<br>お問い合わせ</span>
+                </a>
+            </div>
+            <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="l-page-hero">
+        <div class="l-page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="l-page-hero__inner">
+            <div class="l-breadcrumb">
+                <a href="preview_v2.html">HOME</a><span>›</span>
+                <span style="color:#fff;">会社概要</span>
+            </div>
+            <h1 class="l-page-hero__en">ABOUT</h1>
+            <p class="l-page-hero__jp">会社概要</p>
+        </div>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <section class="l-section l-philosophy js-fade">
+        <div class="l-inner">
+            <div class="l-philosophy__header">
+                <h2>PHILOSOPHY</h2>
+                <p>私たちの想い</p>
+            </div>
+            <div class="l-philosophy__content">
+                <h3 class="l-philosophy__catch">想いを、<span class="gold">カタチ</span>に。<br>表現を、<span class="gold">結果</span>に。</h3>
+                <p class="l-philosophy__text">
+                    私たちLyricsは、映像制作・Web制作を通じてお客様のビジネスの成長に貢献することを使命としています。<br><br>
+                    「つくる」だけでは終わらない。お客様のビジネスゴールを深く理解し、ターゲットに確実に届くクリエイティブを生み出す。それが私たちの仕事です。<br><br>
+                    守口を拠点に大阪全域、そして全国のお客様に、企画から撮影・編集・納品までワンストップで高品質なサービスをお届けしてまいります。お客様の「想い」を「カタチ」にし、理想の「結果」へと導く。それがLyricsの存在意義です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MESSAGE -->
+    <div class="l-message-wrap js-fade" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="l-message-block">
+            <div class="l-inner">
+                <div class="l-message-block__header">
+                    <h2>MESSAGE</h2>
+                    <p style="color:#fff;">代表挨拶</p>
+                </div>
+                <div class="l-message__inner">
+                    <div class="l-message__img">
+                        <img src="images/download-2025-12-28T23_15_54.jpg" alt="代表">
+                    </div>
+                    <div class="l-message__content">
+                        <h3 class="l-message__name">山田 太郎<span class="l-message__role">代表</span></h3>
+                        <p class="l-message__text">
+                            Lyrics（リリックス）のホームページをご覧いただき、ありがとうございます。<br><br>
+                            私たちは守口を拠点に、大阪全域のお客様に映像制作・Web制作サービスを提供しております。「お客様の想いをカタチにする」をモットーに、一つひとつのプロジェクトに丁寧に向き合い、クオリティの高いクリエイティブをお届けしてまいりました。<br><br>
+                            映像やWebサイトは、ビジネスの成長に欠かせないツールです。お客様のビジネスゴールを達成するために、最適なご提案をさせていただきます。まずはお気軽にご相談ください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPANY INFO -->
+    <section class="l-section l-company js-fade">
+        <div class="l-inner">
+            <div class="l-company__header">
+                <h2>COMPANY</h2>
+                <p>会社情報</p>
+            </div>
+            <table class="l-company__table">
+                <tr><th>会社名</th><td>株式会社Lyrics</td></tr>
+                <tr><th>代表者</th><td>山田 太郎</td></tr>
+                <tr><th>設立</th><td>2020年4月</td></tr>
+                <tr><th>所在地</th><td>〒570-0000 大阪府守口市xx-xx-xx</td></tr>
+                <tr><th>電話番号</th><td>03-5355-9661</td></tr>
+                <tr><th>メール</th><td>info@lyrics-inc.com</td></tr>
+                <tr><th>営業時間</th><td>10:00〜19:00（土日祝休み）</td></tr>
+                <tr><th>事業内容</th><td>映像制作 / Web制作 / 広告運用 / YouTubeコンサルティング / ブランディング</td></tr>
+                <tr><th>主要取引先</th><td>株式会社ABC / DEF株式会社 / GHI株式会社 他</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="l-section l-map js-fade">
+        <div class="l-inner">
+            <div class="l-map__header">
+                <h2>ACCESS</h2>
+                <p>アクセス</p>
+            </div>
+            <div class="l-map__content">
+                <div class="l-map__embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13117.47!2d135.5625!3d34.7375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e4b5a99bffff%3A0x1234567890abcdef!2z5a6I5Y-j5biC!5e0!3m2!1sja!2sjp!4v1" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="l-map__info">
+                    <table class="l-map__info-table">
+                        <tr><th>住所</th><td>〒570-0000<br>大阪府守口市xx-xx-xx</td></tr>
+                        <tr><th>最寄り駅</th><td>京阪本線 守口市駅より徒歩5分</td></tr>
+                        <tr><th>駐車場</th><td>近隣にコインパーキングあり</td></tr>
+                        <tr><th>営業時間</th><td>10:00〜19:00</td></tr>
+                        <tr><th>定休日</th><td>土・日・祝日・年末年始</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="l-cta js-fade">
+        <div class="l-inner">
+            <p class="l-cta__lead">映像制作・Web制作のことなら、お気軽にご相談ください</p>
+            <div class="l-cta__actions">
+                <a href="tel:03-5355-9661" class="l-cta__phone-box">
+                    <div class="l-cta__phone-num">03-5355-9661</div>
+                    <div class="l-cta__phone-time">9:30〜18:30（土日祝除く）</div>
+                </a>
+                <a href="contact.html" class="l-cta__form-box">
+                    <div class="l-cta__form-title">お問い合わせフォーム</div>
+                    <div class="l-cta__form-sub">24時間受付</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="l-footer">
+        <div class="l-inner">
+            <div class="l-footer__head"><h2 class="c-footer-logo">Lyrics</h2></div>
+            <div class="l-footer__body">
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">サービス</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="service_video.html">動画制作・映像制作</a></li>
+                        <li><a href="service_ads.html">広告運用</a></li>
+                        <li><a href="service_youtube.html">YouTubeコンサル</a></li>
+                        <li><a href="service_web.html">ウェブサイト制作</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">コンテンツ</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="works.html">制作実績</a></li>
+                        <li><a href="preview_v2.html#reason">選ばれる理由</a></li>
+                        <li><a href="preview_v2.html#flow">ご利用の流れ</a></li>
+                        <li><a href="faq.html">よくあるご質問</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社情報</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社概要</h3>
+                    <dl>
+                        <div class="c-company-row"><dt>運営会社</dt><dd>株式会社Lyrics</dd></div>
+                        <div class="c-company-row"><dt>電話番号</dt><dd>03-5355-9661</dd></div>
+                        <div class="c-company-row"><dt>所在地</dt><dd>大阪府守口市xx-xx-xx</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="l-footer__copy">&copy; 2025 Lyrics Inc. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('is-active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(function(el) { observer.observe(el); });
+
+    var hamburger = document.getElementById('js-hamburger');
+    var nav = document.getElementById('js-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() { hamburger.classList.toggle('is-active'); nav.classList.toggle('is-open'); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { hamburger.classList.remove('is-active'); nav.classList.remove('is-open'); }); });
+    }
+});
+</script>
+</body>
+</html>

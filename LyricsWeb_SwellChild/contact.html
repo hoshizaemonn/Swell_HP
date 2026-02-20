@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | Lyrics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.lyrics-sub {
+    background: #fff; color: #111;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    letter-spacing: 0.05em; line-height: 1.8;
+}
+.l-inner { max-width: 1200px; width: 90%; margin: 0 auto; padding: 0 20px; }
+.l-section { padding: 80px 0; }
+.js-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.js-fade.is-active { opacity: 1; transform: translateY(0); }
+
+/* HEADER */
+.l-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.97); box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.l-header__inner { max-width: 100%; margin: 0 auto; display: flex; align-items: center; height: 80px; padding: 0 0 0 30px; }
+.l-header__logo { margin-right: auto; }
+.l-header__logo a { font-family: "Montserrat", sans-serif; font-size: 26px; font-weight: 900; color: #111; }
+.l-header__nav { display: flex; align-items: center; }
+.l-header__menu { display: flex; gap: 24px; padding-right: 20px; }
+.l-header__menu li a { font-size: 13px; font-weight: 700; color: #333; position: relative; padding-bottom: 4px; transition: color 0.3s; }
+.l-header__menu li a:hover { color: #c8a86e; }
+.l-header__menu li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #c8a86e; transition: width 0.3s; }
+.l-header__menu li a:hover::after { width: 100%; }
+.l-header__menu li { position: relative; }
+.l-header__dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-radius: 10px; padding: 20px; white-space: nowrap; z-index: 200; min-width: 520px; }
+.l-header__dropdown::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff; }
+.l-header__menu li:hover .l-header__dropdown { display: flex; gap: 0; }
+.l-header__dropdown-item { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 12px 16px; border-radius: 8px; transition: background 0.3s; text-align: center; }
+.l-header__dropdown-item:hover { background: #f7f6f4; }
+.l-header__dropdown-item::after { display: none !important; }
+.l-header__dropdown-num { font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 700; color: #c8a86e; letter-spacing: 0.08em; margin-bottom: 4px; }
+.l-header__dropdown-title { font-size: 12px; font-weight: 700; color: #333; line-height: 1.4; }
+.l-header__actions { display: flex; align-items: stretch; height: 80px; }
+.l-header__phone { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 22px; color: #111; font-size: 11px; font-weight: 700; border-left: 1px solid #eee; transition: background 0.3s; }
+.l-header__phone:hover { background: #f7f6f4; }
+.l-header__phone svg { margin-bottom: 3px; }
+.l-header__contact-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; background: #c8a86e; color: #fff; font-size: 11px; font-weight: 700; line-height: 1.4; text-align: center; transition: opacity 0.3s; white-space: nowrap; }
+.l-header__contact-btn:hover { opacity: 0.9; }
+.l-header__contact-btn svg { margin-bottom: 3px; stroke: #fff; }
+.l-header__hamburger { display: none; background: none; border: none; cursor: pointer; width: 28px; height: 22px; position: relative; z-index: 110; margin-right: 20px; }
+.l-header__hamburger span { display: block; width: 100%; height: 2px; background: #111; position: absolute; left: 0; transition: all 0.3s; }
+.l-header__hamburger span:nth-child(1) { top: 0; }
+.l-header__hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.l-header__hamburger span:nth-child(3) { bottom: 0; }
+.l-header__hamburger.is-active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.l-header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+.l-header__hamburger.is-active span:nth-child(3) { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+@media (max-width: 1024px) {
+    .l-header__nav, .l-header__actions { display: none; }
+    .l-header__hamburger { display: block; margin-left: auto; }
+    .l-header__nav.is-open { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(255,255,255,0.98); z-index: 105; justify-content: center; align-items: center; }
+    .l-header__nav.is-open .l-header__menu { flex-direction: column; align-items: center; gap: 26px; }
+    .l-header__nav.is-open .l-header__menu li a { font-size: 17px; }
+}
+
+/* PAGE HERO */
+.l-page-hero { padding-top: 80px; background: #1a1a1a; position: relative; overflow: hidden; }
+.l-page-hero__bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0.3; }
+.l-page-hero__inner { position: relative; z-index: 2; padding: 60px 20px 50px; max-width: 1200px; width: 90%; margin: 0 auto; }
+.l-breadcrumb { display: flex; gap: 8px; font-size: 12px; color: #999; margin-bottom: 20px; }
+.l-breadcrumb a { color: #999; transition: color 0.3s; }
+.l-breadcrumb a:hover { color: #c8a86e; }
+.l-page-hero__en { font-family: "Montserrat", sans-serif; font-size: 56px; font-weight: 900; color: #c8a86e; line-height: 1; margin-bottom: 10px; }
+.l-page-hero__jp { font-size: 18px; font-weight: 700; color: #fff; }
+@media (max-width: 768px) { .l-page-hero__en { font-size: 34px; } .l-page-hero__jp { font-size: 15px; } }
+
+/* CONTACT INTRO */
+.l-contact-intro { max-width: 800px; margin: 0 auto; font-size: 14px; color: #555; line-height: 2; }
+
+/* PHONE BOX */
+.l-contact-phone {
+    max-width: 600px; margin: 40px auto; padding: 30px; text-align: center;
+    border: 1px solid #ddd; border-radius: 0;
+}
+.l-contact-phone__num {
+    font-family: "Montserrat", sans-serif; font-size: 32px; font-weight: 900; color: #111;
+}
+.l-contact-phone__num span { font-size: 14px; font-weight: 700; margin-right: 8px; }
+.l-contact-phone__time { font-size: 13px; color: #888; margin-top: 6px; }
+
+/* FORM SECTION */
+.l-contact-form { max-width: 800px; margin: 0 auto; }
+.l-contact-form__title {
+    font-size: 20px; font-weight: 700; padding: 16px 20px; margin-bottom: 30px;
+    background: #f5f5f5; border-left: 4px solid #111;
+}
+
+/* STEP INDICATOR */
+.c-step-indicator { display: flex; margin-bottom: 36px; }
+.c-step-indicator__item {
+    flex: 1; text-align: center; padding: 14px 10px;
+    font-size: 13px; font-weight: 700; color: #999; background: #f5f5f5;
+    border-bottom: 3px solid #ddd;
+}
+.c-step-indicator__item.is-active { color: #fff; background: #111; border-bottom-color: #c8a86e; }
+.c-step-indicator__item span { display: block; font-family: "Montserrat", sans-serif; font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+
+/* FORM FIELDS */
+.l-contact-form__note { font-size: 13px; color: #666; margin-bottom: 30px; line-height: 1.8; }
+.c-form-group { margin-bottom: 0; padding: 20px 0; border-top: 1px solid #eee; display: flex; align-items: center; gap: 20px; }
+.c-form-group:last-of-type { border-bottom: 1px solid #eee; }
+.c-form-label {
+    display: flex; align-items: center; gap: 8px; width: 200px; flex-shrink: 0;
+    font-size: 14px; font-weight: 700;
+}
+.c-form-required {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: #c8a86e; color: #fff; padding: 2px 8px; border-radius: 3px;
+}
+.c-form-optional {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: #aaa; color: #fff; padding: 2px 8px; border-radius: 3px;
+}
+.c-form-field { flex: 1; }
+.c-form-input {
+    width: 100%; padding: 12px 14px; border: none; border-bottom: 1px solid #ccc;
+    font-size: 14px; font-family: inherit; transition: border-color 0.3s;
+    background: transparent; border-radius: 0;
+}
+.c-form-input:focus { outline: none; border-bottom-color: #c8a86e; }
+.c-form-textarea { resize: vertical; min-height: 140px; border: 1px solid #ccc; border-radius: 0; padding: 12px 14px; }
+.c-form-textarea:focus { border-color: #c8a86e; }
+.c-form-select {
+    width: 100%; padding: 12px 14px; border: none; border-bottom: 1px solid #ccc;
+    font-size: 14px; font-family: inherit; background: transparent; border-radius: 0;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center;
+}
+.c-form-select:focus { outline: none; border-bottom-color: #c8a86e; }
+.c-form-privacy { text-align: center; margin-top: 30px; font-size: 13px; color: #666; }
+.c-form-privacy a { color: #c8a86e; text-decoration: underline; }
+.c-form-submit-wrap { text-align: center; margin-top: 36px; }
+.c-form-submit {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 50px; border: none;
+    background: #111; color: #fff; font-size: 15px; font-weight: 700;
+    font-family: inherit; cursor: pointer; transition: background 0.3s;
+}
+.c-form-submit:hover { background: #333; }
+.c-form-submit::after { content: '›'; font-size: 18px; }
+@media (max-width: 768px) {
+    .c-form-group { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .c-form-label { width: 100%; }
+    .c-form-field { width: 100%; }
+    .l-contact-phone__num { font-size: 24px; }
+}
+
+/* FOOTER */
+.l-footer { background: #1a1a1a; color: #fff; padding: 60px 0 0; }
+.l-footer__head { margin-bottom: 36px; }
+.c-footer-logo { font-size: 30px; font-weight: 900; font-family: "Montserrat", sans-serif; }
+.l-footer__body { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+.l-footer__section { flex: 1; }
+.c-footer-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #ccc; }
+.c-footer-list li { margin-bottom: 7px; font-size: 12px; }
+.c-footer-list li a { color: #aaa; transition: color 0.3s; }
+.c-footer-list li a:hover { color: #c8a86e; }
+.c-company-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 0; }
+.c-company-row dt { width: 35%; font-size: 11px; color: #999; }
+.c-company-row dd { width: 65%; font-size: 11px; color: #ddd; }
+.l-footer__copy { text-align: center; font-size: 11px; color: #555; padding: 24px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+@media (max-width: 768px) { .l-footer__body { flex-direction: column; gap: 28px; } }
+</style>
+</head>
+<body>
+<div class="lyrics-sub">
+
+    <!-- HEADER -->
+    <header class="l-header">
+        <div class="l-header__inner">
+            <div class="l-header__logo"><a href="preview_v2.html">Lyrics</a></div>
+            <nav class="l-header__nav" id="js-nav">
+                <ul class="l-header__menu">
+                    <li>
+                        <a href="preview_v2.html#service">サービス</a>
+                        <div class="l-header__dropdown">
+                            <a href="service_video.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 01</span>
+                                <span class="l-header__dropdown-title">動画制作・<br>映像制作</span>
+                            </a>
+                            <a href="service_ads.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 02</span>
+                                <span class="l-header__dropdown-title">広告運用</span>
+                            </a>
+                            <a href="service_youtube.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 03</span>
+                                <span class="l-header__dropdown-title">YouTube<br>コンサル</span>
+                            </a>
+                            <a href="service_web.html" class="l-header__dropdown-item">
+                                <span class="l-header__dropdown-num">SERVICE 04</span>
+                                <span class="l-header__dropdown-title">ウェブサイト<br>制作</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="works.html">制作実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="faq.html">よくあるご質問</a></li>
+                    <li><a href="news.html">ニュース</a></li>
+                </ul>
+            </nav>
+            <div class="l-header__actions">
+                <a href="tel:03-5355-9661" class="l-header__phone">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>電話する</span>
+                </a>
+                <a href="contact.html" class="l-header__contact-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>御見積依頼<br>お問い合わせ</span>
+                </a>
+            </div>
+            <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="l-page-hero">
+        <div class="l-page-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="l-page-hero__inner">
+            <div class="l-breadcrumb">
+                <a href="preview_v2.html">HOME</a><span>›</span>
+                <span style="color:#fff;">お問い合わせ</span>
+            </div>
+            <h1 class="l-page-hero__en">CONTACT</h1>
+            <p class="l-page-hero__jp">御見積依頼・お問い合わせ</p>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="l-section js-fade">
+        <div class="l-inner">
+            <p class="l-contact-intro">弊社に関心を持っていただきありがとうございます。御見積のご依頼またはお問い合わせを希望される方は、お電話またはフォームよりお気軽にご連絡ください。</p>
+
+            <!-- Phone Box -->
+            <div class="l-contact-phone">
+                <div class="l-contact-phone__num"><span>TEL.</span>03-5355-9661</div>
+                <p class="l-contact-phone__time">平日 9:30〜18:30（土日祝日除く）</p>
+            </div>
+
+            <!-- Form -->
+            <div class="l-contact-form">
+                <h2 class="l-contact-form__title">お問い合わせフォーム</h2>
+
+                <div class="c-step-indicator">
+                    <div class="c-step-indicator__item is-active"><span>STEP01</span>必要事項の入力</div>
+                    <div class="c-step-indicator__item"><span>STEP02</span>入力内容の確認</div>
+                    <div class="c-step-indicator__item"><span>STEP03</span>送信完了</div>
+                </div>
+
+                <p class="l-contact-form__note">2営業日以内に折り返しご連絡を差し上げます。<br><span class="c-form-required">必須</span> は必ずご記入ください。</p>
+
+                <form>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>貴社名</label>
+                        <div class="c-form-field"><input type="text" class="c-form-input" placeholder="例：株式会社さんぷる（個人の方は「個人」とご記入ください）"></div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>氏名</label>
+                        <div class="c-form-field"><input type="text" class="c-form-input" placeholder="例：山田太郎"></div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>所在地</label>
+                        <div class="c-form-field">
+                            <select class="c-form-select">
+                                <option value="">都道府県を選択</option>
+                                <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option>
+                                <option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option>
+                                <option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option>
+                                <option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option>
+                                <option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+                                <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                                <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option>
+                                <option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option>
+                                <option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option>
+                                <option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option>
+                                <option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option>
+                                <option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>メールアドレス</label>
+                        <div class="c-form-field"><input type="email" class="c-form-input" placeholder="example@lyrics-inc.com"></div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>電話番号（携帯可）</label>
+                        <div class="c-form-field"><input type="tel" class="c-form-input" placeholder="例：000-1111-2222"></div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-optional">任意</span>サイトURL</label>
+                        <div class="c-form-field"><input type="url" class="c-form-input" placeholder="例：https://lyrics-inc.com/"></div>
+                    </div>
+                    <div class="c-form-group">
+                        <label class="c-form-label"><span class="c-form-required">必須</span>お問い合わせ内容</label>
+                        <div class="c-form-field"><textarea class="c-form-input c-form-textarea" placeholder="御見積のご希望内容、またはお問い合わせ内容をご記入ください。"></textarea></div>
+                    </div>
+
+                    <p class="c-form-privacy">※弊社の<a href="#">個人情報保護方針</a>にご同意の上、確認画面へお進みください。</p>
+
+                    <div class="c-form-submit-wrap">
+                        <button type="submit" class="c-form-submit">入力確認画面へ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="l-footer">
+        <div class="l-inner">
+            <div class="l-footer__head"><h2 class="c-footer-logo">Lyrics</h2></div>
+            <div class="l-footer__body">
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">サービス</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="service_video.html">動画制作・映像制作</a></li>
+                        <li><a href="service_ads.html">広告運用</a></li>
+                        <li><a href="service_youtube.html">YouTubeコンサル</a></li>
+                        <li><a href="service_web.html">ウェブサイト制作</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">コンテンツ</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="works.html">制作実績</a></li>
+                        <li><a href="preview_v2.html#reason">選ばれる理由</a></li>
+                        <li><a href="preview_v2.html#flow">ご利用の流れ</a></li>
+                        <li><a href="faq.html">よくあるご質問</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社情報</h3>
+                    <ul class="c-footer-list">
+                        <li><a href="about.html">会社概要</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="l-footer__section">
+                    <h3 class="c-footer-title">会社概要</h3>
+                    <dl>
+                        <div class="c-company-row"><dt>運営会社</dt><dd>株式会社Lyrics</dd></div>
+                        <div class="c-company-row"><dt>電話番号</dt><dd>03-5355-9661</dd></div>
+                        <div class="c-company-row"><dt>所在地</dt><dd>大阪府守口市xx-xx-xx</dd></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="l-footer__copy">&copy; 2025 Lyrics Inc. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('is-active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(function(el) { observer.observe(el); });
+
+    var hamburger = document.getElementById('js-hamburger');
+    var nav = document.getElementById('js-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() { hamburger.classList.toggle('is-active'); nav.classList.toggle('is-open'); });
+        nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { hamburger.classList.remove('is-active'); nav.classList.remove('is-open'); }); });
+    }
+});
+</script>
+</body>
+</html>
