@@ -413,7 +413,7 @@ get_header(); ?>
                             <img src="images/download-2025-12-28T23_15_54.jpg" alt="Creator 1">
                         </div>
                         <div class="c-creator-card__body">
-                            <h3 class="c-creator-card__name">山田 太郎</h3>
+                            <h3 class="c-creator-card__name">岸本将太</h3>
                             <p class="c-creator-card__role">カメラマン</p>
                             <p class="c-creator-card__desc">WebCM制作に必要な商品撮影、モデル撮影を得意としています。10年以上の経験を持つプロフェッショナルなカメラマンです。</p>
                         </div>
